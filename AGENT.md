@@ -9,48 +9,63 @@ Read this file first. Load other files only when the task needs them.
 Below, `$KV` means the absolute path of this repository: the folder that contains this `AGENT.md`.
 Find it once with `git rev-parse --show-toplevel` inside the repo, and use that path in every command.
 
-The sandbox can reset at any time and system packages disappear when it does.
-Run this at the start of every session, and again if `node`, `ffmpeg` or Chrome stops working:
+### What your sandbox can and cannot do
+
+Your sandbox can reach only GitHub, npm and PyPI. Chrome and FFmpeg cannot be downloaded there, so **do not run `setup/bootstrap.sh`**.
+You do not need them: GitHub runs `check`, snapshots and renders for you. Locally you only write code and run `lint`, which needs only Node and npm.
+
+### Every session
+
+Your checkout may be older than GitHub. Bring it up to date first:
 
 ```bash
-sudo -n mkdir -p /opt/kodvid && sudo -n chown "$(id -u):$(id -g)" /opt/kodvid
-bash $KV/setup/bootstrap.sh
+cd $KV && git fetch -q origin main && git merge -q --ff-only origin/main && git log --oneline -1
 ```
 
-The script installs Node, FFmpeg and Chrome under `/opt/kodvid`, so they never land in this repo or your workspace.
-Do not run `check` or `snapshot` until it prints `HAZIR`.
-Shell variables do not carry over between your commands, so start every command with:
-
-```bash
-source $KV/setup/env.sh && <your command>
-```
+If the merge refuses because of local changes to files you did not edit, run `git stash` and repeat it.
+Check that `.github/workflows/render.yml` and `setup/cloud-render.sh` exist. If they do not, stop and tell the user.
 
 ## Where to put your work
 
 - **Video projects** go in `$KV/projects/<name>`. Use lowercase letters, digits and dashes for `<name>`.
-- **Large downloaded media and render temp files** go in `/opt/kodvid/tmp`. Copy into the project only the media the video actually uses.
 - **Never commit** `node_modules`, `renders/` or snapshots. `projects/.gitignore` already excludes them.
-- **Push only `projects/<name>`.** Do not change other files in this repo unless the user asks.
+- **Commit only `projects/<name>`.** Do not change other files in this repo unless the user asks.
+- **Push your current branch.** Any branch works: `git push origin HEAD`.
 
-## Render on GitHub (always)
+## Check and render on GitHub (always)
 
-The user's rule: **every render, draft or final, runs on GitHub.** Never render a video in your sandbox.
-Your sandbox is only for writing the project and checking it with `lint`, `check` and `snapshot`.
+The user's rule: **every check, snapshot and render runs on GitHub.** Never try to render in your sandbox.
+GitHub runs each job on a 4-core machine. Each job takes about 1 minute of setup plus the work itself.
 
-GitHub renders on a 4-core machine for free at about 1.5 to 2x real time. Each job adds about 1 minute of setup and queue time.
-To render several videos at once, push them in one commit. Each project renders on its own machine in parallel.
+A job starts when you push a change to `projects/<name>/render.json`:
 
-1. Finish the project and pass `lint`, `check` and your snapshot review.
-2. Write `$KV/projects/<name>/render.json` with a new `request` value every time:
-   `{ "request": "<name>-<date-time>", "quality": "delivery", "fps": 30, "composition": "index.html" }`
-3. Commit `projects/<name>/` and push it to `main`. The push of `render.json` starts the render.
-4. Wait for the result and download the video:
-   `bash $KV/setup/cloud-render.sh <name> <request> /home/user/projects/<name>.mp4`
-5. The script prints the render result, including duration and resolution. If it fails, it prints the end of the render log.
+```json
+{ "request": "<name>-<date-time>", "mode": "check", "quality": "draft", "fps": 30, "composition": "index.html" }
+```
 
-Results are public at `https://github.com/tardigradsoftware-design/KodVidKopya/releases/tag/render-<name>`.
-If you cannot push, or the GitHub render fails twice, stop and tell the user. Do not fall back to a local render without their permission.
-Put narration and music inside the project as audio elements, so the GitHub render includes them.
+| Field | Values |
+|---|---|
+| `request` | A new value on every push, such as `<name>-20261023-1405`. It tells your result apart from older ones. |
+| `mode` | `check`: lint, check and snapshots only, fast. `render`: the same plus a video. |
+| `quality` | `draft` while iterating, `delivery` for the final. |
+| `snapshot_at` | Optional, such as `"1,4.5,9"`: seconds to capture. Default is 6 evenly spaced frames. |
+
+The loop:
+
+1. Write the project. Run `npx -y hyperframes lint` locally and fix every error.
+2. Write `render.json` with `"mode": "check"`, commit `projects/<name>/`, and `git push origin HEAD`.
+3. Wait and download the results:
+   `bash $KV/setup/cloud-render.sh <name> <request> /home/user/projects/<name>-sonuc`
+4. Read `check.json` and fix every error. Open the PNGs in `snapshots/` and `review/` and look at them yourself. `check` can pass while elements still overlap.
+5. Repeat steps 2 to 4 until it is clean. Then push with `"mode": "render", "quality": "draft"`, and finally `"quality": "delivery"`.
+6. Deliver the MP4 from the results folder. Report its duration, resolution and the release link.
+
+The results folder holds `result.json`, `lint.txt`, `check.json`, `snapshots/`, `review/`, and in render mode `<name>.mp4` and `render.log`.
+To render several videos at once, push them in one commit. Each project runs on its own machine in parallel.
+The user can watch the video at `https://github.com/tardigradsoftware-design/KodVidKopya/releases/tag/render-<name>`.
+
+If you cannot push, or a job fails twice for a reason you cannot fix, stop and tell the user.
+Put narration and music inside the project as audio files, so the GitHub render includes them.
 
 ## How to find a skill
 
@@ -77,7 +92,7 @@ Their `status` is `local-sync` (license forbids copying here; clone the public r
 | Goal | Engine | Start with |
 |---|---|---|
 | Promo, launch film, motion graphics, kinetic type | HyperFrames (HTML + GSAP) | `skills/heygen-com__hyperframes/files/skills/hyperframes` |
-| Same, in React | Remotion | Not stored here for license reasons. Run `git clone -q --depth 1 https://github.com/remotion-dev/skills /opt/kodvid/remotion-skills` and read its `skills/` folder |
+| Same, in React | Remotion | Not stored here for license reasons. Run `git clone -q --depth 1 https://github.com/remotion-dev/skills /home/user/remotion-skills` and read its `skills/` folder |
 | Math, science, algorithm explainer | Manim | `skills/adithya-s-k__manim_skill/files/skills/manim-composer`, `skills/Yusuke710__manim-skill/files/skills/manim-skill` |
 | Fast narrated explainer | HTML + TTS | `skills/vincentsch__explainroo/files/skills/explainroo` |
 | Animated charts, data video | HTML + GSAP | `skills/iart-ai__data-animation-skills/files/skills/chart-animation` |
@@ -92,26 +107,26 @@ Their `status` is `local-sync` (license forbids copying here; clone the public r
 
 For anything else, use `catalog/index/`.
 
-In this sandbox, prefer HyperFrames. It needs only Node, FFmpeg and Chrome, which `bootstrap.sh` installs.
-The GitHub render workflow supports HyperFrames projects only. Before choosing Manim or Remotion, tell the user it cannot render on GitHub yet and ask how to proceed.
+Use HyperFrames. The GitHub workflow supports HyperFrames projects only.
+Before choosing Manim or Remotion, tell the user they cannot run on GitHub yet and ask how to proceed.
 
 ## Standard workflow
 
 1. Write a short brief: length, resolution, frame rate, aspect ratio, copy, audio.
 2. Plan scenes and timing before writing code. Audio sets the clock when there is narration.
 3. Write the composition. Every frame must be a pure function of time, so renders are deterministic.
-4. Run `npx hyperframes lint`, then `npx hyperframes check --json`, and fix every error.
-5. Run `npx hyperframes snapshot --at <times>` and look at the PNGs yourself. `check` can pass while elements still overlap.
-6. Render a draft on GitHub with `"quality": "draft"`, as described in "Render on GitHub". Watch the downloaded draft by extracting frames with `ffmpeg`.
-7. Fix problems, then render the final on GitHub with `"quality": "delivery"`. Report the output path, duration, resolution and the release link.
+4. Run `npx -y hyperframes lint` locally and fix every error.
+5. Run a `check` job on GitHub. Fix every error in `check.json` and look at every PNG it returns.
+6. Run a `render` job with `"quality": "draft"`, then the final with `"quality": "delivery"`.
+7. Deliver the MP4. Report its duration, resolution and the release link.
 
-## Sandbox rules (from a real test run)
+## Rules learned from real test runs
 
-- **Do not render in the sandbox.** It has 2 cores and no GPU. All renders go to GitHub.
-- **Long waits:** `cloud-render.sh` polls for up to 30 minutes. Your commands also time out after 30 minutes, so for very long videos run it in the background and check its output.
-- **Narration:** make speech with your own text-to-speech tool and save it in the project's `assets/audio/`. The local Kokoro model in HyperFrames does not speak Turkish; for Turkish use your own tool or `edge-tts` with a `tr-TR` voice such as `tr-TR-AhmetNeural`. Set scene lengths from the audio length, so audio and video end together.
-- **Generated images** may not match the requested size. Scale them with `ffmpeg -vf scale=W:H:flags=lanczos`.
-- **Preview** runs on localhost inside the sandbox and the user cannot open it. Deliver the MP4 file, or upload it to Drive and share the link.
+- **No local rendering.** Your sandbox has no Chrome or FFmpeg and cannot install them.
+- **Long waits:** `cloud-render.sh` waits up to 30 minutes. Your commands also time out after 30 minutes, so for long videos run it in the background and check its output.
+- **Narration:** make speech with your own text-to-speech tool and save it in the project's `assets/audio/`. `edge-tts` and the Kokoro model do not work here: the first needs a blocked website and the second does not speak Turkish. Set scene lengths from the audio length, so audio and video end together.
+- **Generated images** may not match the frame size. Place them with CSS `object-fit: cover` instead of resizing the file.
+- **Preview** servers are not reachable by the user. Deliver the MP4 file and the release link.
 
 ## Safety rules
 

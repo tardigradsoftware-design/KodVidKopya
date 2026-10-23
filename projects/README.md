@@ -1,16 +1,18 @@
 # projects
 
-Ajanın GitHub üzerinde render aldırdığı video projeleri.
+Ajanın GitHub üzerinde kontrol ve render aldırdığı video projeleri.
 
-Her klasör bir HyperFrames projesidir. Klasöre `render.json` eklenip main dalına gönderilince GitHub Actions videoyu 4 çekirdekli sunucuda render eder. Sonuç `render-<klasör-adı>` adlı release'e yüklenir.
+Her klasör bir HyperFrames projesidir. Klasördeki `render.json` değiştirilip herhangi bir dala gönderilince GitHub Actions çalışır. Sonuçlar `renders` dalına `<klasör-adı>/` olarak yazılır. Videolar ayrıca `render-<klasör-adı>` adlı release'e yüklenir.
 
 ```json
-{ "request": "2026-10-23T12-00-00", "quality": "delivery", "fps": 30, "composition": "index.html" }
+{ "request": "ilk-video-20261023-1405", "mode": "check", "quality": "draft", "fps": 30, "composition": "index.html" }
 ```
 
 | Alan | Değerler | Varsayılan |
 |---|---|---|
-| `request` | Her istekte değişen bir değer, örneğin zaman damgası | boş |
+| `request` | Her istekte değişen bir değer | boş |
+| `mode` | check: lint, check, kare önizleme. render: bunlar artı video | render |
 | `quality` | draft, looks, delivery | looks |
 | `fps` | 24, 30, 60 | 30 |
 | `composition` | Projedeki giriş HTML dosyası | index.html |
+| `snapshot_at` | Kare alınacak saniyeler, örneğin "1,4.5,9" | 6 eşit aralıklı kare |
