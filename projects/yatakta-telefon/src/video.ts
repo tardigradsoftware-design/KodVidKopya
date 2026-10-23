@@ -14,7 +14,7 @@ export const video: VideoSpec = {
   scenes: [
     { type: "hook", say: "Yatağa telefonla mı giriyorsun?", text: "Yatağa telefonla mı giriyorsun?", highlight: "telefonla" },
     { type: "statement", say: "Önce böyleydi: yatakta yarım saat kaydırma, sonra uykuya dalamama.", text: "Yatakta yarım saat kaydırma.", highlight: "kaydırma" },
-    { type: "statement", say: "Sonra şöyle oldu: telefon şarjda, yatakta sadece kitap.", text: "Telefon şarjda, yatakta sadece kitap.", highlight: "sadece kitap", cut: "light" },
+    { type: "statement", say: "Sonra şöyle oldu: telefon şarjda, yatakta sadece kitap.", text: "Telefon şarjda, yatakta sadece kitap.", highlight: "sadece kitap", cut: "wipe" },
     {
       type: "list",
       say: "Şarjı odadan çıkar, yatmadan bir saat önce bırak, yerine bir kitap koy, ilk gece yirmi dakikayla başla.",

@@ -260,7 +260,7 @@ export const Captions: React.FC<{ readonly text: string; readonly length: number
           acc += w.length + 1;
           const on = spoken >= start;
           return (
-            <span key={i} style={{ color: on ? theme.captionInk : `${theme.captionInk}66`, scale: on && spoken < start + w.length + 1 ? 1.08 : 1 }}>
+            <span key={i} style={{ color: on ? theme.captionInk : `${theme.captionInk}66`, fontWeight: on ? 700 : 600 }}>
               {w}
             </span>
           );

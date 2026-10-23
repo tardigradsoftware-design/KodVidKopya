@@ -14,7 +14,7 @@ export const video: VideoSpec = {
   scenes: [
     { type: "hook", say: "Kendine zaman ayırmak bencillik mi, gerçekten?", text: "Kendine zaman ayırmak bencillik mi?", highlight: "bencillik" },
     { type: "statement", say: "Sana hep böyle söylendi: iyi olmak için önce herkese yetişmelisin.", text: "Önce herkese yetiş, en son sen.", highlight: "en son sen" },
-    { type: "statement", say: "Ama boş bir bardaktan kimseye su veremezsin.", text: "Boş bir bardaktan kimseye su veremezsin.", highlight: "Boş", cut: "light" },
+    { type: "statement", say: "Ama boş bir bardaktan kimseye su veremezsin.", text: "Boş bir bardaktan kimseye su veremezsin.", highlight: "Boş", cut: "wipe" },
     { type: "statement", say: "Kendine ayırdığın on dakika, kimsenin hakkını almıyor.", text: "On dakika, kimsenin hakkını almıyor.", highlight: "kimsenin hakkını" },
     { type: "cta", say: "Bunu bir arkadaşına gönder.", text: "Gönder • O da duysun", icons: ["Send", "Heart"] },
   ],
