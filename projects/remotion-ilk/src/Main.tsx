@@ -205,8 +205,8 @@ const Proof: React.FC = () => {
         })}
       </div>
 
-      {/* The output stage: what the code becomes */}
-      <div style={{ position: "absolute", ...STAGE }}>
+      {/* The output stage: what the code becomes (clips the shine sweep) */}
+      <div style={{ position: "absolute", ...STAGE, overflow: "hidden" }}>
         <div
           style={{
             position: "absolute",
@@ -257,8 +257,8 @@ const Proof: React.FC = () => {
 
         {/* The <Hareket /> output: an orbiting square with a short trail */}
         {[
-          { p: orbitG2, o: 0.12 },
-          { p: orbitG1, o: 0.3 },
+          { p: orbitG2, o: 0.12 * orbitOp },
+          { p: orbitG1, o: 0.3 * orbitOp },
           { p: orbitMain, o: orbitOp },
         ].map((g, i) => (
           <div
@@ -366,12 +366,15 @@ const Ready: React.FC = () => {
   const cmdX = interpolate(frame, [0, 14], [240, 0], { ...clamp, easing: ease });
   const rowX = interpolate(frame, [16, 28], [140, 0], { ...clamp, easing: ease });
   const ringP = interpolate(frame, [24, 62], [0, 1], { ...clamp, easing: ease });
+  const thumbOp = interpolate(frame, [46, 52], [0, 1], clamp);
   const thumbScale = interpolate(frame, [50, 66], [1.35, 1], { ...clamp, easing: ease });
   const thumbY = interpolate(frame, [50, 66], [46, 0], { ...clamp, easing: ease });
+  const readyOp = interpolate(frame, [52, 56], [0, 1], clamp);
   const readyX = interpolate(frame, [56, 68], [110, 0], { ...clamp, easing: ease });
   const playScale = interpolate(frame, [60, 72], [0.5, 1], { ...clamp, easing: ease });
   const playOp = interpolate(frame, [60, 66], [0, 1], clamp);
   const beam = interpolate(frame, [76, 104], [360, -180], { ...clamp, easing: ease });
+  const beamOp = interpolate(frame, [74, 78, 94, 102], [0, 1, 1, 0], clamp);
   const C = 2 * Math.PI * 88;
 
   return (
@@ -423,6 +426,7 @@ const Ready: React.FC = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            opacity: thumbOp,
             scale: `${thumbScale}`,
             translate: `0px ${thumbY}px`,
           }}
@@ -447,6 +451,7 @@ const Ready: React.FC = () => {
             fontWeight: 800,
             letterSpacing: "-0.03em",
             color: colors.ink,
+            opacity: readyOp,
             translate: `${readyX}px 0px`,
           }}
         >
@@ -470,6 +475,7 @@ const Ready: React.FC = () => {
               height: 5,
               width: 150,
               borderRadius: 3,
+              opacity: beamOp,
               translate: `${beam}px 0px`,
               background:
                 "linear-gradient(90deg, rgba(238,242,255,0.95) 0%, rgba(94,234,212,0.9) 45%, rgba(94,234,212,0) 100%)",
