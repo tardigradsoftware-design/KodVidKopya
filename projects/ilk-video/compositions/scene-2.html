@@ -1,0 +1,226 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Archivo Black", sans-serif;
+      color: var(--ink, #f2ebdf);
+    }
+    /* --- A bolumu: GitHub Actions paneli + 10 sayisi --- */
+    .s2-panel {
+      position: absolute;
+      left: 120px;
+      top: 240px;
+      width: 800px;
+      padding: 32px 36px 30px 36px;
+      background: var(--panel, #211c16);
+      border-left: 6px solid var(--accent, #ff4a1c);
+      border-top: 1px solid var(--panel-edge, #33291f);
+      border-right: 1px solid var(--panel-edge, #33291f);
+      border-bottom: 1px solid var(--panel-edge, #33291f);
+    }
+    .s2-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: 0.18em;
+      color: var(--muted, #8a8073);
+    }
+    .s2-head i {
+      width: 9px;
+      height: 9px;
+      background: var(--accent, #ff4a1c);
+      border-radius: 50%;
+      display: block;
+    }
+    .s2-log {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 34px;
+      line-height: 1.7;
+      color: rgba(242, 235, 223, 0.9);
+      white-space: nowrap;
+    }
+    .s2-log .m { color: var(--muted, #8a8073); }
+    .s2-log .a { color: var(--accent, #ff4a1c); }
+    .s2-bar {
+      margin-top: 26px;
+      height: 8px;
+      background: rgba(242, 235, 223, 0.12);
+      overflow: hidden;
+    }
+    .s2-bar-fill {
+      height: 8px;
+      width: 100%;
+      background: var(--accent, #ff4a1c);
+      transform-origin: left center;
+    }
+    .s2-num {
+      position: absolute;
+      left: 1080px;
+      top: 250px;
+      transform-origin: left top;
+    }
+    .s2-ten {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 460px;
+      line-height: 0.8;
+      letter-spacing: -0.06em;
+      color: var(--ink, #f2ebdf);
+    }
+    .s2-unit {
+      margin-top: 14px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 84px;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      color: var(--accent, #ff4a1c);
+    }
+    /* --- B bolumu: kapanis --- */
+    .s2-end-brand {
+      position: absolute;
+      left: 120px;
+      top: 258px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .s2-end-brand i {
+      width: 22px;
+      height: 22px;
+      background: var(--accent, #ff4a1c);
+      display: block;
+    }
+    .s2-end-brand span {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 38px;
+      letter-spacing: 0.24em;
+      color: var(--ink, #f2ebdf);
+    }
+    .s2-payoff {
+      position: absolute;
+      left: 116px;
+      top: 356px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 150px;
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      color: var(--ink, #f2ebdf);
+      white-space: nowrap;
+    }
+    .s2-payoff .s2-line { display: block; }
+    .s2-payoff .s2-dot { color: var(--accent, #ff4a1c); display: inline-block; }
+    .s2-file {
+      position: absolute;
+      left: 120px;
+      top: 690px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 34px;
+      line-height: 1;
+      color: var(--muted, #8a8073);
+      white-space: nowrap;
+    }
+  </style>
+
+  <div id="root" data-composition-id="scene-2" data-width="1920" data-height="1080">
+    <div id="s2-a">
+      <div class="s2-panel" id="s2-panel">
+        <div class="s2-head" id="s2-head"><i></i>GITHUB ACTIONS</div>
+        <div class="s2-log">
+          <div id="s2-l1">$ npx hyperframes render</div>
+          <div id="s2-l2">✓ lint</div>
+          <div id="s2-l3">✓ check <span class="m">1920×1080 · 30 fps</span></div>
+          <div id="s2-l4">✓ render <span class="a">ilk-video.mp4 · 10 sn</span></div>
+        </div>
+        <div class="s2-bar"><div class="s2-bar-fill" id="s2-bar"></div></div>
+      </div>
+
+      <div class="s2-num" id="s2-num">
+        <div class="s2-ten" id="s2-ten">10</div>
+        <div class="s2-unit" id="s2-unit">SANİYE</div>
+      </div>
+    </div>
+
+    <div id="s2-b">
+      <div class="s2-end-brand" id="s2-end-brand"><i></i><span>KODVİD</span></div>
+      <div class="s2-payoff" id="s2-payoff">
+        <span class="s2-line" id="s2-pay-1">VİDEON</span>
+        <span class="s2-line" id="s2-pay-2">HAZIR<span class="s2-dot" id="s2-dot">.</span></span>
+      </div>
+      <div class="s2-file" id="s2-file">ilk-video.mp4 · 1920×1080 · 30 fps · 10 sn</div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // A bolumu sagdan girer: kesimdeki sol vektorun devami
+    tl.fromTo(
+      "#s2-a",
+      { x: 260, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
+      0,
+    );
+    tl.set("#s2-b", { opacity: 0 }, 0);
+
+    tl.fromTo(
+      "#s2-head",
+      { opacity: 0, filter: "blur(8px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.26, ease: "power2.out" },
+      0.1,
+    );
+
+    ["#s2-l1", "#s2-l2", "#s2-l3", "#s2-l4"].forEach((sel, i) => {
+      tl.fromTo(
+        sel,
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" },
+        [0.22, 0.62, 0.95, 1.28][i],
+      );
+    });
+
+    tl.fromTo("#s2-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.95, ease: "power2.inOut" }, 1.1);
+
+    // "On saniyede": sayi iner
+    tl.fromTo(
+      "#s2-num",
+      { x: 150, opacity: 0, scale: 1.06 },
+      { x: 0, opacity: 1, scale: 1, duration: 0.44, ease: "power4.out" },
+      1.95,
+    );
+
+    // "videon hazir": sert gecis, kapanis kartini getirir
+    tl.set("#s2-a", { opacity: 0 }, 2.9);
+    tl.set("#s2-b", { opacity: 1 }, 2.92);
+    tl.fromTo(
+      "#s2-end-brand",
+      { opacity: 0, filter: "blur(10px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.26, ease: "power2.out" },
+      2.94,
+    );
+    tl.fromTo(
+      "#s2-pay-1",
+      { y: 46, opacity: 0, filter: "blur(14px)" },
+      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.36, ease: "power4.out" },
+      2.98,
+    );
+    tl.fromTo(
+      "#s2-pay-2",
+      { y: 46, opacity: 0, filter: "blur(14px)" },
+      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.36, ease: "power4.out" },
+      3.12,
+    );
+    tl.fromTo("#s2-dot", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 3.42);
+    tl.fromTo(
+      "#s2-file",
+      { opacity: 0, filter: "blur(8px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.28, ease: "power2.out" },
+      3.34,
+    );
+
+    window.__timelines["scene-2"] = tl;
+  </script>
+</template>

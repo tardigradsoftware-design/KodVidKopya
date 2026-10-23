@@ -1,0 +1,224 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Archivo Black", sans-serif;
+      color: var(--ink, #f2ebdf);
+    }
+    #s1-cam {
+      position: absolute;
+      inset: 0;
+      transform-origin: 60% 46%;
+    }
+    .s1-brand {
+      position: absolute;
+      left: 120px;
+      top: 132px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .s1-mark {
+      width: 22px;
+      height: 22px;
+      background: var(--accent, #ff4a1c);
+      display: block;
+    }
+    .s1-word {
+      font-family: "Archivo Black", sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.24em;
+      color: var(--ink, #f2ebdf);
+    }
+    .s1-hero {
+      position: absolute;
+      left: 116px;
+      top: 300px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 196px;
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+      color: var(--ink, #f2ebdf);
+      white-space: nowrap;
+    }
+    .s1-line { display: block; }
+    .s1-dot { color: var(--accent, #ff4a1c); display: inline-block; transform-origin: 30% 74%; }
+    .s1-rule {
+      position: absolute;
+      left: 120px;
+      top: 700px;
+      width: 560px;
+      height: 3px;
+      background: var(--accent, #ff4a1c);
+      transform-origin: left center;
+    }
+    .s1-caption {
+      position: absolute;
+      left: 120px;
+      top: 736px;
+      width: 620px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 32px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: rgba(242, 235, 223, 0.66);
+    }
+    .s1-card {
+      position: absolute;
+      left: 1060px;
+      top: 300px;
+      width: 700px;
+      padding: 32px 36px 34px 36px;
+      background: var(--panel, #211c16);
+      border-left: 6px solid var(--accent, #ff4a1c);
+      border-top: 1px solid var(--panel-edge, #33291f);
+      border-right: 1px solid var(--panel-edge, #33291f);
+      border-bottom: 1px solid var(--panel-edge, #33291f);
+    }
+    .s1-card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      line-height: 1;
+      color: var(--muted, #8a8073);
+    }
+    .s1-card-head i {
+      width: 9px;
+      height: 9px;
+      background: var(--accent, #ff4a1c);
+      display: block;
+      border-radius: 50%;
+    }
+    .s1-code {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      line-height: 1.55;
+      white-space: pre;
+      color: rgba(242, 235, 223, 0.86);
+    }
+    .s1-code .k { color: var(--accent, #ff4a1c); }
+    .s1-code .m { color: var(--muted, #8a8073); }
+  </style>
+
+  <div id="root" data-composition-id="scene-1" data-width="1920" data-height="1080">
+    <div id="s1-cam">
+      <div class="s1-brand" id="s1-brand">
+        <span class="s1-mark" id="s1-mark"></span>
+        <span class="s1-word" id="s1-word">KODVİD</span>
+      </div>
+
+      <h1 class="s1-hero" id="s1-hero">
+        <span class="s1-line" id="s1-line-1">KODDAN</span>
+        <span class="s1-line" id="s1-line-2">VİDEO<span class="s1-dot" id="s1-dot">.</span></span>
+      </h1>
+
+      <div class="s1-rule" id="s1-rule"></div>
+      <p class="s1-caption" id="s1-caption">tek HTML dosyası, gerisini GitHub yapıyor</p>
+
+      <div class="s1-card" id="s1-card">
+        <div class="s1-card-head" id="s1-card-head"><i></i>index.html</div>
+        <div class="s1-code">
+          <div id="s1-c1">&lt;div id="root"</div>
+          <div id="s1-c2">  <span class="k">data-duration</span>="10"</div>
+          <div id="s1-c3">  <span class="k">data-width</span>="1920"</div>
+          <div id="s1-c4">  <span class="k">data-height</span>="1080"&gt;</div>
+          <div id="s1-c5" class="m">&lt;!-- 2 sahne, 300 kare --&gt;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Kamera: tum sahne boyunca hafif geri cekilme.
+    tl.fromTo("#s1-cam", { scale: 1.035 }, { scale: 1, duration: 5.2, ease: "none" }, 0);
+
+    // Marka
+    tl.fromTo("#s1-mark", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.02);
+    tl.fromTo(
+      "#s1-word",
+      { opacity: 0, filter: "blur(10px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" },
+      0.08,
+    );
+
+    // Baslik: satir satir blur-in
+    const heroIn = { opacity: 0, filter: "blur(16px)", y: 26 };
+    const heroTo = { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.36, ease: "power3.out" };
+    tl.fromTo("#s1-line-1", heroIn, heroTo, 0.16);
+    tl.fromTo("#s1-line-2", heroIn, { ...heroTo }, 0.3);
+    tl.fromTo("#s1-dot", { scale: 0 }, { scale: 1, duration: 0.34, ease: "back.out(1.8)" }, 0.56);
+
+    // Kod karti: sagdan girer, satirlar sirayla okunur
+    tl.fromTo(
+      "#s1-card",
+      { x: 150, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+      0.72,
+    );
+    tl.fromTo(
+      "#s1-card-head",
+      { opacity: 0, filter: "blur(8px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.26, ease: "power2.out" },
+      0.88,
+    );
+    const lines = ["#s1-c1", "#s1-c2", "#s1-c3", "#s1-c4"];
+    lines.forEach((sel, i) => {
+      tl.fromTo(
+        sel,
+        { opacity: 0, x: 18 },
+        { opacity: 1, x: 0, duration: 0.28, ease: "power2.out" },
+        1.02 + i * 0.14,
+      );
+    });
+    // Son satir (gercek sayilar) en sonda, vurgu renginde
+    tl.fromTo(
+      "#s1-c5",
+      { opacity: 0, x: 18, color: "rgba(242,235,223,0.35)" },
+      { opacity: 1, x: 0, color: "#ff4a1c", duration: 0.3, ease: "power2.out" },
+      3.24,
+    );
+
+    // Alt cizgi ve alt yazi
+    tl.fromTo("#s1-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.inOut" }, 2.12);
+    tl.fromTo(
+      "#s1-caption",
+      { opacity: 0, filter: "blur(10px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.32, ease: "power2.out" },
+      2.3,
+    );
+
+    // Cikis: soldan asagi dogru, kesimde hala hareketli
+    tl.fromTo(
+      "#s1-hero",
+      { x: 0, opacity: 1 },
+      { x: -300, opacity: 0.15, duration: 0.58, ease: "power2.in" },
+      4.62,
+    );
+    tl.fromTo(
+      "#s1-caption",
+      { x: 0, opacity: 1 },
+      { x: -300, opacity: 0.1, duration: 0.58, ease: "power2.in", immediateRender: false },
+      4.66,
+    );
+    tl.fromTo(
+      "#s1-card",
+      { x: 0, opacity: 1 },
+      { x: -210, opacity: 0.12, duration: 0.5, ease: "power2.in", immediateRender: false },
+      4.7,
+    );
+    tl.fromTo(
+      "#s1-brand",
+      { x: 0, opacity: 1 },
+      { x: -180, opacity: 0.2, duration: 0.45, ease: "power2.in" },
+      4.75,
+    );
+
+    window.__timelines["scene-1"] = tl;
+  </script>
+</template>

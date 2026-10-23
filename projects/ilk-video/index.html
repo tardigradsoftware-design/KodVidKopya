@@ -1,0 +1,114 @@
+<!doctype html>
+<html
+  lang="tr"
+  data-composition-variables='[
+    {"id":"color-ground","type":"color","label":"Zemin","default":"#17140F"},
+    {"id":"color-ink","type":"color","label":"Yazi","default":"#F2EBDF"},
+    {"id":"color-accent","type":"color","label":"Vurgu","default":"#FF4A1C"},
+    {"id":"font-display","type":"string","label":"Baslik fontu","default":"Archivo Black"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #17140f;
+        --ink: #f2ebdf;
+        --accent: #ff4a1c;
+        --muted: #8a8073;
+        --panel: #211c16;
+        --panel-edge: #33291f;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        background: var(--ground);
+        font-family: "Archivo Black", sans-serif;
+        color: var(--ink);
+      }
+      .kv-layer { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="10"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div
+        id="scene-1"
+        class="kv-layer"
+        data-composition-id="scene-1"
+        data-composition-src="compositions/scene-1.html"
+        data-start="0"
+        data-duration="5.2"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 10"
+      ></div>
+
+      <div
+        id="scene-2"
+        class="kv-layer"
+        data-composition-id="scene-2"
+        data-composition-src="compositions/scene-2.html"
+        data-start="5.2"
+        data-duration="4.8"
+        data-track-index="2"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 20"
+      ></div>
+
+      <div
+        id="overlay"
+        class="kv-layer"
+        data-composition-id="overlay"
+        data-composition-src="compositions/overlay.html"
+        data-start="0"
+        data-duration="10"
+        data-track-index="3"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 40; pointer-events: none"
+      ></div>
+
+      <audio
+        id="vo-1"
+        class="clip"
+        data-start="0.12"
+        data-duration="4.8"
+        data-track-index="8"
+        data-volume="1"
+        src="assets/audio/tr-sahne-1.wav"
+      ></audio>
+      <audio
+        id="vo-2"
+        class="clip"
+        data-start="5.32"
+        data-duration="3.94"
+        data-track-index="9"
+        data-volume="1"
+        src="assets/audio/tr-sahne-2.wav"
+      ></audio>
+    </div>
+
+    <script>
+      // Kok zaman cizelgesi: sahneleri ve sesi kendi klipleri surer;
+      // kok yalnizca var olmak zorunda.
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

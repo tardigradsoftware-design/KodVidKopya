@@ -1,0 +1,12 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "koddan-video→github",
+      "cut": 5.2,
+      "technique": "cut-the-curve LEFT",
+      "exit": { "selector": "#s1-hero", "axis": "x", "dir": -1 },
+      "entry": { "selector": "#s2-a", "axis": "x", "dir": -1 }
+    }
+  ]
+}

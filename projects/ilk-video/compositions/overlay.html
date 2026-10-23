@@ -1,0 +1,128 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Archivo Black", sans-serif;
+    }
+    #ov-band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 984px;
+      height: 96px;
+      border-top: 1px solid rgba(242, 235, 223, 0.16);
+      overflow: hidden;
+    }
+    #ov-progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 96px;
+      background: rgba(255, 74, 28, 0.13);
+      transform-origin: left center;
+    }
+    #ov-minor {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 13px;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(242, 235, 223, 0.3) 0px,
+        rgba(242, 235, 223, 0.3) 1px,
+        transparent 1px,
+        transparent 48px
+      );
+    }
+    #ov-major {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 27px;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(242, 235, 223, 0.55) 0px,
+        rgba(242, 235, 223, 0.55) 2px,
+        transparent 2px,
+        transparent 240px
+      );
+    }
+    #ov-playhead {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 96px;
+      background: var(--accent, #ff4a1c);
+    }
+    #ov-knob {
+      position: absolute;
+      left: -6px;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      background: var(--accent, #ff4a1c);
+    }
+    #ov-tc {
+      position: absolute;
+      right: 120px;
+      top: 918px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 38px;
+      line-height: 1;
+      color: var(--muted, #8a8073);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+    }
+    #ov-tc-label {
+      position: absolute;
+      left: 120px;
+      top: 926px;
+      font-family: "Archivo Black", sans-serif;
+      font-size: 30px;
+      letter-spacing: 0.2em;
+      color: rgba(242, 235, 223, 0.5);
+    }
+  </style>
+
+  <div id="root" data-composition-id="overlay" data-width="1920" data-height="1080">
+    <div id="ov-tc-label">ZAMAN ÇİZELGESİ</div>
+    <div id="ov-tc">00:00.0</div>
+    <div id="ov-band">
+      <div id="ov-progress"></div>
+      <div id="ov-minor"></div>
+      <div id="ov-major"></div>
+      <div id="ov-playhead"><div id="ov-knob"></div></div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    tl.fromTo("#ov-progress", { scaleX: 0 }, { scaleX: 1, duration: 10, ease: "none" }, 0);
+    tl.fromTo("#ov-playhead", { x: 0 }, { x: 1917, duration: 10, ease: "none" }, 0);
+
+    const clock = { t: 0 };
+    const tc = document.getElementById("ov-tc");
+    tl.to(
+      clock,
+      {
+        t: 10,
+        duration: 10,
+        ease: "none",
+        onUpdate: () => {
+          const s = Math.floor(clock.t);
+          const d = Math.floor((clock.t - s) * 10);
+          tc.textContent = "00:" + String(s).padStart(2, "0") + "." + d;
+        },
+      },
+      0,
+    );
+
+    window.__timelines["overlay"] = tl;
+  </script>
+</template>
