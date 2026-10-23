@@ -69,14 +69,17 @@ jobs:
           node-version: 22
 
       - name: FFmpeg ve Chrome kutuphaneleri
+        timeout-minutes: 5
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
           need=""
           command -v ffmpeg >/dev/null || need="$need ffmpeg"
           for p in libnss3 libnspr4; do dpkg -s "$p" >/dev/null 2>&1 || need="$need $p"; done
           [ -z "$need" ] && { echo "Hepsi kurulu"; exit 0; }
-          # Paket listesi guncellemesi yavas: once onsuz dene
-          sudo apt-get install -y -qq --no-install-recommends $need >/dev/null 2>&1 \
-            || { sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends $need >/dev/null; }
+          echo "Kuruluyor:$need"
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends $need >/dev/null
 
       - uses: actions/cache@v4
         with:
