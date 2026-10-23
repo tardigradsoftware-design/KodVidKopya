@@ -34,8 +34,12 @@ source $KV/setup/env.sh && <your command>
 
 ## Fast render on GitHub
 
-Your sandbox has 2 cores and renders at about 3x real time. GitHub renders this repo's projects on a 4-core machine for free.
-Use it for every final render, and for drafts longer than 20 seconds.
+Your sandbox has 2 cores and renders at about 3x real time. GitHub renders this repo's projects on a 4-core machine for free,
+at about 1.5 to 2x real time, but each job adds about 1 minute of setup and queue time.
+
+- **Videos under 40 seconds:** render locally. It finishes sooner.
+- **Videos of 40 seconds or more:** render on GitHub.
+- **Several videos at once:** push them in one commit. GitHub renders each project on its own machine in parallel.
 
 1. Finish the project and pass `lint`, `check` and your snapshot review locally.
 2. Write `$KV/projects/<name>/render.json` with a new `request` value every time:
@@ -99,7 +103,7 @@ Manim and Remotion work too but need heavier setup.
 4. Run `npx hyperframes lint`, then `npx hyperframes check --json`, and fix every error.
 5. Run `npx hyperframes snapshot --at <times>` and look at the PNGs yourself. `check` can pass while elements still overlap.
 6. Render a short draft locally from the project folder with `bash $KV/setup/render.sh --quality draft --output renders/draft.mp4`.
-7. Fix problems, then render the final on GitHub as described in "Fast render on GitHub". Report the output path, duration and resolution.
+7. Fix problems, then render the final with `--quality delivery`, locally or on GitHub as described in "Fast render on GitHub". Report the output path, duration and resolution.
 
 ## Sandbox rules (from a real test run)
 
