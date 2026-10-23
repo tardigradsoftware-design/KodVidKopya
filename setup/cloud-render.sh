@@ -2,7 +2,7 @@
 # GitHub render sonucunu bekler ve indirir. Sadece git kullanir (github.com), baska siteye gerek yok.
 # Once projects/<ad>/ ve render.json'u commit edip push edin (hangi dal oldugu farketmez).
 # Kullanim: bash setup/cloud-render.sh <proje-adi> <request-degeri> [cikti-klasoru] [zaman-asimi-sn]
-# Cikti klasorune su dosyalar gelir: result.json, lint.txt, check.json, snapshots/, review/, <ad>.mp4 (render modunda)
+# Cikti klasorune su dosyalar gelir: result.json, lint.txt, check.json, snapshots/, <ad>.mp4 ve render.log (render modunda)
 set -uo pipefail
 P="${1:?proje adi gerekli}"; REQ="${2:?request degeri gerekli}"
 OUT="${3:-/home/user/projects/$P-sonuc}"; LIMIT="${4:-1800}"

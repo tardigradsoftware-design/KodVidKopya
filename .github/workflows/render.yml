@@ -1,8 +1,8 @@
-# KodVid GitHub render hatti.
+# KodVid GitHub render hatti (tek is, bekleme yok).
 # projects/<ad>/render.json herhangi bir dala push edilince:
-#   lint + check + kare onizleme (her zaman), render (mode=render ise)
+#   lint + check + kare onizleme, mode=render ise video
 # Sonuclar "renders" dalina <ad>/ klasoru olarak yazilir; ajan bunlari git ile ceker
-# (setup/cloud-render.sh). Kullanici icin ayrica "render-<ad>" release'ine yuklenir.
+# (setup/cloud-render.sh). Videolar ayrica "render-<ad>" release'ine yuklenir.
 name: Render
 
 on:
@@ -18,18 +18,24 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  plan:
+  render:
     runs-on: ubuntu-latest
-    outputs:
-      projects: ${{ steps.find.outputs.projects }}
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           filter: blob:none
           sparse-checkout: projects
-      - id: find
+
+      - name: Projeleri bul
         env:
           INPUT_PROJECT: ${{ inputs.project }}
           BEFORE: ${{ github.event.before }}
@@ -37,48 +43,35 @@ jobs:
           if [ -n "$INPUT_PROJECT" ]; then
             list="$INPUT_PROJECT"
           elif [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
-            # Yeni dal: son commit'te degisen render.json dosyalari
             list=$(git diff --name-only HEAD~1 HEAD -- 'projects/*/render.json' 2>/dev/null | cut -d/ -f2)
             [ -z "$list" ] && list=$(git show --name-only --format= HEAD -- 'projects/*/render.json' | cut -d/ -f2)
           else
             list=$(git diff --name-only "$BEFORE" HEAD -- 'projects/*/render.json' | cut -d/ -f2)
           fi
-          json=$(for p in $list; do if [[ "$p" =~ ^[A-Za-z0-9._-]+$ ]] && [ -f "projects/$p/render.json" ]; then echo "$p"; fi; done | sort -u | jq -R . | jq -sc .)
-          echo "Projeler: $json"
-          echo "projects=$json" >> "$GITHUB_OUTPUT"
-
-  render:
-    needs: plan
-    if: needs.plan.outputs.projects != '[]'
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      matrix:
-        project: ${{ fromJson(needs.plan.outputs.projects) }}
-    concurrency:
-      group: render-${{ matrix.project }}
-      cancel-in-progress: true
-    env:
-      P: ${{ matrix.project }}
-      GH_TOKEN: ${{ github.token }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          sparse-checkout: projects/${{ matrix.project }}
+          ok=$(for p in $list; do if [[ "$p" =~ ^[A-Za-z0-9._-]+$ ]] && [ -f "projects/$p/render.json" ]; then echo "$p"; fi; done | sort -u | tr '\n' ' ')
+          echo "Projeler: $ok"
+          echo "LIST=$ok" >> "$GITHUB_ENV"
 
       - uses: actions/setup-node@v4
+        if: env.LIST != ''
         with:
           node-version: 22
 
-      # FFmpeg: apt sunuculari ara sira takildigi icin hazir statik derleme, onbellekli
+      # Statik FFmpeg, Chrome ve npm paketleri onbellekte: kurulum birkac saniye surer
       - uses: actions/cache@v4
+        if: env.LIST != ''
         with:
-          path: ~/ffmpeg
-          key: ffmpeg-btbn-linux64-v1
+          path: |
+            ~/ffmpeg
+            ~/.cache/hyperframes
+            ~/.npm/_npx
+          key: kodvid-tools-${{ runner.os }}-v2
 
-      - name: FFmpeg
-        timeout-minutes: 5
+      - name: Araclar
+        if: env.LIST != ''
+        timeout-minutes: 6
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
           if [ ! -x "$HOME/ffmpeg/bin/ffmpeg" ]; then
             curl -fsSL --retry 3 --max-time 240 \
@@ -87,153 +80,97 @@ jobs:
             rm -rf "$HOME/ffmpeg" && mv "$HOME/ffmpeg-master-latest-linux64-gpl" "$HOME/ffmpeg"
           fi
           echo "$HOME/ffmpeg/bin" >> "$GITHUB_PATH"
-          "$HOME/ffmpeg/bin/ffmpeg" -version | head -1
-
-      - name: Chrome kutuphaneleri
-        timeout-minutes: 4
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run: |
           need=""; for p in libnss3 libnspr4; do dpkg -s "$p" >/dev/null 2>&1 || need="$need $p"; done
-          [ -z "$need" ] && { echo "Kurulu"; exit 0; }
-          APT="-o Acquire::http::Timeout=30 -o Acquire::Retries=2 -o DPkg::Lock::Timeout=60"
-          sudo apt-get $APT update -qq && sudo apt-get $APT install -y -qq --no-install-recommends $need
-
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/hyperframes
-          key: hyperframes-chrome-${{ runner.os }}-v1
-
-      - name: Chrome
-        run: npx -y hyperframes browser ensure
-
-      - name: Ayarlar
-        run: |
-          echo "OUT=$RUNNER_TEMP/out" >> "$GITHUB_ENV"; OUT="$RUNNER_TEMP/out"
-          f="projects/$P/render.json"
-          mode=$(jq -r '.mode // "render"' "$f");  [[ "$mode" =~ ^(render|check)$ ]] || mode=render
-          q=$(jq -r '.quality // "looks"' "$f");   [[ "$q" =~ ^(draft|looks|delivery|standard|high)$ ]] || q=looks
-          fps=$(jq -r '.fps // 30' "$f");          [[ "$fps" =~ ^(24|30|60)$ ]] || fps=30
-          comp=$(jq -r '.composition // "index.html"' "$f"); [[ "$comp" =~ ^[A-Za-z0-9._/-]+$ && "$comp" != *..* ]] || comp=index.html
-          at=$(jq -r '.snapshot_at // ""' "$f" | tr -cd '0-9.,')
-          frames=$(jq -r '.snapshot_frames // 6' "$f"); [[ "$frames" =~ ^[0-9]{1,2}$ ]] || frames=6
-          req=$(jq -r '.request // ""' "$f" | tr -cd 'A-Za-z0-9._:+-' | cut -c1-80)
-          { echo "MODE=$mode"; echo "Q=$q"; echo "FPS=$fps"; echo "COMP=$comp"; echo "AT=$at"; echo "FRAMES=$frames"; echo "REQ=$req"; } >> "$GITHUB_ENV"
-          mkdir -p "$OUT/snapshots" "$OUT/review"
-
-      - name: Lint ve check
-        id: check
-        working-directory: projects/${{ matrix.project }}
-        run: |
-          export TMPDIR="$RUNNER_TEMP"
-          set +e
-          npx -y hyperframes lint > "$OUT/lint.txt" 2>&1; lint=$?
-          npx -y hyperframes check --json > "$OUT/check.json" 2> "$OUT/check.log"; chk=$?
-          set -e
-          cat "$OUT/lint.txt"; head -c 4000 "$OUT/check.json"
-          echo "lint=$lint" >> "$GITHUB_OUTPUT"; echo "check=$chk" >> "$GITHUB_OUTPUT"
-
-      - name: Kare onizleme
-        working-directory: projects/${{ matrix.project }}
-        run: |
-          export TMPDIR="$RUNNER_TEMP"
-          if [ -n "$AT" ]; then npx -y hyperframes snapshot --at "$AT" --output "$OUT/snapshots" || true
-          else npx -y hyperframes snapshot --frames "$FRAMES" --output "$OUT/snapshots" || true; fi
-          npx -y hyperframes snapshot --review --output "$OUT/review" || true
-          find "$OUT/snapshots" "$OUT/review" -type f | sed "s|$OUT/||"
-
-      - name: Render
-        id: render
-        if: env.MODE == 'render'
-        working-directory: projects/${{ matrix.project }}
-        run: |
-          export TMPDIR="$RUNNER_TEMP"
-          start=$(date +%s)
-          set +e
-          npx -y hyperframes render --composition "$COMP" --quality "$Q" --fps "$FPS" --workers auto \
-            --output "$OUT/$P.mp4" 2>&1 | tee "$OUT/render.log"
-          code=${PIPESTATUS[0]}
-          set -e
-          echo "seconds=$(( $(date +%s) - start ))" >> "$GITHUB_OUTPUT"
-          echo "code=$code" >> "$GITHUB_OUTPUT"
-
-      - name: Sonuc dosyasi
-        if: always()
-        run: |
-          mp4="$OUT/$P.mp4"; status=failed; dur=null; w=null; h=null; size=0
-          lint_ok=$([ "${{ steps.check.outputs.lint }}" = "0" ] && echo true || echo false)
-          check_ok=$(jq -r '.ok // false' "$OUT/check.json" 2>/dev/null || echo false)
-          if [ "$MODE" = check ]; then
-            status=$([ "$lint_ok" = true ] && echo checked || echo failed)
-          elif [ "${{ steps.render.outputs.code }}" = "0" ] && [ -s "$mp4" ]; then
-            status=ok
-            dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$mp4")
-            w=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$mp4")
-            h=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$mp4")
-            size=$(stat -c %s "$mp4")
+          if [ -n "$need" ]; then
+            APT="-o Acquire::http::Timeout=30 -o Acquire::Retries=2 -o DPkg::Lock::Timeout=60"
+            sudo apt-get $APT update -qq && sudo apt-get $APT install -y -qq --no-install-recommends $need
           fi
-          jq -n --arg project "$P" --arg request "$REQ" --arg mode "$MODE" --arg status "$status" \
-            --arg commit "$GITHUB_SHA" --arg branch "$GITHUB_REF_NAME" \
-            --arg run "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
-            --arg finished "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            --arg quality "$Q" --argjson fps "$FPS" --argjson lint_ok "$lint_ok" --argjson check_ok "$check_ok" \
-            --argjson seconds "${{ steps.render.outputs.seconds || 0 }}" \
-            --argjson duration "${dur:-null}" --argjson width "${w:-null}" --argjson height "${h:-null}" --argjson bytes "$size" \
-            '{project:$project, request:$request, mode:$mode, status:$status, lint_ok:$lint_ok, check_ok:$check_ok,
-              commit:$commit, branch:$branch, run:$run, finished:$finished, quality:$quality, fps:$fps,
-              render_seconds:$seconds, duration:$duration, width:$width, height:$height, bytes:$bytes}' \
-            > "$OUT/result.json"
-          cat "$OUT/result.json"
-          { echo "### $P: $status"; echo '```json'; cat "$OUT/result.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          npx -y hyperframes browser ensure
 
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: out-${{ matrix.project }}
-          path: ${{ runner.temp }}/out
-          retention-days: 3
-
-      - name: Release'e yukle (kullanici icin)
-        if: always() && env.MODE == 'render'
+      - name: Kontrol ve render
+        if: env.LIST != ''
         run: |
-          tag="render-$P"
-          gh release view "$tag" >/dev/null 2>&1 || gh release create "$tag" --target "$GITHUB_SHA" --title "Render: $P" --notes "KodVid otomatik render ciktisi."
-          files=("$OUT/result.json")
-          [ -s "$OUT/$P.mp4" ] && files+=("$OUT/$P.mp4")
-          gh release upload "$tag" "${files[@]}" --clobber || true
+          set +e   # bir projedeki hata digerlerini ve sonuc dosyasini durdurmasin
+          export TMPDIR="$RUNNER_TEMP"
+          ROOT="$PWD"; OUTS="$RUNNER_TEMP/out"; mkdir -p "$OUTS"
+          for P in $LIST; do
+            echo "::group::$P"
+            O="$OUTS/$P"; mkdir -p "$O/snapshots"; f="$ROOT/projects/$P/render.json"
+            mode=$(jq -r '.mode // "render"' "$f");  [[ "$mode" =~ ^(render|check)$ ]] || mode=render
+            q=$(jq -r '.quality // "delivery"' "$f"); [[ "$q" =~ ^(draft|looks|delivery|standard|high)$ ]] || q=delivery
+            fps=$(jq -r '.fps // 30' "$f");          [[ "$fps" =~ ^(24|30|60)$ ]] || fps=30
+            comp=$(jq -r '.composition // "index.html"' "$f"); [[ "$comp" =~ ^[A-Za-z0-9._/-]+$ && "$comp" != *..* ]] || comp=index.html
+            at=$(jq -r '.snapshot_at // ""' "$f" | tr -cd '0-9.,')
+            frames=$(jq -r '.snapshot_frames // 6' "$f"); [[ "$frames" =~ ^[0-9]{1,2}$ ]] || frames=6
+            req=$(jq -r '.request // ""' "$f" | tr -cd 'A-Za-z0-9._:+-' | cut -c1-80)
+            cd "$ROOT/projects/$P"
+            npx -y hyperframes lint > "$O/lint.txt" 2>&1; lint=$?
+            npx -y hyperframes check --json > "$O/check.json" 2> "$O/check.log"
+            if [ -n "$at" ]; then npx -y hyperframes snapshot --at "$at" --output "$O/snapshots" > /dev/null 2>&1
+            else npx -y hyperframes snapshot --frames "$frames" --output "$O/snapshots" > /dev/null 2>&1; fi
+            status=failed; secs=0; dur=null; w=null; h=null; size=0; mp4="$O/$P.mp4"
+            if [ "$mode" = render ]; then
+              s=$(date +%s)
+              npx -y hyperframes render --composition "$comp" --quality "$q" --fps "$fps" --workers auto --output "$mp4" > "$O/render.log" 2>&1; rc=$?
+              secs=$(( $(date +%s) - s )); tail -3 "$O/render.log"
+              if [ "$rc" = 0 ] && [ -s "$mp4" ]; then
+                status=ok
+                dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$mp4")
+                w=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$mp4")
+                h=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$mp4")
+                size=$(stat -c %s "$mp4")
+              fi
+            else
+              [ "$lint" = 0 ] && status=checked
+            fi
+            check_ok=$(jq -r '.ok // false' "$O/check.json" 2>/dev/null || echo false)
+            jq -n --arg project "$P" --arg request "$req" --arg mode "$mode" --arg status "$status" \
+              --arg commit "$GITHUB_SHA" --arg branch "$GITHUB_REF_NAME" \
+              --arg run "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+              --arg finished "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg quality "$q" --argjson fps "$fps" \
+              --argjson lint_ok "$([ "$lint" = 0 ] && echo true || echo false)" --argjson check_ok "$check_ok" \
+              --argjson seconds "$secs" --argjson duration "${dur:-null}" --argjson width "${w:-null}" \
+              --argjson height "${h:-null}" --argjson bytes "$size" \
+              '{project:$project, request:$request, mode:$mode, status:$status, lint_ok:$lint_ok, check_ok:$check_ok,
+                commit:$commit, branch:$branch, run:$run, finished:$finished, quality:$quality, fps:$fps,
+                render_seconds:$seconds, duration:$duration, width:$width, height:$height, bytes:$bytes}' > "$O/result.json"
+            cat "$O/result.json"
+            { echo "### $P: $status"; echo '```json'; cat "$O/result.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+            # Kullanici icin release (arka planda, renders yazimini bekletmesin)
+            if [ "$mode" = render ]; then
+              ( tag="render-$P"
+                gh release view "$tag" >/dev/null 2>&1 || gh release create "$tag" --target "$GITHUB_SHA" --title "Render: $P" --notes "KodVid otomatik render ciktisi." >/dev/null
+                files=("$O/result.json"); [ -s "$mp4" ] && files+=("$mp4")
+                gh release upload "$tag" "${files[@]}" --clobber >/dev/null 2>&1 ) &
+            fi
+            cd "$ROOT"
+            echo "::endgroup::"
+          done
+          wait
 
-  publish:
-    # Sonuclari "renders" dalina yazar. Dal tek commit'ten olusur; eski videolar birikmez.
-    needs: [plan, render]
-    if: always() && needs.plan.outputs.projects != '[]'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: out-*
-          path: artifacts
       - name: renders dalina yaz
+        if: always() && env.LIST != ''
         env:
           TOKEN: ${{ github.token }}
           KEEP: 20
         run: |
           shopt -s nullglob
-          found=(artifacts/out-*); [ "${#found[@]}" -gt 0 ] || { echo "Yuklenecek sonuc yok"; exit 1; }
+          OUTS="$RUNNER_TEMP/out"; found=("$OUTS"/*/result.json)
+          [ "${#found[@]}" -gt 0 ] || { echo "Yazilacak sonuc yok"; exit 1; }
           git config --global user.name "kodvid-render"
           git config --global user.email "kodvid-render@users.noreply.github.com"
           url="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           for try in 1 2 3 4 5; do
-            rm -rf work && git init -q work && cd work
+            rm -rf "$RUNNER_TEMP/work" && git init -q "$RUNNER_TEMP/work" && cd "$RUNNER_TEMP/work"
             old=$(git ls-remote "$url" refs/heads/renders | cut -f1)
             if [ -n "$old" ]; then git fetch -q --depth 1 "$url" renders && git checkout -q --detach FETCH_HEAD; fi
-            for d in ../artifacts/out-*; do p="${d#../artifacts/out-}"; rm -rf "$p"; cp -r "$d" "$p"; done
-            # En yeni KEEP projeyi tut
+            for d in "$OUTS"/*/; do p=$(basename "$d"); rm -rf "$p"; cp -r "$d" "$p"; done
             ls -d */ 2>/dev/null | while read -r d; do t=$(jq -r '.finished // ""' "$d/result.json" 2>/dev/null); echo "$t ${d%/}"; done \
               | sort -r | tail -n +$((KEEP+1)) | awk '{print $2}' | xargs -r rm -rf
             printf '# renders\n\nKodVid GitHub render sonuclari. Otomatik yazilir, elle duzenlemeyin.\n' > README.md
             git add -A
             commit=$(git commit-tree "$(git write-tree)" -m "renders: ${GITHUB_SHA::7}")
             if git push -q --force-with-lease="renders:${old}" "$url" "$commit:refs/heads/renders"; then echo "Yazildi"; exit 0; fi
-            cd .. && sleep $((try * 3))
+            sleep $((try * 3))
           done
           echo "renders dalina yazilamadi"; exit 1

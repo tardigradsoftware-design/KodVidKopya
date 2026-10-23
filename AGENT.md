@@ -34,34 +34,37 @@ Check that `.github/workflows/render.yml` and `setup/cloud-render.sh` exist. If 
 
 ## Check and render on GitHub (always)
 
-The user's rule: **every check, snapshot and render runs on GitHub.** Never try to render in your sandbox.
-GitHub runs each job on a 4-core machine. Each job takes about 1 minute of setup plus the work itself.
+The user's rules:
+- **Every check and render runs on GitHub.** Never try to render in your sandbox.
+- **One job per video.** Go straight to the final render. Do not send separate check, draft and final jobs.
+- **One audio file per video.** Generate all narration in a single text-to-speech call. See "Narration" below.
 
-A job starts when you push a change to `projects/<name>/render.json`:
+A job takes about 1 minute: lint, check, 6 snapshots and the final video, all together.
+It starts when you push a change to `projects/<name>/render.json`:
 
 ```json
-{ "request": "<name>-<date-time>", "mode": "check", "quality": "draft", "fps": 30, "composition": "index.html" }
+{ "request": "<name>-<date-time>", "mode": "render", "quality": "delivery", "fps": 30, "composition": "index.html" }
 ```
 
 | Field | Values |
 |---|---|
 | `request` | A new value on every push, such as `<name>-20261023-1405`. It tells your result apart from older ones. |
-| `mode` | `check`: lint, check and snapshots only, fast. `render`: the same plus a video. |
-| `quality` | `draft` while iterating, `delivery` for the final. |
+| `mode` | `render` (default): lint, check, snapshots and the video. `check`: no video. Use it only if the user asks. |
+| `quality` | `delivery` (default). |
 | `snapshot_at` | Optional, such as `"1,4.5,9"`: seconds to capture. Default is 6 evenly spaced frames. |
 
 The loop:
 
-1. Write the project. Run `npx -y hyperframes lint` locally and fix every error.
-2. Write `render.json` with `"mode": "check"`, commit `projects/<name>/`, and `git push origin HEAD`.
+1. Write the project carefully, with the timing already fixed by the audio. Run `npx -y hyperframes lint` locally and fix every error.
+2. Write `render.json`, commit `projects/<name>/`, and `git push origin HEAD`.
 3. Wait and download the results:
    `bash $KV/setup/cloud-render.sh <name> <request> /home/user/projects/<name>-sonuc`
-4. Read `check.json` and fix every error. Open the PNGs in `snapshots/` and `review/` and look at them yourself. `check` can pass while elements still overlap.
-5. Repeat steps 2 to 4 until it is clean. Then push with `"mode": "render", "quality": "draft"`, and finally `"quality": "delivery"`.
-6. Deliver the MP4 from the results folder. Report its duration, resolution and the release link.
+4. Read `check.json` and look at every PNG in `snapshots/`. `check` can pass while elements still overlap.
+5. If everything is clean, deliver the MP4. Report its duration, resolution and the release link.
+6. If there is an error or a visible defect, fix all of them at once and push one more job. If problems remain after the second job, deliver it anyway and list the remaining problems for the user.
 
-The results folder holds `result.json`, `lint.txt`, `check.json`, `snapshots/`, `review/`, and in render mode `<name>.mp4` and `render.log`.
-Wait for each job's result before pushing the next `render.json` for the same project. A newer push cancels the running job.
+The results folder holds `result.json`, `lint.txt`, `check.json`, `snapshots/`, `<name>.mp4` and `render.log`.
+Never push a new `render.json` for the same project before the previous result arrives. A newer push cancels the running job.
 To render several videos at once, push them in one commit. Each project runs on its own machine in parallel.
 The user can watch the video at `https://github.com/tardigradsoftware-design/KodVidKopya/releases/tag/render-<name>`.
 
@@ -125,7 +128,10 @@ Before choosing Manim or Remotion, tell the user they cannot run on GitHub yet a
 
 - **No local rendering.** Your sandbox has no Chrome or FFmpeg and cannot install them.
 - **Long waits:** `cloud-render.sh` waits up to 30 minutes. Your commands also time out after 30 minutes, so for long videos run it in the background and check its output.
-- **Narration:** make speech with your own text-to-speech tool and save it in the project's `assets/audio/`. `edge-tts` and the Kokoro model do not work here: the first needs a blocked website and the second does not speak Turkish. Set scene lengths from the audio length, so audio and video end together.
+- **Narration, one file:** write the whole script first, one sentence per scene. Generate it in a single call to your own text-to-speech tool and save it as `assets/audio/voice.mp3`. Do not trim or re-record parts. `edge-tts` and the Kokoro model do not work here: the first needs a blocked website and the second does not speak Turkish.
+- **Scene timing from one file:** measure the file length once:
+  `cd /tmp && npm i -s music-metadata && node -e "import('music-metadata').then(m=>m.parseFile('$KV/projects/<name>/assets/audio/voice.mp3')).then(r=>console.log(r.format.duration))"`
+  Split that length across scenes in proportion to each sentence's character count, and start each scene at its sentence. Make the video 0.5 seconds longer than the audio.
 - **Generated images** may not match the frame size. Place them with CSS `object-fit: cover` instead of resizing the file.
 - **Preview** servers are not reachable by the user. Deliver the MP4 file and the release link.
 
