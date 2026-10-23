@@ -9,11 +9,9 @@ import {
   ChipsProps, ChipsScene, ClosingProps, ClosingScene, CodeProps, CodeScene, ImageProps, ImageScene,
   ListProps, ListScene, StatementProps, StatementScene, TitleProps, TitleScene,
 } from "./scenes";
+import { Subtitles } from "./Subtitles";
 import { clamp, defaultTheme, Theme } from "./theme";
 
-// How a scene hands off to the next one.
-// "slide": fast move in the film's direction (default). "wipe": a hard wipe in the same direction.
-// "light": a light leak over a hard cut, for one special moment.
 export type Cut = "slide" | "wipe" | "light";
 
 type Common = {
@@ -23,6 +21,8 @@ type Common = {
   readonly seconds?: number;
   /** How this scene hands off to the next. Default "slide". */
   readonly cut?: Cut;
+  /** Exact vocal onset cues in milliseconds (from start of voice.mp3) driving on-screen text transitions. */
+  readonly cuesMs?: readonly number[];
 };
 
 export type SceneSpec = Common &
@@ -44,16 +44,18 @@ export type VideoSpec = {
   readonly voice: string | null;
   /** Measured length of the voice file in seconds. Scenes without `seconds` share it. */
   readonly voiceSeconds: number | null;
+  /** Show word-synced animated subtitles at the bottom of the frame. Default true when voice is set. */
+  readonly subtitles?: boolean;
   readonly theme?: Partial<Theme>;
   readonly scenes: SceneSpec[];
 };
 
 export const TRANSITION_FRAMES = 12;
 export const LIGHT_FRAMES = 24;
-export const TAIL_FRAMES = 15;
+export const TAIL_FRAMES = 24;
 const DEFAULT_SECONDS = 3;
 
-/** Visible frames of each scene. Narration time is split by the character count of each scene's `say`. */
+/** Visible frames of each scene. Narration time is split by the character count of each scene's `say` unless `seconds` is given. */
 export const sceneFrames = (v: VideoSpec): number[] => {
   const fixed = v.scenes.map((s) => (s.seconds ? s.seconds : 0));
   const free = v.scenes.map((s, i) => (fixed[i] ? 0 : Math.max(1, (s.say ?? "").length)));
@@ -77,31 +79,43 @@ const LightLeak: React.FC = () => {
   return <Solid width={width} height={height} effects={[lightLeak({ hueShift: 0, progress: interpolate(frame, [0, durationInFrames - 1], [0, 1], clamp) })]} />;
 };
 
-const SceneView: React.FC<{ readonly scene: SceneSpec; readonly theme: Theme }> = ({ scene, theme }) => {
+const SceneView: React.FC<{ readonly scene: SceneSpec; readonly theme: Theme; readonly sceneStartMs: number }> = ({
+  scene,
+  theme,
+  sceneStartMs,
+}) => {
   switch (scene.type) {
-    case "title": return <TitleScene {...scene} theme={theme} />;
-    case "statement": return <StatementScene {...scene} theme={theme} />;
-    case "list": return <ListScene {...scene} theme={theme} />;
-    case "chips": return <ChipsScene {...scene} theme={theme} />;
-    case "code": return <CodeScene {...scene} theme={theme} />;
-    case "image": return <ImageScene {...scene} theme={theme} />;
-    case "closing": return <ClosingScene {...scene} theme={theme} />;
+    case "title": return <TitleScene {...scene} theme={theme} sceneStartMs={sceneStartMs} />;
+    case "statement": return <StatementScene {...scene} theme={theme} sceneStartMs={sceneStartMs} />;
+    case "list": return <ListScene {...scene} theme={theme} sceneStartMs={sceneStartMs} />;
+    case "chips": return <ChipsScene {...scene} theme={theme} sceneStartMs={sceneStartMs} />;
+    case "code": return <CodeScene {...scene} theme={theme} sceneStartMs={sceneStartMs} />;
+    case "image": return <ImageScene {...scene} theme={theme} sceneStartMs={sceneStartMs} />;
+    case "closing": return <ClosingScene {...scene} theme={theme} sceneStartMs={sceneStartMs} />;
   }
 };
 
-/** Builds the whole film from a VideoSpec: shared background, scenes, hand-offs and narration. */
+/** Builds the whole film from a VideoSpec: shared background, voice-locked scenes, hand-offs, narration and animated subtitles. */
 export const Film: React.FC<{ readonly video: VideoSpec }> = ({ video }) => {
   const theme: Theme = { ...defaultTheme, ...video.theme };
   const frames = sceneFrames(video);
+  const startFrames: number[] = [];
+  let acc = 0;
+  for (const f of frames) {
+    startFrames.push(acc);
+    acc += f;
+  }
+
   const last = video.scenes.length - 1;
   const items: React.ReactNode[] = [];
   video.scenes.forEach((scene, i) => {
     const cut: Cut = scene.cut ?? "slide";
     const transitionAfter = i < last && cut !== "light";
     const length = frames[i] + (transitionAfter ? TRANSITION_FRAMES : 0) + (i === last ? TAIL_FRAMES : 0);
+    const sceneStartMs = (startFrames[i] / video.fps) * 1000;
     items.push(
       <TransitionSeries.Sequence key={`s${i}`} name={`${i + 1} ${scene.type}`} durationInFrames={length}>
-        <SceneView scene={scene} theme={theme} />
+        <SceneView scene={scene} theme={theme} sceneStartMs={sceneStartMs} />
       </TransitionSeries.Sequence>,
     );
     if (i === last) return;
@@ -118,10 +132,13 @@ export const Film: React.FC<{ readonly video: VideoSpec }> = ({ video }) => {
     }
   });
 
+  const showSubtitles = video.subtitles ?? Boolean(video.voice);
+
   return (
     <AbsoluteFill>
       <Background theme={theme} />
       <TransitionSeries>{items}</TransitionSeries>
+      {showSubtitles ? <Subtitles theme={theme} /> : null}
       {video.voice ? <Audio src={staticFile(video.voice)} /> : null}
     </AbsoluteFill>
   );
