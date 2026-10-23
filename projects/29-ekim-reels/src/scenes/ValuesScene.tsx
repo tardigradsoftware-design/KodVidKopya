@@ -5,7 +5,7 @@ import { Photo } from "../components/Photo";
 import { anton, C, clamp, easeOut, pl } from "../theme";
 import { VALUES, VALUE_AT } from "../timeline";
 
-const LINE_H = 150;
+const LINE_H = 160;
 
 export const ValuesScene: React.FC = () => {
   const f = useCurrentFrame();
@@ -28,13 +28,20 @@ export const ValuesScene: React.FC = () => {
       />
       <AbsoluteFill
         style={{
-          opacity: 0.5,
-          background: "radial-gradient(58% 34% at 50% 46%, rgba(227,10,23,0.34) 0%, rgba(0,0,0,0) 72%)",
+          opacity: 0.62,
+          background: "radial-gradient(58% 36% at 50% 44%, rgba(227,10,23,0.4) 0%, rgba(0,0,0,0) 74%)",
+        }}
+      />
+      {/* keeps the type readable over the crowd */}
+      <AbsoluteFill
+        style={{
+          background:
+            "radial-gradient(52% 40% at 50% 50%, rgba(4,3,5,0.62) 0%, rgba(4,3,5,0.34) 62%, rgba(4,3,5,0) 100%)",
         }}
       />
 
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 20, transform: `translateY(${160 + drift}px)` }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, transform: `translateY(${40 + drift}px)` }}>
           {VALUES.map((word, i) => {
             const at = local[i];
             const next = i + 1 < local.length ? local[i + 1] : at + 70;
@@ -48,7 +55,7 @@ export const ValuesScene: React.FC = () => {
                 <div
                   style={{
                     fontFamily: anton,
-                    fontSize: 128,
+                    fontSize: 156,
                     lineHeight: `${LINE_H}px`,
                     letterSpacing: "-0.015em",
                     color: C.white,

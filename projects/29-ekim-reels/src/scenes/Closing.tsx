@@ -27,11 +27,12 @@ export const Closing: React.FC = () => {
 
   const nice = interpolate(f, [NICE_AT - 719 - 4, NICE_AT - 719 + 6], [0, 1], clamp);
   const mainAt = w[0] - 8;
-  const hitFlash = f >= w[0] ? Math.max(0, 1 - (f - w[0]) / 12) : 0;
-  const zoom = interpolate(f, [mainAt, 197], [1, 1.045], clamp);
+  const numberAt = w[2] - 9;
+  const tailAt = w[3] - 7;
+  const hitFlash = f >= numberAt ? Math.max(0, 1 - (f - numberAt) / 12) : 0;
+  const zoom = interpolate(f, [mainAt, 196], [1, 1.055], clamp);
   const pulse = 0.75 + 0.25 * Math.sin(f * 0.07);
 
-  const lit = (k: number) => (f >= w[k] ? 1 : 0.24);
   const litAt = (k: number) => interpolate(f, [w[k], w[k] + 4], [0.24, 1], clamp);
 
   return (
@@ -42,21 +43,21 @@ export const Closing: React.FC = () => {
         scaleFrom={1.06}
         scaleTo={1.26}
         shiftY={-20}
-        brightness={0.58}
-        saturate={0.98}
-        contrast={1.14}
+        brightness={0.64}
+        saturate={1.06}
+        contrast={1.12}
         objectPosition="50% 42%"
         tint={0.45}
       />
       <AbsoluteFill
         style={{
-          background: "radial-gradient(58% 34% at 50% 52%, rgba(6,4,6,0.72) 0%, rgba(6,4,6,0.25) 55%, rgba(6,4,6,0.9) 100%)",
+          background: "radial-gradient(60% 36% at 50% 52%, rgba(8,3,5,0.66) 0%, rgba(8,3,5,0.18) 58%, rgba(8,3,5,0.88) 100%)",
         }}
       />
 
-      <Burst at={w[0] + 2} cx={250} cy={430} count={40} power={15} hue="255,190,120" />
-      <Burst at={w[0] + 26} cx={880} cy={360} count={36} power={13} hue="255,150,120" />
-      <Burst at={w[0] + 54} cx={560} cy={300} count={44} power={17} hue="255,214,160" />
+      <Burst at={numberAt + 2} cx={250} cy={430} count={40} power={15} hue="255,190,120" />
+      <Burst at={numberAt + 24} cx={880} cy={360} count={36} power={13} hue="255,150,120" />
+      <Burst at={numberAt + 50} cx={560} cy={300} count={44} power={17} hue="255,214,160" />
 
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
         <div style={{ transform: `translateY(140px) scale(${zoom})`, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -78,7 +79,7 @@ export const Closing: React.FC = () => {
             <div
               style={{
                 fontFamily: anton,
-                fontSize: 78,
+                fontSize: 84,
                 lineHeight: "96px",
                 letterSpacing: "0.01em",
                 color: C.ink,
@@ -92,30 +93,30 @@ export const Closing: React.FC = () => {
 
           <div style={{ height: 16 }} />
 
-          <MaskLine at={mainAt + 3} style={{ height: 320 }}>
+          <MaskLine at={numberAt} style={{ height: 320 }}>
             <div
               style={{
                 fontFamily: anton,
-                fontSize: 300,
+                fontSize: 320,
                 lineHeight: "320px",
                 letterSpacing: "-0.02em",
                 color: C.white,
-                opacity: 0.3 + 0.7 * lit(1),
-                textShadow: `0 0 ${110 * (lit(1) - 0.2)}px rgba(227,10,23,0.9), 0 0 40px rgba(255,190,150,0.55)`,
+                opacity: interpolate(f, [numberAt, numberAt + 6], [0.25, 1], clamp),
+                textShadow: `0 0 110px rgba(227,10,23,0.9), 0 0 40px rgba(255,190,150,0.55)`,
               }}
             >
               103.
             </div>
           </MaskLine>
 
-          <MaskLine at={mainAt + 6} style={{ height: 104 }}>
-            <div style={{ display: "flex", columnGap: "0.26em", justifyContent: "center" }}>
+          <MaskLine at={tailAt} style={{ height: 104 }}>
+            <div style={{ display: "flex", columnGap: 30, justifyContent: "center" }}>
               {["YILI", "KUTLU", "OLSUN!"].map((word, k) => (
                 <span
                   key={word}
                   style={{
                     fontFamily: anton,
-                    fontSize: 78,
+                    fontSize: 84,
                     lineHeight: "104px",
                     letterSpacing: "0.01em",
                     color: C.ink,
@@ -132,14 +133,22 @@ export const Closing: React.FC = () => {
       </AbsoluteFill>
 
       <Embers count={40} seed={211} warmth={0.9} />
-      <ShockRing at={w[0] + 1} />
+      <ShockRing at={numberAt + 1} />
       <Flash amount={hitFlash * 0.8} color="#FFF0DC" />
       <LightLeak
         progress={pl(f, 0, 60) * 0.6 + 0.4}
         color="#FFCFA0"
-        opacity={pl(f, 0, 12) * 0.55}
+        opacity={pl(f, 0, 12) * 0.42}
         angle={68}
         width={85}
+      />
+      {/* a last sweep of light over the number, so the hold is not a still */}
+      <AbsoluteFill
+        style={{
+          mixBlendMode: "screen",
+          opacity: 0.5 * interpolate(f, [118, 132, 168, 182], [0, 1, 1, 0], clamp),
+          background: `linear-gradient(74deg, rgba(0,0,0,0) ${pl(f, 118, 182) * 100 - 30}%, rgba(255,232,205,0.5) ${pl(f, 118, 182) * 100}%, rgba(0,0,0,0) ${pl(f, 118, 182) * 100 + 26}%)`,
+        }}
       />
       <Vignette strength={0.95} />
       <Grain opacity={0.085} />

@@ -21,8 +21,17 @@ const colValue = (year: number, k: number): number => {
 const Digit: React.FC<{ readonly value: number }> = ({ value }) => {
   const v = ((value % 10) + 10) % 10;
   return (
-    <div style={{ width: CELL_W, height: CELL, overflow: "hidden", position: "relative" }}>
-      <div style={{ transform: `translateY(${-v * CELL}px)` }}>
+    <div
+      style={{
+        width: CELL_W,
+        height: CELL,
+        overflow: "hidden",
+        position: "relative",
+        maskImage: "linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%)",
+      }}
+    >
+      <div style={{ transform: `translateY(${-v * CELL}px)`, willChange: "transform" }}>
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((d, i) => (
           <div key={i} style={{ height: CELL, lineHeight: `${CELL}px`, textAlign: "center" }}>
             {d}

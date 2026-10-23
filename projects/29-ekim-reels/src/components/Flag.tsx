@@ -41,7 +41,7 @@ const FLAG_URL = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(flagSvg(
 /** Size of the cloth on screen at scale 1 (px). The frame is a close crop of it. */
 const PLANE_W = 3600;
 const PLANE_H = 2400;
-const STRIPS = 72;
+const STRIPS = 112;
 const STRIP_W = PLANE_W / STRIPS;
 
 export type FlagCam = {
@@ -61,10 +61,10 @@ export const Flag: React.FC<{ readonly cam: FlagCam }> = ({ cam }) => {
   const s = cam.scale;
   const left = 540 - (cam.cx / UNITS_W) * PLANE_W * s;
   const top = 960 - (cam.cy / UNITS_H) * PLANE_H * s;
-  const amp = 70 + 46 * cam.gust;
+  const zAmp = 48 + 30 * cam.gust;
 
   return (
-    <AbsoluteFill style={{ overflow: "hidden", perspective: 2600, perspectiveOrigin: "50% 46%", backgroundColor: C.deepRed }}>
+    <AbsoluteFill style={{ overflow: "hidden", perspective: 3000, perspectiveOrigin: "50% 46%", backgroundColor: C.deepRed }}>
       <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d", transform: `rotate(${cam.rot}deg)` }}>
         <div
           style={{
@@ -81,31 +81,45 @@ export const Flag: React.FC<{ readonly cam: FlagCam }> = ({ cam }) => {
           {new Array(STRIPS).fill(0).map((_, i) => {
             const u = (i + 0.5) / STRIPS;
             const phase = cam.phase + u * 6.1 + 0.35 * Math.sin(u * 11 + cam.phase * 0.6);
-            const z = amp * Math.sin(phase) + 0.34 * amp * Math.sin(phase * 2.2 + 1.1);
-            const ry = 13 * Math.cos(phase) + 4 * Math.cos(phase * 2.2);
+            const z = zAmp * Math.sin(phase) + 0.3 * zAmp * Math.sin(phase * 2.2 + 1.1);
+            const ry = 5.5 * Math.cos(phase) + 2 * Math.cos(phase * 2.2);
             const light = 0.5 + 0.5 * Math.cos(phase + 0.85);
-            const shade = 0.62 - 0.42 * light;
+            const dark = 0.04 + 0.2 * (1 - light);
+            const hot = 0.24 * light * light * light;
             return (
               <div
                 key={i}
                 style={{
                   position: "absolute",
-                  left: i * STRIP_W,
+                  left: i * STRIP_W - 4,
                   top: 0,
-                  width: STRIP_W + 1.5,
+                  width: STRIP_W + 8,
                   height: PLANE_H,
                   transform: `translateZ(${z}px) rotateY(${ry}deg)`,
                   transformOrigin: "50% 50%",
-                  backgroundImage: [
-                    `repeating-linear-gradient(90deg, rgba(0,0,0,0.10) 0px, rgba(0,0,0,0.10) 1px, rgba(255,255,255,0.045) 1.5px, rgba(255,255,255,0.045) 3px)`,
-                    `linear-gradient(rgba(0,0,0,${shade.toFixed(3)}), rgba(0,0,0,${shade.toFixed(3)}))`,
-                    `url("${FLAG_URL}")`,
-                  ].join(", "),
-                  backgroundSize: `100% 100%, 100% 100%, ${PLANE_W}px ${PLANE_H}px`,
-                  backgroundPosition: `0 0, 0 0, ${-i * STRIP_W}px 0px`,
+                  backgroundImage: `url("${FLAG_URL}")`,
+                  backgroundSize: `${PLANE_W}px ${PLANE_H}px`,
+                  backgroundPosition: `${-i * STRIP_W}px 0px`,
                   backfaceVisibility: "hidden",
                 }}
-              />
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    mixBlendMode: "multiply",
+                    backgroundColor: `rgba(72,6,12,${dark.toFixed(3)})`,
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    mixBlendMode: "screen",
+                    backgroundColor: `rgba(255,214,186,${hot.toFixed(3)})`,
+                  }}
+                />
+              </div>
             );
           })}
         </div>

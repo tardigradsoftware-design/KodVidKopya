@@ -52,6 +52,15 @@ export const Opening: React.FC = () => {
         }}
       />
 
+      <AbsoluteFill
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          opacity: interpolate(f, [HIT, HIT + 6, 150, 172], [0, 1, 1, 0], clamp),
+          background: "radial-gradient(46% 26% at 50% 50%, rgba(227,10,23,0.42) 0%, rgba(227,10,23,0) 70%)",
+        }}
+      />
+
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
         <div
           style={{
@@ -75,7 +84,7 @@ export const Opening: React.FC = () => {
                 left: 0,
                 top: 0,
                 fontFamily: anton,
-                fontSize: 380,
+                fontSize: 430,
                 lineHeight: 1,
                 color: "rgba(255,40,60,0.85)",
                 letterSpacing: "-0.045em",
@@ -93,7 +102,7 @@ export const Opening: React.FC = () => {
                 left: 0,
                 top: 0,
                 fontFamily: anton,
-                fontSize: 380,
+                fontSize: 430,
                 lineHeight: 1,
                 color: "rgba(80,220,255,0.75)",
                 letterSpacing: "-0.045em",
@@ -111,7 +120,7 @@ export const Opening: React.FC = () => {
                 left: 0,
                 top: 0,
                 fontFamily: anton,
-                fontSize: 380,
+                fontSize: 430,
                 lineHeight: 1,
                 color: C.ink,
                 letterSpacing: "-0.045em",
@@ -127,10 +136,10 @@ export const Opening: React.FC = () => {
               style={{
                 position: "absolute",
                 left: 0,
-                top: 206,
+                top: 232,
                 height: 7,
-                width: 560 * rule,
-                marginLeft: (-560 * rule) / 2,
+                width: 640 * rule,
+                marginLeft: (-640 * rule) / 2,
                 background: `linear-gradient(90deg, rgba(227,10,23,0), ${C.red} 18%, #FF6A55 50%, ${C.red} 82%, rgba(227,10,23,0))`,
                 boxShadow: "0 0 26px rgba(227,10,23,0.85)",
                 opacity: f >= HIT ? 1 - pl(f, 140, 156) : 0,

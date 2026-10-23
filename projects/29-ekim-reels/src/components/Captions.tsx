@@ -21,7 +21,7 @@ export const Captions: React.FC = () => {
           maxWidth: 880,
           padding: "18px 34px 20px",
           borderRadius: 26,
-          backgroundColor: "rgba(6,5,8,0.42)",
+          backgroundColor: "rgba(6,5,8,0.3)",
           backdropFilter: "blur(10px)",
           opacity: show,
           display: "flex",

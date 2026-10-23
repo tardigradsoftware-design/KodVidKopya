@@ -27,11 +27,16 @@ export const FlagScene: React.FC = () => {
   };
 
   const sweep = interpolate(f, [4, 96], [-0.35, 1.25], clamp);
+  // the cloth unfurls from the middle outward
+  const open = interpolate(f, [0, 9], [0, 1], { ...clamp, easing: easeOut });
+  const inset = (1 - open) * 50;
   const leak = interpolate(f, [span - 26, span - 2], [0, 1], clamp);
 
   return (
     <AbsoluteFill style={{ backgroundColor: C.deepRed, overflow: "hidden" }}>
-      <Flag cam={cam} />
+      <AbsoluteFill style={{ clipPath: `inset(0% ${inset.toFixed(2)}% 0% ${inset.toFixed(2)}%)` }}>
+        <Flag cam={cam} />
+      </AbsoluteFill>
 
       {/* light travelling across the cloth */}
       <AbsoluteFill
@@ -53,10 +58,10 @@ export const FlagScene: React.FC = () => {
 
       <AbsoluteFill
         style={{
-          background: "linear-gradient(180deg, rgba(5,3,5,0.55) 0%, rgba(5,3,5,0) 22%, rgba(5,3,5,0) 62%, rgba(5,3,5,0.7) 100%)",
+          background: "linear-gradient(180deg, rgba(5,3,5,0.34) 0%, rgba(5,3,5,0) 24%, rgba(5,3,5,0) 66%, rgba(5,3,5,0.5) 100%)",
         }}
       />
-      <Vignette strength={1} />
+      <Vignette strength={0.78} />
       <LightLeak progress={0.5 + whip * 0.5} color="#FFF0DA" opacity={leak * 0.95} angle={64} width={80} />
       <Grain opacity={0.09} />
     </AbsoluteFill>
