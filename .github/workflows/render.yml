@@ -62,7 +62,6 @@ jobs:
     env:
       P: ${{ matrix.project }}
       GH_TOKEN: ${{ github.token }}
-      OUT: ${{ github.workspace }}/../out
     steps:
       - uses: actions/checkout@v4
         with:
@@ -94,6 +93,7 @@ jobs:
 
       - name: Ayarlar
         run: |
+          echo "OUT=$RUNNER_TEMP/out" >> "$GITHUB_ENV"; OUT="$RUNNER_TEMP/out"
           f="projects/$P/render.json"
           mode=$(jq -r '.mode // "render"' "$f");  [[ "$mode" =~ ^(render|check)$ ]] || mode=render
           q=$(jq -r '.quality // "looks"' "$f");   [[ "$q" =~ ^(draft|looks|delivery|standard|high)$ ]] || q=looks
@@ -174,7 +174,7 @@ jobs:
         if: always()
         with:
           name: out-${{ matrix.project }}
-          path: ${{ github.workspace }}/../out
+          path: ${{ runner.temp }}/out
           retention-days: 3
 
       - name: Release'e yukle (kullanici icin)
@@ -201,6 +201,8 @@ jobs:
           TOKEN: ${{ github.token }}
           KEEP: 20
         run: |
+          shopt -s nullglob
+          found=(artifacts/out-*); [ "${#found[@]}" -gt 0 ] || { echo "Yuklenecek sonuc yok"; exit 1; }
           git config --global user.name "kodvid-render"
           git config --global user.email "kodvid-render@users.noreply.github.com"
           url="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
