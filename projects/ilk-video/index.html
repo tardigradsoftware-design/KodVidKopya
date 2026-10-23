@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg-deep: #070b16;
+        --bg-panel: #0f172a;
+        --bg-card: #131e36;
+        --border-subtle: #263554;
+        --ink-bright: #f8fafc;
+        --ink-secondary: #cbd5e1;
+        --accent-teal: #5eead4;
+        --accent-sky: #38bdf8;
+        --badge-bg: #0f2937;
+        --font-sans: "Inter", "Segoe UI", sans-serif;
+        --font-mono: "JetBrains Mono", "Source Code Pro", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg-deep);
+        color: var(--ink-bright);
+        font-family: var(--font-sans);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg-deep);
+      }
+      .bg-stage {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.14), transparent 55%),
+          radial-gradient(circle at 80% 80%, rgba(94, 234, 212, 0.14), transparent 55%),
+          var(--bg-deep);
+      }
+      .top-bar {
+        position: absolute;
+        left: 120px;
+        right: 120px;
+        top: 64px;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        background: rgba(15, 23, 42, 0.92);
+        border: 2px solid var(--border-subtle);
+        border-radius: 16px;
+        z-index: 10;
+      }
+      .brand-title {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--ink-bright);
+      }
+      .brand-title span {
+        color: var(--accent-teal);
+      }
+      .spec-pill {
+        font-size: 30px;
+        font-weight: 600;
+        color: var(--accent-teal);
+        font-family: var(--font-mono);
+      }
+      .scene {
+        position: absolute;
+        left: 120px;
+        right: 120px;
+        top: 164px;
+        bottom: 84px;
+      }
+      #scene1 {
+        display: grid;
+        grid-template-columns: 820px 800px;
+        gap: 60px;
+        align-items: center;
+      }
+      .left-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+      }
+      .kicker {
+        display: inline-block;
+        padding: 10px 22px;
+        background: var(--badge-bg);
+        border: 2px solid var(--accent-teal);
+        border-radius: 999px;
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--accent-teal);
+        letter-spacing: 0.02em;
+      }
+      .hero-heading {
+        font-size: 86px;
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        color: var(--ink-bright);
+      }
+      .hero-heading em {
+        font-style: normal;
+        color: var(--accent-teal);
+      }
+      .hero-sub {
+        font-size: 36px;
+        line-height: 1.4;
+        color: var(--ink-secondary);
+        font-weight: 500;
+      }
+      .terminal-card {
+        background: var(--bg-panel);
+        border: 2px solid var(--border-subtle);
+        border-radius: 24px;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+      .term-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--border-subtle);
+        padding-bottom: 18px;
+      }
+      .term-file {
+        font-family: var(--font-mono);
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--accent-sky);
+      }
+      .term-tag {
+        font-family: var(--font-mono);
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--accent-teal);
+      }
+      .code-list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .code-line {
+        font-family: var(--font-mono);
+        font-size: 30px;
+        color: var(--ink-bright);
+        background: var(--bg-card);
+        padding: 16px 20px;
+        border-radius: 12px;
+        border-left: 5px solid var(--accent-teal);
+      }
+      .timer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 8px;
+      }
+      .timer-label {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--ink-secondary);
+      }
+      .timer-val {
+        font-family: var(--font-mono);
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--accent-teal);
+        font-variant-numeric: tabular-nums;
+      }
+      .progress-track {
+        width: 100%;
+        height: 18px;
+        background: var(--bg-card);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent-sky), var(--accent-teal));
+        transform-origin: left center;
+      }
+      #scene2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 12px 0;
+      }
+      .s2-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .s2-title {
+        font-size: 74px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--ink-bright);
+      }
+      .s2-title em {
+        font-style: normal;
+        color: var(--accent-teal);
+      }
+      .s2-sub {
+        font-size: 36px;
+        color: var(--ink-secondary);
+        font-weight: 500;
+      }
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .step-card {
+        background: var(--bg-panel);
+        border: 2px solid var(--border-subtle);
+        border-radius: 22px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .step-num {
+        font-family: var(--font-mono);
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--accent-sky);
+      }
+      .step-name {
+        font-size: 44px;
+        font-weight: 800;
+        color: var(--ink-bright);
+      }
+      .step-desc {
+        font-size: 32px;
+        line-height: 1.38;
+        color: var(--ink-secondary);
+      }
+      .status-bar {
+        background: var(--bg-panel);
+        border: 2px solid var(--accent-teal);
+        border-radius: 20px;
+        padding: 24px 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .status-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .status-text {
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--ink-bright);
+      }
+      .status-pct {
+        font-family: var(--font-mono);
+        font-size: 42px;
+        font-weight: 800;
+        color: var(--accent-teal);
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="13.05"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="bg-stage" id="bg-stage"></div>
+
+      <div class="top-bar" id="top-bar">
+        <div class="brand-title">Kod<span>Vid</span> // Otomatik Video Üretimi</div>
+        <div class="spec-pill">1920×1080 • 30 FPS • TR SES</div>
+      </div>
+
+      <!-- Sahne 1: 0.00s - 6.18s -->
+      <div class="scene" id="scene1">
+        <div class="left-col" id="s1-left">
+          <div class="kicker" id="s1-kicker">SAHNE 01 • KODDAN VİDEOYA</div>
+          <h1 class="hero-heading" id="s1-heading">
+            KodVid ile<br /><em>10 Saniyede</em> Video
+          </h1>
+          <p class="hero-sub" id="s1-sub">
+            HTML, CSS ve GSAP ile tek komutta deterministik ve yüksek kaliteli video üretin.
+          </p>
+        </div>
+
+        <div class="terminal-card" id="s1-card">
+          <div class="term-header">
+            <div class="term-file">ilk-video / index.html</div>
+            <div class="term-tag">HYPERFRAMES</div>
+          </div>
+          <div class="code-list">
+            <div class="code-line" id="cl-1">1. Senaryo ve Türkçe seslendirme üret</div>
+            <div class="code-line" id="cl-2">2. GSAP zaman çizelgesini koda dök</div>
+            <div class="code-line" id="cl-3">3. npx hyperframes lint ile doğrula</div>
+          </div>
+          <div class="timer-row">
+            <div class="timer-label">Hedef Süre</div>
+            <div class="timer-val" id="s1-timer">10.0 sn</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="s1-prog"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sahne 2: 6.18s - 13.05s -->
+      <div class="scene" id="scene2">
+        <div class="s2-header" id="s2-head">
+          <div class="kicker">SAHNE 02 • GITHUB ACTIONS HATTI</div>
+          <h2 class="s2-title">GitHub Üzerinde <em>Otomatik Render</em></h2>
+          <p class="s2-sub">
+            Kontrol, taslak ve final render adımları bulutta çalışır; MP4 anında yayına yüklenir.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card" id="step-1">
+            <div class="step-num">ADIM 01 // CHECK</div>
+            <div class="step-name">Kontrol İşi</div>
+            <div class="step-desc">Lint, şema, kontrast ve 6 kare ekran görüntüsü denetimi.</div>
+          </div>
+          <div class="step-card" id="step-2">
+            <div class="step-num">ADIM 02 // DRAFT</div>
+            <div class="step-name">Taslak Render</div>
+            <div class="step-desc">Hızlı önizleme videosu ile akış ve ses senkron testi.</div>
+          </div>
+          <div class="step-card" id="step-3">
+            <div class="step-num">ADIM 03 // DELIVERY</div>
+            <div class="step-name">Final Render</div>
+            <div class="step-desc">1080p 30 FPS yüksek kaliteli MP4 ve GitHub Release yayını.</div>
+          </div>
+        </div>
+
+        <div class="status-bar" id="s2-status">
+          <div class="status-top">
+            <div class="status-text">GITHUB RELEASE • render-ilk-video • MP4 HAZIR</div>
+            <div class="status-pct" id="s2-pct">100%</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="s2-prog"></div>
+          </div>
+        </div>
+      </div>
+
+      <audio
+        id="voice"
+        class="clip"
+        src="assets/audio/voice.mp3"
+        data-start="0"
+        data-duration="12.55"
+        data-track-index="2"
+        data-volume="1"
+      ></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Başlangıç durumları (t = 0 karesi dolu ve net görünür)
+      gsap.set("#scene1", { x: 0, opacity: 1 });
+      gsap.set("#scene2", { x: 120, opacity: 0 });
+      gsap.set("#s1-prog", { scaleX: 0.1 });
+      gsap.set("#s2-prog", { scaleX: 0.08 });
+
+      // Sahne 1 kademeli giriş ve performans (0.00s - 5.88s)
+      tl.fromTo(
+        "#s1-left",
+        { x: -40, opacity: 0.85 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+        0,
+      );
+      tl.fromTo(
+        "#s1-card",
+        { x: 60, opacity: 0.85 },
+        { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+        0.05,
+      );
+      tl.fromTo(
+        "#cl-1",
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        0.35,
+      );
+      tl.fromTo(
+        "#cl-2",
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        1.15,
+      );
+      tl.fromTo(
+        "#cl-3",
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        1.95,
+      );
+
+      // Sahne 1 ilerleme çubuğu ve sayaç
+      tl.fromTo(
+        "#s1-prog",
+        { scaleX: 0.1 },
+        { scaleX: 1, duration: 4.8, ease: "power1.inOut" },
+        0.4,
+      );
+      const timerState = { val: 1.0 };
+      tl.to(
+        timerState,
+        {
+          val: 10.0,
+          duration: 4.8,
+          ease: "power1.inOut",
+          onUpdate: () => {
+            const el = document.getElementById("s1-timer");
+            if (el) el.textContent = timerState.val.toFixed(1) + " sn";
+          },
+        },
+        0.4,
+      );
+
+      // Sahne 1 -> Sahne 2 Seam (Cut-the-Curve sola akış: 5.88s - 6.58s)
+      tl.fromTo(
+        "#scene1",
+        { x: 0, opacity: 1 },
+        { x: -120, opacity: 0, duration: 0.3, ease: "power3.in" },
+        5.88,
+      );
+      tl.fromTo(
+        "#scene2",
+        { x: 120, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        6.18,
+      );
+
+      // Sahne 2 kademeli kartlar ve ilerleme (6.35s - 12.80s)
+      tl.fromTo(
+        "#step-1",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        6.45,
+      );
+      tl.fromTo(
+        "#step-2",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        6.95,
+      );
+      tl.fromTo(
+        "#step-3",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        7.45,
+      );
+      tl.fromTo(
+        "#s2-status",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+        7.85,
+      );
+      tl.fromTo(
+        "#s2-prog",
+        { scaleX: 0.08 },
+        { scaleX: 1, duration: 4.2, ease: "power2.out" },
+        7.9,
+      );
+      const pctState = { val: 8 };
+      tl.to(
+        pctState,
+        {
+          val: 100,
+          duration: 4.2,
+          ease: "power2.out",
+          onUpdate: () => {
+            const el = document.getElementById("s2-pct");
+            if (el) el.textContent = Math.round(pctState.val) + "%";
+          },
+        },
+        7.9,
+      );
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
