@@ -2,27 +2,24 @@
 
 ## Before you push
 
-- [ ] `npx tsc` passes with no errors.
-- [ ] `durationInFrames` in `Root.tsx` equals the scene math and covers the audio plus about 15 frames.
-- [ ] `public/voice.mp3` exists and `<Audio src={staticFile("voice.mp3")} />` is in `Main`.
-- [ ] All `remotion` and `@remotion/*` versions are exactly `4.0.538`.
-- [ ] `remotion.config.ts` still sets `swangle`.
-- [ ] No CSS animation, no `Math.random()`, no `Date.now()`.
+- [ ] `npx tsc` passes.
+- [ ] `video.ts` has `voice: "voice.mp3"` and the measured `voiceSeconds`, and `public/voice.mp3` exists.
+- [ ] Every scene has a `say` sentence, and the joined sentences are exactly what you sent to text-to-speech.
+- [ ] On-screen text is short: titles of 1 to 4 words, list items of 2 to 5 words, at most 5 list items, at most 10 code lines.
 - [ ] Nothing from the "Never ship" list in `motion-design.md`.
-- [ ] Every scene change is a cut on motion in the film's direction.
-- [ ] Text sizes: headline at least 84 px, supporting at least 44 px at 1920 wide.
 - [ ] `render.json` has a new `request` value.
 
 ## When the result comes back
 
-Open every PNG in `snapshots/` and describe each in one sentence: what is on screen, what the hero is, whether it would pass as a slide.
-Then check:
+1. Open `contact-sheet.jpg` first: all snapshots in one image. Describe each frame in a few words.
+2. Open a single `snapshots/*.png` only if something in the sheet needs a closer look.
+3. Check:
+   - [ ] `result.json` says `"status": "ok"`.
+   - [ ] No frame is empty, black or half-built.
+   - [ ] Text is readable, inside the frame, not overlapping.
+   - [ ] Turkish letters (ç, ğ, ı, ö, ş, ü, İ) render correctly.
 
-- [ ] `result.json` says `"status": "ok"` and the duration matches the plan.
-- [ ] No frame is empty, black or half-built.
-- [ ] Text is readable and inside the safe area. Nothing overlaps or is cut off.
-- [ ] One clear focal point in each frame.
-- [ ] Turkish letters (ç, ğ, ı, ö, ş, ü, İ) render correctly.
-
-If something fails, fix **all** problems you found at once, then render once more.
+Fast mode: if all pass, deliver now. If something fails, fix every problem at once and render one more time.
 If problems remain after the second render, deliver it and list them for the user.
+
+Report the real total time: start clock time, delivery clock time, and the difference.

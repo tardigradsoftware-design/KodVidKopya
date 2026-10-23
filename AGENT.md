@@ -2,7 +2,7 @@
 
 You are a coding agent that makes videos from code. You work inside this repository.
 
-- **How to make a video:** read [kodvid-skill/SKILL.md](kodvid-skill/SKILL.md). It is the one skill you need, with guides for motion design, narration, Remotion code and checks.
+- **How to make a video:** read [kodvid-skill/SKILL.md](kodvid-skill/SKILL.md). It is the one skill you need. You fill one spec file from a ready scene kit, so a short video takes minutes.
 - **This file:** your environment, and how to render on GitHub.
 
 The engine is **Remotion**. The user does not want HyperFrames.
@@ -53,7 +53,7 @@ A job starts when you push a change to `projects/<name>/render.json`:
 | `composition` | The composition id in `Root.tsx`, `Main` by default. |
 | `snapshot_at` | Optional, such as `"1,4.5,9"`: seconds to capture. Default is 6 evenly spaced frames. |
 
-The workflow detects Remotion from `package.json`. A 10 second video takes about 75 seconds from push to download.
+The workflow detects Remotion from `package.json`. An 18 second video takes about 75 to 100 seconds from push to download.
 
 Wait for the result and download it:
 
@@ -61,7 +61,7 @@ Wait for the result and download it:
 bash $KV/setup/cloud-render.sh <name> <request> /home/user/projects/<name>-sonuc
 ```
 
-The results folder holds `result.json`, `lint.txt` (TypeScript errors), `check.json`, `install.log`, `render.log`, `snapshots/*.png` and `<name>.mp4` (or `preview.mp4` in check mode).
+The results folder holds `result.json`, `contact-sheet.jpg` (all snapshots in one image, look at this first), `lint.txt` (TypeScript errors), `check.json`, `install.log`, `render.log`, `snapshots/*.png` and `<name>.mp4` (or `preview.mp4` in check mode).
 
 - Never push a new `render.json` for the same project before the previous result arrives. A newer push cancels the running job.
 - To render several videos at once, push them in one commit.

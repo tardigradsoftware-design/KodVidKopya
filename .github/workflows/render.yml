@@ -104,6 +104,10 @@ jobs:
               ffmpeg -v error -y -ss "$t" -i "$v" -frames:v 1 -vf "scale=960:-2" "$O/snapshots/frame-$(printf %02d $i)-at-${t}s.png"
               i=$((i+1))
             done
+            # Tum kareler tek gorselde: ajan once buna bakar
+            rows=$(( (i + 2) / 3 ))
+            [ "$i" -gt 0 ] && ffmpeg -v error -y -pattern_type glob -i "$O/snapshots/frame-*.png" \
+              -vf "scale=640:-2,tile=3x${rows}:padding=4" -frames:v 1 "$O/contact-sheet.jpg"
           }
 
           for P in $LIST; do

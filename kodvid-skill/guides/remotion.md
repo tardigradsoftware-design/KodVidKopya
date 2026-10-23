@@ -1,7 +1,7 @@
 # Remotion guide (version 4.0.538)
 
-Everything you need to write a Remotion video without reading other skills. Verified against Remotion 4.0.538
-and a real render on this repo's GitHub workflow.
+For custom scenes and quality mode. In fast mode you only edit `src/video.ts` (see `SKILL.md`).
+Verified against Remotion 4.0.538 and real renders on this repo's GitHub workflow.
 
 ## Project
 
@@ -11,10 +11,20 @@ Start from `templates/remotion`. Copy the whole folder to `projects/<name>`. It 
 |---|---|
 | `package.json` | Pinned versions. All `remotion` and `@remotion/*` packages must have the same version: `4.0.538`. |
 | `remotion.config.ts` | Render settings. Keep `setChromiumOpenGlRenderer("swangle")`: GitHub has no GPU and effects need software WebGL. |
-| `src/index.ts` | Registers the root. Do not change. |
-| `src/Root.tsx` | Declares the composition `Main`: size, fps, `durationInFrames`. |
-| `src/Main.tsx` | The video. Replace its scenes with yours. |
+| `src/video.ts` | The film spec: scenes, narration lines, voice length, colors. |
+| `src/kit/Film.tsx` | Builds the film from the spec: background, scenes, cuts, voice, and all timing math. |
+| `src/kit/scenes.tsx` | The scene components. |
+| `src/kit/parts.tsx` | Building blocks: `Background`, `Words` (word-by-word text), `Rise`, `Rule`. |
+| `src/kit/theme.ts` | Fonts (Inter, JetBrains Mono), colors, easings, type sizes. |
+| `src/Root.tsx`, `src/Main.tsx`, `src/index.ts` | Wiring. Length comes from `totalFrames(video)`. Do not edit. |
 | `public/` | Assets: `voice.mp3`, images, fonts. Reference them with `staticFile("name")`. |
+
+## Adding a custom scene
+
+1. Write the component in `src/kit/scenes.tsx`, transparent (no background), taking its props plus `theme`. Reuse `Words`, `Rise` and the `size`, `easeIn`, `clamp` helpers.
+2. Add a member to `SceneSpec` in `src/kit/Film.tsx`: `({ readonly type: "myscene" } & MyProps)`.
+3. Add a `case "myscene"` to `SceneView`.
+4. Use it in `video.ts`. Timing, cuts and voice keep working.
 
 Add a package with the exact same version, for example `npm i @remotion/three@4.0.538 three @react-three/fiber`.
 Useful packages: `@remotion/transitions`, `@remotion/effects`, `@remotion/media`, `@remotion/google-fonts`,
@@ -26,7 +36,7 @@ Check locally with `npm install` and `npx tsc` before pushing. Rendering happens
 
 - Everything is measured in **frames**. Get `fps` from `useVideoConfig()` and write times as `2 * fps`.
 - `useCurrentFrame()` is the frame number **inside the current Sequence**, starting at 0.
-- `Root.tsx` sets the total length: `durationInFrames = Math.ceil(audioSeconds * fps) + 15`.
+- The kit sets the total length from `video.ts` through `totalFrames(video)`. Outside the kit: `durationInFrames = Math.ceil(audioSeconds * fps) + 15`.
 
 ## Animation
 
@@ -106,6 +116,9 @@ import { lightLeak } from "@remotion/effects/light-leak";
 
 Available families: color (brightness, contrast, saturation, duotone, tint, LUT), blur (blur, zoomBlur, progressive blur), light (glow, lightLeak, shine, vignette, dropShadow), distortion (chromaticAberration, wave, fisheye), texture (noise, halftone, scanlines, paper, dotGrid), pixel (pixelate, pixelDissolve).
 Import each from `@remotion/effects/<kebab-case-name>`. Effects never animate on their own: drive `progress` or other values from the frame.
+
+**Effects draw only inside the element's own box.** A glow or blur on a small element is cut off at its edges and shows as a grey rectangle.
+Give the element enough padding for the effect, or apply the effect to a full-frame `<Solid>` or `<HtmlInCanvas>` layer. This happened in a real test.
 For exact options, read `remotion-markup/effects.md` in Remotion's skills (see SKILL.md, "Deeper topics").
 
 ## 3D
