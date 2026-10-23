@@ -18,7 +18,7 @@ bash $KV/setup/bootstrap.sh
 ```
 
 The script installs Node, FFmpeg and Chrome under `/opt/kodvid`, so they never land in this repo or your workspace.
-Do not render until it prints `HAZIR`.
+Do not run `check` or `snapshot` until it prints `HAZIR`.
 Shell variables do not carry over between your commands, so start every command with:
 
 ```bash
@@ -32,16 +32,15 @@ source $KV/setup/env.sh && <your command>
 - **Never commit** `node_modules`, `renders/` or snapshots. `projects/.gitignore` already excludes them.
 - **Push only `projects/<name>`.** Do not change other files in this repo unless the user asks.
 
-## Fast render on GitHub
+## Render on GitHub (always)
 
-Your sandbox has 2 cores and renders at about 3x real time. GitHub renders this repo's projects on a 4-core machine for free,
-at about 1.5 to 2x real time, but each job adds about 1 minute of setup and queue time.
+The user's rule: **every render, draft or final, runs on GitHub.** Never render a video in your sandbox.
+Your sandbox is only for writing the project and checking it with `lint`, `check` and `snapshot`.
 
-- **Videos under 40 seconds:** render locally. It finishes sooner.
-- **Videos of 40 seconds or more:** render on GitHub.
-- **Several videos at once:** push them in one commit. GitHub renders each project on its own machine in parallel.
+GitHub renders on a 4-core machine for free at about 1.5 to 2x real time. Each job adds about 1 minute of setup and queue time.
+To render several videos at once, push them in one commit. Each project renders on its own machine in parallel.
 
-1. Finish the project and pass `lint`, `check` and your snapshot review locally.
+1. Finish the project and pass `lint`, `check` and your snapshot review.
 2. Write `$KV/projects/<name>/render.json` with a new `request` value every time:
    `{ "request": "<name>-<date-time>", "quality": "delivery", "fps": 30, "composition": "index.html" }`
 3. Commit `projects/<name>/` and push it to `main`. The push of `render.json` starts the render.
@@ -50,7 +49,8 @@ at about 1.5 to 2x real time, but each job adds about 1 minute of setup and queu
 5. The script prints the render result, including duration and resolution. If it fails, it prints the end of the render log.
 
 Results are public at `https://github.com/tardigradsoftware-design/KodVidKopya/releases/tag/render-<name>`.
-If you cannot push, render locally with `setup/render.sh` instead.
+If you cannot push, or the GitHub render fails twice, stop and tell the user. Do not fall back to a local render without their permission.
+Put narration and music inside the project as audio elements, so the GitHub render includes them.
 
 ## How to find a skill
 
@@ -93,7 +93,7 @@ Their `status` is `local-sync` (license forbids copying here; clone the public r
 For anything else, use `catalog/index/`.
 
 In this sandbox, prefer HyperFrames. It needs only Node, FFmpeg and Chrome, which `bootstrap.sh` installs.
-Manim and Remotion work too but need heavier setup.
+The GitHub render workflow supports HyperFrames projects only. Before choosing Manim or Remotion, tell the user it cannot render on GitHub yet and ask how to proceed.
 
 ## Standard workflow
 
@@ -102,15 +102,14 @@ Manim and Remotion work too but need heavier setup.
 3. Write the composition. Every frame must be a pure function of time, so renders are deterministic.
 4. Run `npx hyperframes lint`, then `npx hyperframes check --json`, and fix every error.
 5. Run `npx hyperframes snapshot --at <times>` and look at the PNGs yourself. `check` can pass while elements still overlap.
-6. Render a short draft locally from the project folder with `bash $KV/setup/render.sh --quality draft --output renders/draft.mp4`.
-7. Fix problems, then render the final with `--quality delivery`, locally or on GitHub as described in "Fast render on GitHub". Report the output path, duration and resolution.
+6. Render a draft on GitHub with `"quality": "draft"`, as described in "Render on GitHub". Watch the downloaded draft by extracting frames with `ffmpeg`.
+7. Fix problems, then render the final on GitHub with `"quality": "delivery"`. Report the output path, duration, resolution and the release link.
 
 ## Sandbox rules (from a real test run)
 
-- **Always render through `setup/render.sh`.** `/tmp` is a small memory disk and renders fail with "Low disk space" without it.
-- **Expect about 3x real time for a final render.** There is no GPU. A measured 15 second film with transitions took 48 seconds, so a 60 second video takes about 3 to 4 minutes. Commands time out after 30 minutes, so run longer renders in the background and poll the log.
-- **If a render crashes on memory**, retry with `KODVID_WORKERS=1`.
-- **Narration:** make speech with your own text-to-speech tool. The local Kokoro model in HyperFrames does not speak Turkish; for Turkish use your own tool or `edge-tts` with a `tr-TR` voice such as `tr-TR-AhmetNeural`. To add it to a video, never use `-shortest`, because it cuts the video to the audio length. Use `-af apad -t <video seconds>` instead, or match the video length to the audio.
+- **Do not render in the sandbox.** It has 2 cores and no GPU. All renders go to GitHub.
+- **Long waits:** `cloud-render.sh` polls for up to 30 minutes. Your commands also time out after 30 minutes, so for very long videos run it in the background and check its output.
+- **Narration:** make speech with your own text-to-speech tool and save it in the project's `assets/audio/`. The local Kokoro model in HyperFrames does not speak Turkish; for Turkish use your own tool or `edge-tts` with a `tr-TR` voice such as `tr-TR-AhmetNeural`. Set scene lengths from the audio length, so audio and video end together.
 - **Generated images** may not match the requested size. Scale them with `ffmpeg -vf scale=W:H:flags=lanczos`.
 - **Preview** runs on localhost inside the sandbox and the user cannot open it. Deliver the MP4 file, or upload it to Drive and share the link.
 
