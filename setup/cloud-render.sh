@@ -27,5 +27,5 @@ while :; do
     fi
   fi
   [ $(( $(date +%s) - start )) -ge "$LIMIT" ] && { echo "Zaman asimi: $LIMIT sn"; exit 2; }
-  sleep 15
+  sleep 5
 done
