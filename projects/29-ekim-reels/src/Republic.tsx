@@ -107,7 +107,7 @@ const Backdrop: React.FC<{ scene: number; local: number }> = ({ scene, local }) 
 };
 
 const YearCounter: React.FC<{ local: number; duration: number }> = ({ local, duration }) => {
-  const year = Math.floor(interpolate(local, [0.25 * FPS, Math.max(0.26 * FPS, duration - 0.8 * FPS)], [1923, 2026], { ...clamp, easing: Easing.out(Easing.cubic) }));
+  const year = Math.floor(interpolate(local, [0.25 * FPS, Math.max(0.26 * FPS, duration - 0.8 * FPS)], [1923, 2026], { ...clamp, easing: Easing.linear }));
   const scale = interpolate(local, [0, 16, duration - 10, duration], [1.2, 1, 1.035, 1.16], { ...clamp, easing: ease });
   return (
     <>
@@ -148,7 +148,7 @@ const Content: React.FC<{ index: number; local: number; duration: number }> = ({
     const title = interpolate(local, [14, 36], [0, 1], { ...clamp, easing: ease });
     return <>
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg,rgba(30,0,4,.26),transparent 50%,rgba(20,0,3,.22))" }} />
-      <FabricFlag top={interpolate(local, [0, 30], [280, 460], { ...clamp, easing: ease })} width={1510 * opening} />
+      <FabricFlag top={interpolate(local, [0, 30], [280, 460], { ...clamp, easing: ease })} width={990 * opening} />
       <div style={{ position: "absolute", top: 1230, left: 90, right: 90, color: "white", fontFamily: fonts.sans, textAlign: "center", fontSize: 65, lineHeight: 1.16, fontWeight: 800, letterSpacing: "-.03em", opacity: title, transform: `translateY(${(1 - title) * 76}px)`, textShadow: "0 8px 36px rgba(52,0,6,.75)" }}>Bir millet,<br />kendi geleceğini seçti.</div>
     </>;
   }
