@@ -160,17 +160,18 @@
     // A bolumu sagdan girer: kesitteki sol vektorun devami
     tl.fromTo(
       "#s2-a",
-      { x: 260, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
+      { x: 185 },
+      { x: 0, duration: 0.46, ease: "power2.out" },
       0,
     );
     tl.set("#s2-b", { opacity: 0 }, 0);
+    tl.set("#s2-a", { opacity: 1 }, 0);
 
     tl.fromTo(
       "#s2-head",
       { opacity: 0, filter: "blur(8px)" },
-      { opacity: 1, filter: "blur(0px)", duration: 0.26, ease: "power2.out" },
-      0.08,
+      { opacity: 1, filter: "blur(0px)", duration: 0.24, ease: "power2.out" },
+      0.04,
     );
 
     ["#s2-l1", "#s2-l2", "#s2-l3", "#s2-l4"].forEach((sel, i) => {
@@ -178,11 +179,11 @@
         sel,
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" },
-        [0.18, 0.42, 0.64, 0.82][i],
+        [0.14, 0.36, 0.56, 0.74][i],
       );
     });
 
-    tl.fromTo("#s2-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 0.86);
+    tl.fromTo("#s2-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.78, ease: "power2.inOut" }, 0.78);
 
     // "On saniyede": sayi iner
     tl.fromTo(
