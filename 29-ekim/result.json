@@ -1,0 +1,20 @@
+{
+  "project": "29-ekim",
+  "engine": "remotion",
+  "request": "29-ekim-20261023-1048",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "50abb817f8947294425e6fe5ec60312f43a244c2",
+  "branch": "arena/8031e986-kodvidkopya",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39941465447",
+  "finished": "2026-10-23T10:48:13Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 69,
+  "duration": 27.200000,
+  "width": 1920,
+  "height": 1080,
+  "bytes": 8568030
+}

@@ -1,0 +1,20 @@
+{
+  "project": "kit-test",
+  "engine": "remotion",
+  "request": "kit-2",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "3ad5a346638d415966d0c098accaffb499dcafd4",
+  "branch": "arena/test-kit",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39904801482",
+  "finished": "2026-10-23T05:16:58Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 34,
+  "duration": 18.500000,
+  "width": 1920,
+  "height": 1080,
+  "bytes": 1954412
+}

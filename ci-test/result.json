@@ -1,0 +1,19 @@
+{
+  "project": "ci-test",
+  "request": "tek-is-test-2",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "c3468f79cbf96a41a75eb48d490ea17bf2d8774b",
+  "branch": "arena/test-2",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39894644141",
+  "finished": "2026-10-23T03:23:10Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 31,
+  "duration": 15.000000,
+  "width": 1920,
+  "height": 1080,
+  "bytes": 1515551
+}

@@ -1,0 +1,20 @@
+{
+  "project": "29-ekim-reels",
+  "engine": "remotion",
+  "request": "29-ekim-reels-20261023-0920",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "af1e418e0d72d2840d8869289e529c9004c06316",
+  "branch": "arena/a131ac40-kodvidkopya",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39909594625",
+  "finished": "2026-10-23T06:09:31Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 118,
+  "duration": 30.549000,
+  "width": 1080,
+  "height": 1920,
+  "bytes": 13598914
+}

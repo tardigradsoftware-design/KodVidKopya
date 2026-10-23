@@ -1,0 +1,19 @@
+{
+  "project": "ilk-video",
+  "request": "ilk-video-20261023-delivery",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "e36578cde97c29bd400848f166ffd8daf90513c2",
+  "branch": "arena/bd91283f-kodvidkopya",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39896147709",
+  "finished": "2026-10-23T03:40:03Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 28,
+  "duration": 13.066667,
+  "width": 1920,
+  "height": 1080,
+  "bytes": 2151470
+}

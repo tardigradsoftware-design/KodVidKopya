@@ -1,0 +1,20 @@
+{
+  "project": "remotion-test",
+  "engine": "remotion",
+  "request": "remotion-fx-2",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "e2b13cf04a5a3707d589f948f7a5a719a4976894",
+  "branch": "arena/test-3",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39897916430",
+  "finished": "2026-10-23T04:00:23Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 19,
+  "duration": 10.000000,
+  "width": 1920,
+  "height": 1080,
+  "bytes": 376257
+}

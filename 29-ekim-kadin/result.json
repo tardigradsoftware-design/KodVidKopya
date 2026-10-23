@@ -1,0 +1,20 @@
+{
+  "project": "29-ekim-kadin",
+  "engine": "remotion",
+  "request": "29-ekim-kadin-20261023-1403",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "65c45d36bc5f46ed61d5d5522082ae17478b4d55",
+  "branch": "main",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39943275900",
+  "finished": "2026-10-23T11:04:27Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 91,
+  "duration": 36.011000,
+  "width": 1080,
+  "height": 1920,
+  "bytes": 8872630
+}

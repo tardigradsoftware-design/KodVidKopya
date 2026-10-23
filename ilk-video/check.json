@@ -1,0 +1,100 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 13.05,
+    "samples": [
+      0.725,
+      2.175,
+      3.625,
+      5.075,
+      6.525,
+      7.975,
+      9.425,
+      10.875,
+      12.325
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.725,
+      3.625,
+      6.525,
+      9.425,
+      12.325
+    ],
+    "checked": 72,
+    "passed": 72
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.12400000000000055,
+    "samples": 105
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "32afc3eb-3c86-4df5-8d4e-5b5ff7f5817b",
+    "revision": null,
+    "report": "/home/runner/work/KodVidKopya/KodVidKopya/projects/ilk-video/.hyperframes/artifacts/checks/32afc3eb-3c86-4df5-8d4e-5b5ff7f5817b.json",
+    "attribution": "unversioned"
+  },
+  "_meta": {
+    "version": "0.8.186",
+    "updateAvailable": false
+  }
+}

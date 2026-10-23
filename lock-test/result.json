@@ -1,0 +1,20 @@
+{
+  "project": "lock-test",
+  "engine": "remotion",
+  "request": "lock-1",
+  "mode": "check",
+  "status": "checked",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "cf876b51558b0f60a41154e9ac73cd2b05f2f64e",
+  "branch": "arena/test-lock",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39905203905",
+  "finished": "2026-10-23T05:21:16Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 21,
+  "duration": null,
+  "width": null,
+  "height": null,
+  "bytes": 0
+}

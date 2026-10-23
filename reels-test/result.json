@@ -1,0 +1,20 @@
+{
+  "project": "reels-test",
+  "engine": "remotion",
+  "request": "reels-1",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "fc668372a6c8d0d292befca1a74af920fee44e9f",
+  "branch": "arena/test-reels",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39938985250",
+  "finished": "2026-10-23T10:26:43Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 48,
+  "duration": 18.517000,
+  "width": 1080,
+  "height": 1920,
+  "bytes": 4204750
+}

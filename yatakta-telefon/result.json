@@ -1,0 +1,20 @@
+{
+  "project": "yatakta-telefon",
+  "engine": "remotion",
+  "request": "yatakta-telefon-20261023-1047",
+  "mode": "render",
+  "status": "ok",
+  "lint_ok": true,
+  "check_ok": true,
+  "commit": "2f1c6501a22c280ccf3ff00d56033cf9b4021b9c",
+  "branch": "arena/64d95e1e-kodvidkopya",
+  "run": "https://github.com/tardigradsoftware-design/KodVidKopya/actions/runs/39941539409",
+  "finished": "2026-10-23T10:54:43Z",
+  "quality": "delivery",
+  "fps": 30,
+  "render_seconds": 55,
+  "duration": 21.035000,
+  "width": 1080,
+  "height": 1920,
+  "bytes": 4706025
+}
