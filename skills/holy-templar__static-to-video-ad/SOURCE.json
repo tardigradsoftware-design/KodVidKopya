@@ -1,0 +1,14 @@
+{
+  "repo": "holy-templar/static-to-video-ad",
+  "url": "https://github.com/holy-templar/static-to-video-ad",
+  "sha": "16f288460dd51c8fdf1a7a77cb9f07a0157fa4a8",
+  "license": "AGPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:28.413Z",
+  "kind": "skill",
+  "exclude": "",
+  "skillRoots": [
+    ""
+  ],
+  "files": 2,
+  "droppedByBudget": 0
+}

@@ -1,0 +1,14 @@
+{
+  "repo": "etro-js/etro",
+  "url": "https://github.com/etro-js/etro",
+  "sha": "8c4d205620c258db4f1b2a01d615c2531322e5b0",
+  "license": "GPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:37.436Z",
+  "kind": "guide",
+  "exclude": "",
+  "skillRoots": [
+    ""
+  ],
+  "files": 21,
+  "droppedByBudget": 0
+}

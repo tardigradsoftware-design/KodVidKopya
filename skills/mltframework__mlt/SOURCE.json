@@ -1,0 +1,14 @@
+{
+  "repo": "mltframework/mlt",
+  "url": "https://github.com/mltframework/mlt",
+  "sha": "8f605c9486d8c1d0f8283d9baf5e94592a10bd6c",
+  "license": "LGPL-2.1",
+  "fetchedAt": "2026-10-23T04:07:40.492Z",
+  "kind": "guide",
+  "exclude": "",
+  "skillRoots": [
+    ""
+  ],
+  "files": 4,
+  "droppedByBudget": 0
+}

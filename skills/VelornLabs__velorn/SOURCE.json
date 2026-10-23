@@ -1,0 +1,14 @@
+{
+  "repo": "VelornLabs/velorn",
+  "url": "https://github.com/VelornLabs/velorn",
+  "sha": "b3c02adbd5c0779feb8abf34978299e9502cc0e7",
+  "license": "GPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:47.685Z",
+  "kind": "guide",
+  "exclude": "",
+  "skillRoots": [
+    ""
+  ],
+  "files": 165,
+  "droppedByBudget": 0
+}

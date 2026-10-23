@@ -1,0 +1,16 @@
+{
+  "repo": "TryWorld2026/paper-algorithm",
+  "url": "https://github.com/TryWorld2026/paper-algorithm",
+  "sha": "79d70cae5cb09ae883f42173102afd048b754102",
+  "license": "CC-BY-SA-4.0",
+  "fetchedAt": "2026-10-23T04:07:33.921Z",
+  "kind": "skill",
+  "exclude": "",
+  "skillRoots": [
+    "skills/tryworld-koubo",
+    "skills/tryworld-paper",
+    "skills/tryworld-topics"
+  ],
+  "files": 29,
+  "droppedByBudget": 0
+}

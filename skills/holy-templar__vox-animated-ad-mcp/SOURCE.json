@@ -1,0 +1,14 @@
+{
+  "repo": "holy-templar/vox-animated-ad-mcp",
+  "url": "https://github.com/holy-templar/vox-animated-ad-mcp",
+  "sha": "2e7f25379c151dcba671e545dc8b753cdde87c8b",
+  "license": "AGPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:30.309Z",
+  "kind": "skill",
+  "exclude": "",
+  "skillRoots": [
+    ""
+  ],
+  "files": 2,
+  "droppedByBudget": 0
+}

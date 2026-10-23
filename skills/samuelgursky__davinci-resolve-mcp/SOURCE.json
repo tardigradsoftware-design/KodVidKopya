@@ -1,10 +1,11 @@
 {
   "repo": "samuelgursky/davinci-resolve-mcp",
   "url": "https://github.com/samuelgursky/davinci-resolve-mcp",
-  "sha": "a701b3759a3f09c77d27c7f1a0392a5afee4bd36",
+  "sha": "c43bad5207673eb6b44f5e6ee41776b8052ecd2f",
   "license": "MIT",
-  "fetchedAt": "2026-10-22T23:52:56.228Z",
+  "fetchedAt": "2026-10-23T04:07:53.057Z",
   "kind": "skill",
+  "exclude": "",
   "skillRoots": [
     ".agents/skills/house-style",
     ".agents/skills/release-check",

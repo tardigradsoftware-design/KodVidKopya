@@ -6,10 +6,12 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | Klasor | Kaynak | Commit | Lisans |
 |---|---|---|---|
 | skills/0xS4N4TG__papercut-explainer | [0xS4N4TG/papercut-explainer](https://github.com/0xS4N4TG/papercut-explainer) | `ff8223abc8` | MIT |
+| skills/0xsline__OpenChatCut | [0xsline/OpenChatCut](https://github.com/0xsline/OpenChatCut) | `7fa4b7903e` | AGPL-3.0 |
 | skills/10291124jcjc-dotcom__ancient-rap-battle | [10291124jcjc-dotcom/ancient-rap-battle](https://github.com/10291124jcjc-dotcom/ancient-rap-battle) | `2a9219ae9d` | MIT |
 | skills/124zhe__xigua-msvideo-skill | [124zhe/xigua-msvideo-skill](https://github.com/124zhe/xigua-msvideo-skill) | `b9a00165c9` | MIT |
 | skills/aaronyi97__image-story-video-wizard | [aaronyi97/image-story-video-wizard](https://github.com/aaronyi97/image-story-video-wizard) | `6c6979fd95` | MIT |
 | skills/Aaryan-Kapoor__video-production-skill | [Aaryan-Kapoor/video-production-skill](https://github.com/Aaryan-Kapoor/video-production-skill) | `662738c012` | MIT |
+| skills/abhinavshrivastava950__Montara | [abhinavshrivastava950/Montara](https://github.com/abhinavshrivastava950/Montara) | `ad84cbde4c` | AGPL-3.0 |
 | skills/AbubakrChan__product-launch-motion | [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) | `edbfb10538` | MIT |
 | skills/acelera-agency__html-animation | [acelera-agency/html-animation](https://github.com/acelera-agency/html-animation) | `8b888794bb` | MIT |
 | skills/adithya-s-k__manim_skill | [adithya-s-k/manim_skill](https://github.com/adithya-s-k/manim_skill) | `cef0450117` | MIT |
@@ -39,12 +41,13 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/beatra-ai__viral-video-remake-skill | [beatra-ai/viral-video-remake-skill](https://github.com/beatra-ai/viral-video-remake-skill) | `0a6e12ba56` | MIT-0 |
 | skills/beriki770-ship-it__code-animations | [beriki770-ship-it/code-animations](https://github.com/beriki770-ship-it/code-animations) | `46accf66e5` | MIT |
 | skills/bestagentkits__motion-video-skill | [bestagentkits/motion-video-skill](https://github.com/bestagentkits/motion-video-skill) | `a73702b893` | MIT |
-| skills/BintzGavin__helios | [BintzGavin/helios](https://github.com/BintzGavin/helios) | `ff2e358bad` | Apache-2.0 |
+| skills/BintzGavin__helios | [BintzGavin/helios](https://github.com/BintzGavin/helios) | `e4f850b7f2` | Apache-2.0 |
 | skills/blixvip__easyedit | [blixvip/easyedit](https://github.com/blixvip/easyedit) | `dd860f8c45` | MIT |
 | skills/browser-use__video-use | [browser-use/video-use](https://github.com/browser-use/video-use) | `43cfc56683` | MIT |
 | skills/buildwithhanif__claude-animation-skill | [buildwithhanif/claude-animation-skill](https://github.com/buildwithhanif/claude-animation-skill) | `4ddb8c80fd` | MIT |
 | skills/BusyBee3333__animated-explainer-skills | [BusyBee3333/animated-explainer-skills](https://github.com/BusyBee3333/animated-explainer-skills) | `c1dd704921` | MIT |
 | skills/BuzyOwl__song-video-director | [BuzyOwl/song-video-director](https://github.com/BuzyOwl/song-video-director) | `c0f4752718` | MIT |
+| skills/calesthio__OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | `c806645232` | AGPL-3.0 |
 | skills/cartesiancs__cartcut | [cartesiancs/cartcut](https://github.com/cartesiancs/cartcut) | `d9cbf5fe17` | MIT |
 | skills/Cassette-Editor__oh-my-cassette | [Cassette-Editor/oh-my-cassette](https://github.com/Cassette-Editor/oh-my-cassette) | `2ac6bd0447` | MIT |
 | skills/cblain100-prog__motion-design-claude-code | [cblain100-prog/motion-design-claude-code](https://github.com/cblain100-prog/motion-design-claude-code) | `a89fc5494f` | MIT |
@@ -83,6 +86,7 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/erduo1998-cell__video-script-builder | [erduo1998-cell/video-script-builder](https://github.com/erduo1998-cell/video-script-builder) | `5c0164235e` | MIT |
 | skills/erduo1998-cell__vidmuse-video-creator | [erduo1998-cell/vidmuse-video-creator](https://github.com/erduo1998-cell/vidmuse-video-creator) | `d4bd16dfbd` | MIT |
 | skills/eternityspring__reelbench-skills | [eternityspring/reelbench-skills](https://github.com/eternityspring/reelbench-skills) | `0d2743ade3` | Apache-2.0 |
+| skills/etro-js__etro | [etro-js/etro](https://github.com/etro-js/etro) | `8c4d205620` | GPL-3.0 |
 | skills/every-app__video-skills | [every-app/video-skills](https://github.com/every-app/video-skills) | `01afbd2222` | MIT |
 | skills/Fagan1024__smart-video-editor | [Fagan1024/smart-video-editor](https://github.com/Fagan1024/smart-video-editor) | `3131d135be` | MIT |
 | skills/farming-labs__product-film-skill | [farming-labs/product-film-skill](https://github.com/farming-labs/product-film-skill) | `d80715c246` | MIT |
@@ -93,6 +97,7 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/fltman__infofilm | [fltman/infofilm](https://github.com/fltman/infofilm) | `3b0ea1b1fa` | MIT |
 | skills/frankxai__awesome-motion-design-agent-skills | [frankxai/awesome-motion-design-agent-skills](https://github.com/frankxai/awesome-motion-design-agent-skills) | `b45d60fa5b` | CC0-1.0 |
 | skills/garycaogan__pixel-diary | [garycaogan/pixel-diary](https://github.com/garycaogan/pixel-diary) | `a096b39a4c` | MIT |
+| skills/geekjourneyx__hyperframes-motion-director | [geekjourneyx/hyperframes-motion-director](https://github.com/geekjourneyx/hyperframes-motion-director) | `0b66750322` | AGPL-3.0 |
 | skills/generalizingai__shadowcast | [generalizingai/shadowcast](https://github.com/generalizingai/shadowcast) | `1231f8fc96` | MIT |
 | skills/ggml-org__whisper.cpp | [ggml-org/whisper.cpp](https://github.com/ggml-org/whisper.cpp) | `231638a071` | MIT |
 | skills/gloweaseco-leo__hyperdirector | [gloweaseco-leo/hyperdirector](https://github.com/gloweaseco-leo/hyperdirector) | `220fa2ac42` | Apache-2.0 |
@@ -101,6 +106,7 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/gorkem-bwl__onboarding-video-generator | [gorkem-bwl/onboarding-video-generator](https://github.com/gorkem-bwl/onboarding-video-generator) | `a508ea84a1` | MIT |
 | skills/gquthier__autonomous-sop-video | [gquthier/autonomous-sop-video](https://github.com/gquthier/autonomous-sop-video) | `19a7f7f7a2` | MIT |
 | skills/greensock__gsap-skills | [greensock/gsap-skills](https://github.com/greensock/gsap-skills) | `aed9cfd327` | MIT |
+| skills/GTKottman__mortiflix-oss | [GTKottman/mortiflix-oss](https://github.com/GTKottman/mortiflix-oss) | `3b65e43352` | AGPL-3.0 |
 | skills/hacimertgokhan__geomotion | [hacimertgokhan/geomotion](https://github.com/hacimertgokhan/geomotion) | `88c1c1c4f8` | MIT |
 | skills/hahadu4520__newcut-video-clipping-skill | [hahadu4520/newcut-video-clipping-skill](https://github.com/hahadu4520/newcut-video-clipping-skill) | `1f7d1517c6` | MIT |
 | skills/haiderfarooq3__khan-explainer | [haiderfarooq3/khan-explainer](https://github.com/haiderfarooq3/khan-explainer) | `326bf9b533` | MIT |
@@ -109,10 +115,12 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/hassancs91__claude-faceless-shorts-creator | [hassancs91/claude-faceless-shorts-creator](https://github.com/hassancs91/claude-faceless-shorts-creator) | `773054bebb` | MIT |
 | skills/hassancs91__claude-youtube-editor | [hassancs91/claude-youtube-editor](https://github.com/hassancs91/claude-youtube-editor) | `a6ac742b44` | MIT |
 | skills/hetpatel-11__Adobe_Premiere_Pro_MCP | [hetpatel-11/Adobe_Premiere_Pro_MCP](https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP) | `4ad1d9515e` | MIT |
-| skills/heygen-com__hyperframes | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | `da6b77bd84` | Apache-2.0 |
+| skills/heygen-com__hyperframes | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | `f6cbf87cdd` | Apache-2.0 |
 | skills/heygen-com__hyperframes-launches | [heygen-com/hyperframes-launches](https://github.com/heygen-com/hyperframes-launches) | `d7ac35069d` | Apache-2.0 |
 | skills/heygen-com__skills | [heygen-com/skills](https://github.com/heygen-com/skills) | `1bd5e4d33a` | MIT |
 | skills/hi-nikola__hand-drawn-explainer-video-nikola | [hi-nikola/hand-drawn-explainer-video-nikola](https://github.com/hi-nikola/hand-drawn-explainer-video-nikola) | `3ee5d1c01f` | Apache-2.0 |
+| skills/holy-templar__static-to-video-ad | [holy-templar/static-to-video-ad](https://github.com/holy-templar/static-to-video-ad) | `16f288460d` | AGPL-3.0 |
+| skills/holy-templar__vox-animated-ad-mcp | [holy-templar/vox-animated-ad-mcp](https://github.com/holy-templar/vox-animated-ad-mcp) | `2e7f25379c` | AGPL-3.0 |
 | skills/hraness__slopcamera | [hraness/slopcamera](https://github.com/hraness/slopcamera) | `0b22805147` | MIT |
 | skills/hub-ki__video-generation | [hub-ki/video-generation](https://github.com/hub-ki/video-generation) | `a049d66ccd` | MIT |
 | skills/Hype-yolo__claude-motion-skill | [Hype-yolo/claude-motion-skill](https://github.com/Hype-yolo/claude-motion-skill) | `607fe98015` | MIT |
@@ -173,6 +181,7 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/mcdenil-skills__AutoMontage-Agent | [mcdenil-skills/AutoMontage-Agent](https://github.com/mcdenil-skills/AutoMontage-Agent) | `e8647d52c3` | MIT |
 | skills/memex-lab__product-launch-video-skill | [memex-lab/product-launch-video-skill](https://github.com/memex-lab/product-launch-video-skill) | `9de027d194` | MIT |
 | skills/mileson__chaojifeng-video-design | [mileson/chaojifeng-video-design](https://github.com/mileson/chaojifeng-video-design) | `1c45b25498` | MIT |
+| skills/mltframework__mlt | [mltframework/mlt](https://github.com/mltframework/mlt) | `8f605c9486` | LGPL-2.1 |
 | skills/Mng-dev-ai__explainer-video | [Mng-dev-ai/explainer-video](https://github.com/Mng-dev-ai/explainer-video) | `1a534c29ac` | MIT |
 | skills/Monet-AI-Editor__Monet | [Monet-AI-Editor/Monet](https://github.com/Monet-AI-Editor/Monet) | `74fcb1646a` | MIT |
 | skills/motalim-ai__motion-starter-kit | [motalim-ai/motion-starter-kit](https://github.com/motalim-ai/motion-starter-kit) | `4f71f89e6d` | MIT |
@@ -194,12 +203,15 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/NVIDIA__SkillSpector | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | `d7338f5820` | Apache-2.0 |
 | skills/OnurGumus__codebase-video | [OnurGumus/codebase-video](https://github.com/OnurGumus/codebase-video) | `9deddc3f7b` | MIT |
 | skills/onuryildriim__claude-kurgu-atolyesi | [onuryildriim/claude-kurgu-atolyesi](https://github.com/onuryildriim/claude-kurgu-atolyesi) | `4edc6445f4` | MIT |
+| skills/op7418__guizang-product-video-skill | [op7418/guizang-product-video-skill](https://github.com/op7418/guizang-product-video-skill) | `18842e0f49` | AGPL-3.0 |
 | skills/open-ribbi__velocut | [open-ribbi/velocut](https://github.com/open-ribbi/velocut) | `3e371c012b` | MIT |
 | skills/Orkas-AI__Orkas-VideoStudio | [Orkas-AI/Orkas-VideoStudio](https://github.com/Orkas-AI/Orkas-VideoStudio) | `8a2b51af78` | MIT |
 | skills/patryk-penczek__ship-video | [patryk-penczek/ship-video](https://github.com/patryk-penczek/ship-video) | `8b1e3e899d` | MIT |
 | skills/Phantomlau3674__voxstylehub-steven | [Phantomlau3674/voxstylehub-steven](https://github.com/Phantomlau3674/voxstylehub-steven) | `673d20505f` | MIT |
+| skills/pireel__pireel | [pireel/pireel](https://github.com/pireel/pireel) | `b824ee23ff` | AGPL-3.0 |
 | skills/pjecuacion__script-to-video-skill | [pjecuacion/script-to-video-skill](https://github.com/pjecuacion/script-to-video-skill) | `29b47de3b2` | MIT |
 | skills/pouyashahrdami__mimic-mcp | [pouyashahrdami/mimic-mcp](https://github.com/pouyashahrdami/mimic-mcp) | `9dca836c78` | MIT |
+| skills/processing__p5.js | [processing/p5.js](https://github.com/processing/p5.js) | `656b415a17` | LGPL-2.1 |
 | skills/puntorigen__avatar-skills | [puntorigen/avatar-skills](https://github.com/puntorigen/avatar-skills) | `8d0c1d0de8` | MIT |
 | skills/pyang5166__gbro-collage-broll | [pyang5166/gbro-collage-broll](https://github.com/pyang5166/gbro-collage-broll) | `a1a4ee2e2a` | MIT |
 | skills/pyang5166__gbro-collage-info | [pyang5166/gbro-collage-info](https://github.com/pyang5166/gbro-collage-info) | `0b97a817a6` | MIT |
@@ -210,7 +222,7 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/rock3r__cav | [rock3r/cav](https://github.com/rock3r/cav) | `b3891548ae` | MIT |
 | skills/ronak-create__FableCut | [ronak-create/FableCut](https://github.com/ronak-create/FableCut) | `f130cd3c54` | MIT |
 | skills/runesleo__claude-video-kit | [runesleo/claude-video-kit](https://github.com/runesleo/claude-video-kit) | `43e3cd13c3` | MIT |
-| skills/samuelgursky__davinci-resolve-mcp | [samuelgursky/davinci-resolve-mcp](https://github.com/samuelgursky/davinci-resolve-mcp) | `a701b3759a` | MIT |
+| skills/samuelgursky__davinci-resolve-mcp | [samuelgursky/davinci-resolve-mcp](https://github.com/samuelgursky/davinci-resolve-mcp) | `c43bad5207` | MIT |
 | skills/samuelstroschein__opus-video-generator | [samuelstroschein/opus-video-generator](https://github.com/samuelstroschein/opus-video-generator) | `aa3623fc9c` | MIT |
 | skills/Science-Prof-Robot__recursive-math-animator | [Science-Prof-Robot/recursive-math-animator](https://github.com/Science-Prof-Robot/recursive-math-animator) | `e60397eb52` | MIT |
 | skills/scosman__videowright | [scosman/videowright](https://github.com/scosman/videowright) | `df9146f5f8` | MIT |
@@ -234,10 +246,13 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/timscheuerai__launch-video-kit | [timscheuerai/launch-video-kit](https://github.com/timscheuerai/launch-video-kit) | `7e2629c900` | MIT |
 | skills/toufuim__personal-ip-brand-intro-skill | [toufuim/personal-ip-brand-intro-skill](https://github.com/toufuim/personal-ip-brand-intro-skill) | `bd6497b363` | MIT |
 | skills/trunghaiy__appshot | [trunghaiy/appshot](https://github.com/trunghaiy/appshot) | `4c3853ff81` | MIT |
+| skills/TryWorld2026__paper-algorithm | [TryWorld2026/paper-algorithm](https://github.com/TryWorld2026/paper-algorithm) | `79d70cae5c` | CC-BY-SA-4.0 |
 | skills/unclejobs-ai__motion-video-skill | [unclejobs-ai/motion-video-skill](https://github.com/unclejobs-ai/motion-video-skill) | `dd11881e22` | MIT |
 | skills/Upload-Post__avatar-mix | [Upload-Post/avatar-mix](https://github.com/Upload-Post/avatar-mix) | `01f91ad5b0` | MIT |
 | skills/vakovalskii__nd-video-studio | [vakovalskii/nd-video-studio](https://github.com/vakovalskii/nd-video-studio) | `6243cd7cd7` | MIT |
 | skills/Vandit1604__vawe | [Vandit1604/vawe](https://github.com/Vandit1604/vawe) | `fe6d300447` | Apache-2.0 |
+| skills/Vanilagy__mediabunny | [Vanilagy/mediabunny](https://github.com/Vanilagy/mediabunny) | `f630141a4a` | MPL-2.0 |
+| skills/VelornLabs__velorn | [VelornLabs/velorn](https://github.com/VelornLabs/velorn) | `b3c02adbd5` | GPL-3.0 |
 | skills/vibe-motion__remotion-code-motion-explainer | [vibe-motion/remotion-code-motion-explainer](https://github.com/vibe-motion/remotion-code-motion-explainer) | `d93c64393a` | MIT |
 | skills/vibe-motion__remotion-starter | [vibe-motion/remotion-starter](https://github.com/vibe-motion/remotion-starter) | `6a521397cb` | MIT |
 | skills/video-db__skills | [video-db/skills](https://github.com/video-db/skills) | `b47b587e28` | MIT |
@@ -252,7 +267,7 @@ Bu icerikler KodVid'in kendi lisansina tabi degildir.
 | skills/ymybxx__SoloMCN | [ymybxx/SoloMCN](https://github.com/ymybxx/SoloMCN) | `444fd420a6` | MIT |
 | skills/ythx-101__live-panel-skill | [ythx-101/live-panel-skill](https://github.com/ythx-101/live-panel-skill) | `439c9addce` | MIT |
 | skills/Yusuke710__manim-skill | [Yusuke710/manim-skill](https://github.com/Yusuke710/manim-skill) | `a0048d9e26` | MIT |
-| skills/Yuuhann1999__agent-storyboard | [Yuuhann1999/agent-storyboard](https://github.com/Yuuhann1999/agent-storyboard) | `9924c97f04` | MIT |
+| skills/Yuuhann1999__agent-storyboard | [Yuuhann1999/agent-storyboard](https://github.com/Yuuhann1999/agent-storyboard) | `a640a3b4d9` | MIT |
 | skills/yuwenbin121__book-video-production-skill | [yuwenbin121/book-video-production-skill](https://github.com/yuwenbin121/book-video-production-skill) | `c36b508276` | MIT |
 | skills/Zane-0x5a__remotion-director | [Zane-0x5a/remotion-director](https://github.com/Zane-0x5a/remotion-director) | `fe5d0eb5e3` | MIT |
 | skills/zenstory-ai__video-recap-skills | [zenstory-ai/video-recap-skills](https://github.com/zenstory-ai/video-recap-skills) | `9c88a98ac8` | MIT |

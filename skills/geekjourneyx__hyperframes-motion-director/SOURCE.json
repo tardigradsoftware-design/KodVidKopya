@@ -1,0 +1,14 @@
+{
+  "repo": "geekjourneyx/hyperframes-motion-director",
+  "url": "https://github.com/geekjourneyx/hyperframes-motion-director",
+  "sha": "0b66750322ccb50ae56ace5a8d361da2c1f65400",
+  "license": "AGPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:25.120Z",
+  "kind": "skill",
+  "exclude": "",
+  "skillRoots": [
+    "skills/hyperframes-motion-director"
+  ],
+  "files": 34,
+  "droppedByBudget": 0
+}

@@ -2,7 +2,10 @@
 
 Revideo: Motion Canvas tabanli, sunucuda render.
 
-Toplam 1 skill. Once SKILL.md dosyasini oku, sonra sadece onun gosterdigi dosyalari.
+1 skills, most starred repos first. Each line: name, description, folder. Read only the SKILL.md you need.
 
-- **kinocut** (skill, Apache-2.0): Use when an agent must edit local video safely. Kinocut guards planning, FFmpeg operations, subtitles, audio, analysis, quality gates, receipts, repurposing, an
-  `skills/KyaniteLabs__kinocut/files/plugins/kinocut/skills/kinocut`
+## In this repo (1)
+
+Folders are under `skills/`.
+
+- **kinocut**: Use when an agent must edit local video safely. Kinocut guards planning, FFmpeg operations, subtitle `KyaniteLabs__kinocut/files/plugins/kinocut/skills/kinocut`

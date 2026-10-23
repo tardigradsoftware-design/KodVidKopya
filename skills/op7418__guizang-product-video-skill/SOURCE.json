@@ -1,0 +1,14 @@
+{
+  "repo": "op7418/guizang-product-video-skill",
+  "url": "https://github.com/op7418/guizang-product-video-skill",
+  "sha": "18842e0f49a9eb2b8c00cc065ec37b314e235aaa",
+  "license": "AGPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:21.935Z",
+  "kind": "skill",
+  "exclude": "",
+  "skillRoots": [
+    ""
+  ],
+  "files": 22,
+  "droppedByBudget": 0
+}

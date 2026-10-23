@@ -1,0 +1,22 @@
+{
+  "repo": "GTKottman/mortiflix-oss",
+  "url": "https://github.com/GTKottman/mortiflix-oss",
+  "sha": "3b65e4335266fc36b24a71a3f0383b2e23327f9e",
+  "license": "AGPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:30.862Z",
+  "kind": "skill",
+  "exclude": "",
+  "skillRoots": [
+    "harness/skills/assets",
+    "harness/skills/blender-3d",
+    "pipelines/_shared/skills/final-pass",
+    "pipelines/_shared/skills/motion-design",
+    "pipelines/_shared/skills/music",
+    "pipelines/_shared/skills/remotion-motion",
+    "pipelines/_shared/skills/transition-board",
+    "pipelines/_shared/skills/voiceover",
+    "plugin/skills/mortiflix"
+  ],
+  "files": 38,
+  "droppedByBudget": 0
+}

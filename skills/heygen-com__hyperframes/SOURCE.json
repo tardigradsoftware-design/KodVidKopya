@@ -1,10 +1,11 @@
 {
   "repo": "heygen-com/hyperframes",
   "url": "https://github.com/heygen-com/hyperframes",
-  "sha": "da6b77bd84ad09e57d670f1edebbb3dc9794594a",
+  "sha": "f6cbf87cddfda33d805dd37ee23fce9694db84c7",
   "license": "Apache-2.0",
-  "fetchedAt": "2026-10-22T23:52:02.848Z",
+  "fetchedAt": "2026-10-23T04:07:27.791Z",
   "kind": "skill",
+  "exclude": "",
   "skillRoots": [
     ".agents/skills/captions-overlay",
     ".agents/skills/changelog-video",

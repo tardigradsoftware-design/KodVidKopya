@@ -2,581 +2,482 @@
 
 Seslendirme, muzik ve transkripsiyon.
 
-Toplam 288 skill. Once SKILL.md dosyasini oku, sonra sadece onun gosterdigi dosyalari.
+467 skills, most starred repos first. Each line: name, description, folder. Read only the SKILL.md you need.
 
-- **moneyprinterturbo-video** (skill, MIT): Use this skill whenever the user wants to create a finished video from a topic, title, idea, prompt, or script with MoneyPrinterTurbo. This includes short-form,
-  `skills/harry0703__MoneyPrinterTurbo/files/docs/skill`
-- **captions-overlay** (skill, Apache-2.0): Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on top of the
-  `skills/heygen-com__hyperframes/files/.agents/skills/captions-overlay`
-- **changelog-video** (skill, Apache-2.0): Turn a weekly changelog .md into a finished branded changelog video (square 1080, ~45-60s, Annie VO, animated brand background, mock-UI visualizations, lowkey c
-  `skills/heygen-com__hyperframes/files/.agents/skills/changelog-video`
-- **motion-doctrine** (skill, Apache-2.0): GATEWAY — load FIRST before composing any HyperFrames animation or video. The high-level motion law that makes a multi-scene video feel like ONE continuous came
-  `skills/heygen-com__hyperframes/files/.agents/skills/motion-doctrine`
-- **oversized-cursor** (skill, Apache-2.0): House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a scene involves cursors or a pointer-led action, when kicking off a U
-  `skills/heygen-com__hyperframes/files/.agents/skills/oversized-cursor`
-- **hyperframes** (skill, Apache-2.0): Read first to make, edit, animate or render any video with HyperFrames (HTML rendered to video), including launch films, explainers, music videos, charts, maps,
-  `skills/heygen-com__hyperframes/files/skills/hyperframes`
-- **hyperframes-cli** (skill, Apache-2.0): The HyperFrames CLI by job - scaffold, check, look at frames, edit the timeline, preview, render locally or in the cloud, publish, project history - plus readin
-  `skills/heygen-com__hyperframes/files/skills/hyperframes-cli`
-- **media-use** (skill, Apache-2.0): Get or make any media for a HyperFrames video - music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour 
-  `skills/heygen-com__hyperframes/files/skills/media-use`
-- **video-use** (skill, MIT): Edit any video by conversation. Transcribe, cut, color grade, generate overlay animations, burn subtitles — for talking heads, montages, tutorials, travel, inte
-  `skills/browser-use__video-use/files`
-- **manim-video** (skill, MIT): Production pipeline for mathematical and technical animations using Manim Community Edition. Creates 3Blue1Brown-style explainer videos, algorithm visualization
-  `skills/browser-use__video-use/files/skills/manim-video`
-- **lemo-opuscar** (skill, MIT): Direct and produce a short film made entirely in code, in one of the styles of the Lemo-Opuscar library (e.g. Impasto Oil Painting 油画厚涂, Watercolor Brush 水彩笔刷, 
-  `skills/lemomo-ai__lemo-opuscar/files/tools/directory`
-- **openstoryline-install** (skill, Apache-2.0): Install, configure, and start FireRed-OpenStoryline from source on a local machine. Use when a user asks to set up OpenStoryline, troubleshoot installation, dow
-  `skills/FireRedTeam__FireRed-OpenStoryline/files/.claude/skills/openstoryline-install`
-- **openstoryline-use** (skill, Apache-2.0): Use this skill when OpenStoryline is already installed and the user wants to start the local MCP/Web services, create or continue a session, send editing instru
-  `skills/FireRedTeam__FireRed-OpenStoryline/files/.claude/skills/openstoryline-use`
-- **speech_rough_cut_skill** (skill, Apache-2.0): 【WORKFLOW SKILL】根据输入视频的音频信息进行口播粗剪。Rough cut based on audio information from the input video for narration.
-  `skills/FireRedTeam__FireRed-OpenStoryline/files/.storyline/skills/speech_rough_cut_skill`
-- **narrator-ai-cli** (skill, MIT): AI 电影/短剧解说视频自动生成（AI 解说大师 CLI Skill）。当用户需要创建电影解说视频、短剧解说、影视二创、AI 配音旁白视频、film commentary、video narration、drama dubbing、movie narration 时触发。内置电影素材库、BGM、多语种配音、解说模板。通
-  `skills/NarratorAI-Studio__narrator-ai-cli-skill/files`
-- **lanshu-create-ai-presenter-video** (skill, MIT): Turn a topic or finished script into a complete, publish-ready explainer video — led by an AI presenter from an authorized adult presenter image, or performed w
-  `skills/cclank__lanshu-create-ai-presenter-video/files`
-- **vox-director** (skill, MIT): Turn ONE topic into a finished Vox-style paper-collage explainer / ad video, end to end on the Atlas Cloud API + local ffmpeg — script, collage keyframes, motio
-  `skills/Alisa0808__vox-director/files`
-- **capcut-director** (skill, Apache-2.0): Expert skill for programmatically creating, editing, styling, and rendering cinematic video projects via CapCut MCP and direct timeline engineering. Covers mult
-  `skills/sun-guannan__VectCutAPI/files/.agents/skills/capcut-director`
-- **vectcut-api** (skill, Apache-2.0): VectCutAPI is a powerful cloud-based video editing API tool that provides programmatic control over CapCut/JianYing (剪映) for professional video editing. Use thi
-  `skills/sun-guannan__VectCutAPI/files/vectcut-skill/skill`
-- **acestep** (skill, MIT): AI music generation with ACE-Step 1.5 — background music, vocal tracks, covers, stem extraction, audio repainting, and continuation for video production. Use wh
-  `skills/digitalsamba__claude-code-video-toolkit/files/.claude/skills/acestep`
-- **elevenlabs** (skill, MIT): Generate AI voiceovers, sound effects, and music using ElevenLabs APIs. Use when creating audio content for videos, podcasts, or games. Triggers include generat
-  `skills/digitalsamba__claude-code-video-toolkit/files/.claude/skills/elevenlabs`
-- **ffmpeg** (skill, MIT): Video and audio processing with FFmpeg. Use for format conversion, resizing, compression, audio extraction, and preparing assets for Remotion. Triggers include 
-  `skills/digitalsamba__claude-code-video-toolkit/files/.claude/skills/ffmpeg`
-- **ltx2** (skill, MIT): AI video generation with LTX-2.3 22B — text-to-video, image-to-video clips for video production. Use when generating video clips, animating images, creating b-r
-  `skills/digitalsamba__claude-code-video-toolkit/files/.claude/skills/ltx2`
-- **remotion** (skill, MIT): Toolkit-specific Remotion patterns — custom transitions, shared components, and project conventions. For core Remotion framework knowledge (hooks, animations, r
-  `skills/digitalsamba__claude-code-video-toolkit/files/.claude/skills/remotion`
-- **runpod** (skill, MIT): Cloud GPU processing via RunPod serverless. Use when setting up RunPod endpoints, deploying Docker images, managing GPU resources, troubleshooting endpoint issu
-  `skills/digitalsamba__claude-code-video-toolkit/files/.claude/skills/runpod`
-- **synthetic-ui-demo** (skill, MIT): Product demo and release-notes videos with no screen recording. Rebuild the app's screens as static React from its source code, then drive them in Remotion with
-  `skills/digitalsamba__claude-code-video-toolkit/files/.claude/skills/synthetic-ui-demo`
-- **video_toolkit** (skill, MIT): Create professional videos autonomously using claude-code-video-toolkit — AI voiceovers, image generation, music, talking heads, and Remotion rendering.
-  `skills/digitalsamba__claude-code-video-toolkit/files/skills/openclaw-video-toolkit`
-- **story-to-handdrawn-video** (skill, MIT): Convert Chinese stories or ordered local images into silent hand-drawn Remotion videos, with generated hand lettering, 327 built-in assets (297 style recipes an
-  `skills/gnipbao__story-to-handdrawn-video/files/skill-package/story-to-handdrawn-video`
-- **manim-composer** (skill, MIT): Trigger when: (1) User wants to create an educational/explainer video, (2) User has a vague concept they want visualized, (3) User mentions "3b1b style" or "exp
-  `skills/adithya-s-k__manim_skill/files/skills/manim-composer`
-- **motionmaxxing** (skill, Apache-2.0): Direct and build professional motion-graphics films (launch videos, product promos, feature reveals, brand stings, kinetic-type pieces, social ads, CTAs) that r
-  `skills/Tejashmakwana__motionmaxxing/files`
-- **video-assemble** (skill, MIT): 合成视频解说最终成片：把旁白音频铺到源视频上，按旁白窗口压低原声，生成 SRT / ASS 字幕并可烧录， 最后做响度标准化。作为最终合成阶段使用。输入源视频、tts_meta.json 与旁白位置； 输出 recap 成片和字幕。触发词：视频合成、混音、字幕、压字幕、assemble video、mux、duckin
-  `skills/zenstory-ai__video-recap-skills/files/skills/video-assemble`
-- **video-cut** (skill, MIT): 把长视频按 Agent 选择的原片区间剪成短片。作为两阶段创作流程中的剪辑环节，读取 clip_plan.json 与源视频， 输出 edited_source.mp4；随后 Agent 按输出时间线写 narration.json。支持单视频与多视频（sources manifest）拼剪， 本工具不读取、不映射旁白
-  `skills/zenstory-ai__video-recap-skills/files/skills/video-cut`
-- **video-recap** (skill, MIT): 从输入视频生成中文解说成片或原声剧情短片。用户提供 .mp4 / .mov / .mkv / .webm，并要求剪辑、添加旁白、 配音、总结、短剧/电视剧/电影/纪录片/科普解说时使用。负责编排 video-* 技能链：视频理解 → Agent 制定故事与视听方案 → 剪辑 → 配音 → 合成。触发词：视频解说、视频旁
-  `skills/zenstory-ai__video-recap-skills/files/skills/video-recap`
-- **video-reference** (skill, MIT): 按需把一部成片拆成可复用的制作参考：测镜头节奏与响度，标注段落与音轨分工，把原片事实与可迁移方法分开， 导出不含原片人名台词的 production_reference.json 供下次制作参考。不在默认生产路径上。 触发词：拆片、拆解成片、制作参考、参考模板、production reference。
-  `skills/zenstory-ai__video-recap-skills/files/skills/video-reference`
-- **video-script** (skill, MIT): 对已完成分析的视频进行导演与剪辑策划，再写带时间戳的中文解说并校验；也处理已有短片的 宣发标题、花字修订和外部文案回填。普通策划输入 work_dir 的 agent_narration_brief.md 与 vlm_analysis.json；文案返修输入当前成片的工程与内容证据。策划输出 recap_story_p
-  `skills/zenstory-ai__video-recap-skills/files/skills/video-script`
-- **video-understanding** (skill, MIT): 把视频分析为结构化理解索引：场景检测、ASR 转写、逐场景 VLM 观察、静音窗口、融合时间线和写作 brief。 用于理解、索引或总结视频，也作为后续创作前的分析阶段。输入视频文件；输出 scenes.json、 asr_result.json、vlm_analysis.json、silence_periods.js
-  `skills/zenstory-ai__video-recap-skills/files/skills/video-understanding`
-- **video-voiceover** (skill, MIT): 把带时间戳的 narration.json 合成为中文解说音频。使用 MiMo TTS（mimo-v2.5-tts）或 Fish Audio（s2.1-pro-free）或显式配置的通用 IndexTTS HTTP 服务逐段生成语音， 按时间窗动态适配语速并处理响度；输入输出时间线上的旁白，产出 tts_segment
-  `skills/zenstory-ai__video-recap-skills/files/skills/video-voiceover`
-- **heygen-avatar** (skill, MIT): Create a persistent HeyGen avatar — a reusable face + voice identity for the agent, the user, or any named character — powered by HeyGen Avatar V technology. Pr
-  `skills/heygen-com__skills/files/heygen-avatar`
-- **heygen-translate** (skill, MIT): Translate and dub a video into another language with voice cloning and lip-sync, powered by HeyGen Video Translation. The presenter keeps their face, their voic
-  `skills/heygen-com__skills/files/heygen-translate`
-- **heygen-video** (skill, MIT): Generate HeyGen presenter videos via the v3 Video Agent pipeline — handles Frame Check (aspect ratio correction), prompt engineering, avatar resolution, and voi
-  `skills/heygen-com__skills/files/heygen-video`
-- **heygen** (skill, MIT): 
-  `skills/heygen-com__skills/files/platforms/nanoclaw/heygen`
-- **hand-drawn-explainer-video-nikola** (skill, Apache-2.0): 制作、修改和验收中文手绘知识讲解视频，交付配音、字幕、时间轴、可编辑工程和真实 MP4。支持两条不可混淆的制作路线：同一画布持续落墨的逐笔故事动画，以及用 SVG/HTML/GSAP 编排流程卡片、关系图和知识图形的程序动画。逐笔路线可选择自然肤色 Q 版人物、小黑风格或其他手绘风格，并可采用单场景、多幕故事、左右双语
-  `skills/hi-nikola__hand-drawn-explainer-video-nikola/files`
-- **motion-effects** (skill, MIT): Build any of 16 premium motion effects from scratch in your own brand, as one 8-second looping HTML file with window.seek(seconds) so it exports frame-exact to 
-  `skills/charlie947__motion-graphics-skills/files/skills/motion-effects`
-- **vox-explainer** (skill, MIT): Make a short Vox-style documentary explainer (30-60 seconds) entirely in code with Claude Code. Torn paper, halftone texture, bold condensed type, motion on two
-  `skills/charlie947__motion-graphics-skills/files/skills/vox-explainer`
-- **image-story-video-wizard** (skill, MIT): Use when a user wants step-by-step help making an audio-first image-story, AI narration, slideshow, illustrated story, AI 讲书, 图片联播, 有声故事, or 静态图叙事视频 with Codex 
-  `skills/aaronyi97__image-story-video-wizard/files`
-- **brand-setup** (skill, MIT): Makes this repo's videos look like YOUR channel instead of the house default — interviews you for palette, fonts, wordmark, motion energy, delivery specs and SF
-  `skills/hassancs91__claude-youtube-editor/files/.claude/skills/brand-setup`
-- **clean-audio** (skill, MIT): Voice/audio cleanup step of the AI Video Editor pipeline — diagnose a video's background noise, pick the right denoise method, and produce a cleaned master (voi
-  `skills/hassancs91__claude-youtube-editor/files/.claude/skills/clean-audio`
-- **clean-cut** (skill, MIT): Step 1 of the AI Video Editor pipeline — turn raw talking-head footage into a clean master cut. Use when the user wants to "clean cut", "cut the raw footage", "
-  `skills/hassancs91__claude-youtube-editor/files/.claude/skills/clean-cut`
-- **fake-screencast** (skill, MIT): Turn static SCREENSHOTS into a simulated screen recording (TSX) — a fake screencast with an animated cursor that eases to targets and clicks, a browser URL bar 
-  `skills/hassancs91__claude-youtube-editor/files/.claude/skills/fake-screencast`
-- **make-tsx** (skill, MIT): Step 2 of the AI Video Editor pipeline — build the visual beats (Remotion TSX shots) over a project's master cut and bake a composited preview. Use when the use
-  `skills/hassancs91__claude-youtube-editor/files/.claude/skills/make-tsx`
-- **suggest-sfx** (skill, MIT): Step 4 of the AI Video Editor pipeline — the SFX pass. Analyze a video's beats + narration and propose tasteful sound effects synced to them, drawing from (and 
-  `skills/hassancs91__claude-youtube-editor/files/.claude/skills/suggest-sfx`
-- **product-launch-motion-v1** (skill, MIT): Legacy v1 (voiceover-led, GSAP + HyperFrames). Use when making, directing or rescuing a product launch video, promo, teaser, demo reel, sizzle, feature-announce
-  `skills/AbubakrChan__product-launch-motion/files/legacy`
-- **composition-design-review** (skill, MIT): Design review layer for OrkasVideoStudio COMPOSE previews and drafts. Review the complete snapshot index and inspect the cover and risky frames at full size bef
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/composition-design-review`
-- **design-system-importer** (skill, MIT): Reference-media and design-system input layer for OrkasVideoStudio. Treat reference images, videos, screenshots, brand guides, and design notes uniformly, compi
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/design-system-importer`
-- **gate-control** (skill, MIT): Canonical VideoStudio review authorization and state-transition policy. Use after any Gate B/C/Preview/D decision, post-gate revision, resumed approval, or exha
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/gate-control`
-- **orchestration** (skill, MIT): The master program for producing or editing a video end to end — read this at the START of any video task (after video-router), then follow the gates and the pe
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/orchestration`
-- **stage-assemble** (skill, MIT): Deterministically assemble an approved cross-modal EDL (plan.json) into a finished video — produce each segment (edit/compose/generate/provided, delegated to it
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-assemble`
-- **stage-compose** (skill, MIT): Authoring knowledge for Orkas/OVS HTML video compositions -- write an index.html, drive animation from a paused timeline, declare canvas + duration, then run th
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-compose`
-- **stage-edit** (skill, MIT): Intelligent editing of real user-supplied footage—understand it with transcript/inspected-frame/scene/silence/quality evidence, then choose deterministic timeli
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-edit`
-- **stage-generate** (skill, MIT): AI-generated footage plus execution of bounded semantic video-edit segments already approved by EDIT/AUTO. Generate per shot with `ovs video`, preserve signed r
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-generate`
-- **stage-plan** (skill, MIT): The "ingest + plan" half of end-to-end video orchestration — ingest the user's material from evidence, then decompose intent into ONE cross-modal EDL (plan.json
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-plan`
-- **video-craft** (skill, MIT): The craft standard that makes a video GOOD, not just rendered — hooks, story pacing, visual hierarchy, type & safe zones, motion/easing, captions, audio mix, pl
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/video-craft`
-- **video-router** (skill, MIT): Read this FIRST on any video-production request to pick and lock the line — generate (AI footage), compose (designed HTML), edit (cut real footage), or AUTO end
-  `skills/Orkas-AI__Orkas-VideoStudio/files/packages/skills/video-router`
-- **manim-voiceover** (guide, MIT): Manim plugin for all things voiceover
-  `skills/ManimCommunity__manim-voiceover/files`
-- **make-ai-short** (skill, MIT): Build a GENERATIVE-pixels vertical short (1080×1920, ~35-40s) end-to-end — a recurring locked character animated by a fal video model (Seedance 1.5 Pro default)
-  `skills/hassancs91__claude-faceless-shorts-creator/files/.claude/skills/make-ai-short`
-- **make-short** (skill, MIT): Build a fully-synthetic vertical short (1080×1920, ~40s) end-to-end from a topic — script + beats.json, linked TSX beats over a persistent canvas, phone-scale Q
-  `skills/hassancs91__claude-faceless-shorts-creator/files/.claude/skills/make-short`
-- **make-vox** (skill, MIT): Build a Vox-style LAYERED-COLLAGE vertical short end-to-end — script + scene dissection into image layers, layer production (AI images via gen_image.py + cutout
-  `skills/hassancs91__claude-faceless-shorts-creator/files/.claude/skills/make-vox`
-- **suggest-sfx** (skill, MIT): The SFX pass. Analyze a short's beats + narration and propose tasteful sound effects synced to them, drawing from (and growing) a shared, reusable SFX library, 
-  `skills/hassancs91__claude-faceless-shorts-creator/files/.claude/skills/suggest-sfx`
-- **showtime** (skill, MIT): Use when the user wants a video made, edited or finished: a launch or promo, product demo, explainer, trailer or teaser, tutorial or walkthrough, screen-recordi
-  `skills/FavioVazquez__showtime/files/skills/showtime`
-- **seedance-motion-studio** (skill, MIT): Use when planning, prompting, producing, reviewing, or improving professional Seedance 2.0 videos, especially product explainers, news explainers, science expla
-  `skills/kangarooking__director-skills/files/seedance-motion-studio`
-- **videowright** (skill, MIT): Author HTML/CSS/JS animated explainer videos using Videowright. Trigger on requests to create a video, edit a segment, add or change a style, generate a VO scri
-  `skills/scosman__videowright/files/packages/lib/skill`
-- **components** (skill, MIT): 
-  `skills/scosman__videowright/files/specs/projects/vibe_forge_v1/components`
-- **manim-skill** (skill, MIT): Create mathematical animations with Manim Community Edition(manimce), with optional TTS voiceover and synced subtitles. Generates distinctive, production-grade 
-  `skills/Yusuke710__manim-skill/files/skills/manim-skill`
-- **brewreel** (skill, Apache-2.0): 精酿 · BrewReel：四种玩法。宣传片：做竖版产品宣传短片（1080x1920，15–45 秒，抖音/视频号/小红书）。用户要做产品宣传片、推广短视频、App 介绍视频、功能演示视频、上新短片、带货片头时使用。支持软件、餐饮、电商实物、教培、美业、文旅住宿六个行业，支持中英双语。你只写 storyboard.js
-  `skills/Finderchangchang__brewreel/files`
-- **hbg-life-simulation** (skill, MIT): Create Chinese HBG “模拟人生 / 人生副本” narrative videos with a consistent comic IP, a rapid multi-life opening, continuous natural-speed narration, synchronized short
-  `skills/Mr-funny__hbg-life-simulation/files`
-- **videodb** (skill, MIT): See, Understand, Act on video and audio. See- ingest from local files, URLs, RTSP/live feeds, or live record desktop; return realtime context and playable strea
-  `skills/video-db__skills/files/python`
-- **avatar-mix** (skill, MIT): Crea un video 16:9 con tu avatar HeyGen (tu cara + tu voz) presentando contenido, con montaje dinamico que alterna entre avatar a pantalla completa, avatar en e
-  `skills/Upload-Post__avatar-mix/files/.claude/skills/avatar-mix`
-- **khan-explainer** (skill, MIT): Use when the user wants a Khan Academy style explainer video, a blackboard or whiteboard lesson, a hand-drawn chalk-talk animation, a short narrated video that 
-  `skills/haiderfarooq3__khan-explainer/files`
-- **khan-explainer** (skill, MIT): Use when the user wants a Khan Academy style explainer video, a blackboard or whiteboard lesson, a hand-drawn chalk-talk animation, a short narrated video that 
-  `skills/haiderfarooq3__khan-explainer/files/skills/khan-explainer`
-- **article-highlights** (skill, MIT): Editorial Remotion article inserts with mandatory format/background intake, layered highlights, zero neon/glow, and mobile QA.
-  `skills/Liamrjohnston__remotion-motion-graphics-skill/files/skills/article-highlights`
-- **motion-graphics** (skill, MIT): Add cached official-asset and product research preflight before reference selection and build authorization.
-  `skills/Liamrjohnston__remotion-motion-graphics-skill/files/skills/motion-graphics`
-- **terminal-inserts** (skill, MIT): Authentic, restrained Remotion terminal inserts with mandatory format/background intake and zero neon or glow.
-  `skills/Liamrjohnston__remotion-motion-graphics-skill/files/skills/terminal-inserts`
-- **motion-video** (skill, MIT): Produce beat-synced 1080p motion-graphic videos in HyperFrames (HTML + GSAP) with an AI voice-over, Vietnamese karaoke captions, SFX and generated music, in one
-  `skills/bestagentkits__motion-video-skill/files/skills/motion-video`
-- **example-podcast-visualizer** (skill, Apache-2.0): Workflow for creating a podcast visualizer with multi-track audio mixing and DOM-based synchronization. Use when building audio-reactive compositions.
-  `skills/BintzGavin__helios/files/skills/examples/podcast-visualizer`
-- **guided-explainer-video** (skill, Apache-2.0): End-to-end guided workflow for creating an explainer or walkthrough video. Extracts brand identity from the repo, generates a measured soundtrack, and produces 
-  `skills/BintzGavin__helios/files/skills/guided/explainer-video`
-- **guided-launch-announcement** (skill, Apache-2.0): End-to-end guided workflow for creating a product launch or release announcement video. Extracts brand identity from the repo, generates a cinematic soundtrack,
-  `skills/BintzGavin__helios/files/skills/guided/launch-announcement`
-- **guided-product-demo** (skill, Apache-2.0): End-to-end guided workflow for creating a product demo or showcase video. Extracts brand identity from the repo, generates a polished soundtrack, and produces a
-  `skills/BintzGavin__helios/files/skills/guided/product-demo`
-- **guided-promo-video** (skill, Apache-2.0): End-to-end guided workflow for creating a promotional hype video. Extracts brand identity from the repo, generates beat-synced music, and produces a high-energy
-  `skills/BintzGavin__helios/files/skills/guided/promo-video`
-- **guided-social-clip** (skill, Apache-2.0): End-to-end guided workflow for creating a short-form social media clip (Reels, TikTok, Shorts). Extracts brand identity from the repo, generates a punchy soundt
-  `skills/BintzGavin__helios/files/skills/guided/social-clip`
-- **guided-testimonial-video** (skill, Apache-2.0): End-to-end guided workflow for creating a social proof or testimonial video. Extracts brand identity from the repo, generates a warm soundtrack, and produces a 
-  `skills/BintzGavin__helios/files/skills/guided/testimonial-video`
-- **helios-renderer** (skill, Apache-2.0): Renderer API for generating video/image output from Helios compositions. Use when you need to programmatically render a composition to a file using Node.js.
-  `skills/BintzGavin__helios/files/skills/renderer`
-- **render-video** (skill, Apache-2.0): Workflow for rendering a Helios composition to a video file. Use when you need to automate video production or export a high-quality animation.
-  `skills/BintzGavin__helios/files/skills/workflows/render-video`
-- **claude-remotion-kickstart** (guide, MIT): Create videos programmatically with Claude Code and Remotion
-  `skills/jhartquist__claude-remotion-kickstart/files`
-- **video-explainer** (skill, MIT): Turn a research brief, finished script, or generated MP4 into a reviewed and verified vertical explainer video. Use when an agent should choose the simplest cur
-  `skills/runesleo__claude-video-kit/files/skills/video-explainer`
-- **remotion-best-practices** (skill, MIT): Best practices for Remotion - Video creation in React
-  `skills/Monet-AI-Editor__Monet/files/resources/remotion-skill`
-- **remotion-ad-video** (skill, MIT): Use when turning product links, app store listings, landing pages, or product briefs into advertising videos with Remotion or Hyperframes projects, storyboards,
-  `skills/leosssvip-dot__remotion-ad-video-skill/files/skills/remotion-ad-video`
-- **book-video-factory** (skill, MIT): Create or operate a portable, auditable Chinese book-review short-video workflow from a clean local workspace. Use when starting a book-video factory, choosing 
-  `skills/jaxxchen003__book-video-factory/files/skills/book-video-factory`
-- **papercut-build** (skill, MIT): Build and render a papercut episode from a storyboard with the library. Scaffolds the project, builds scenes with parallel agents, assets and audio, renders the
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-build`
-- **papercut-explainer** (skill, MIT): Make a papercut reel, video or explainer end to end. Short vertical (9:16) cut-paper explainers from a link (repo, product page, announcement), idea to mp4. Als
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-explainer`
-- **papercut-hook** (skill, MIT): Write or fix the hook of a papercut reel. Produces the SAY / WRITE / SHOW / ALIGN block, five variants scored with the hook check, the frame-0 cover title and t
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-hook`
-- **papercut-qa** (skill, MIT): Check a papercut reel's stills against the style DNA and the storyboard. Renders contact sheets at a few timestamps, runs the full checklist, then writes the de
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-qa`
-- **papercut-script** (skill, MIT): Turn a link into a papercut reel script. Researches a sourced facts list, writes the 75-95 word script on the 10-beat spine, a banner fact track, a staging tabl
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-script`
-- **papercut-setup** (skill, MIT): Install, check or upgrade the papercut toolchain. Runs the doctor, asks how much to set up (Minimal, Standard, Full), then runs install.sh with flags and fixes 
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-setup`
-- **papercut-storyboard** (skill, MIT): Storyboard a papercut script before any code. Writes the Camera / Cut table, one block per scene with frame-level events on each stressed word, the SFX plan and
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-storyboard`
-- **papercut-voice** (skill, MIT): Voice a papercut reel and time it to the picture. Three paths, local Qwen3-TTS, your own recording or another TTS, or a placeholder voice. Covers delivery rules
-  `skills/0xS4N4TG__papercut-explainer/files/skills/papercut-voice`
-- **captions-overlay** (skill, MIT): Overlay doctrine for the embedded-captions workflow — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on top of the
-  `skills/edenfunf__reelmimic/files/.claude/skills/captions-overlay`
-- **embedded-captions** (skill, MIT): Add captions or subtitles to an existing single-subject talking-head video without editing the footage. Use for plain verbatim captions, cinematic captions embe
-  `skills/edenfunf__reelmimic/files/.claude/skills/embedded-captions`
-- **faceless-explainer** (skill, MIT): Turn arbitrary text — an article, notes, a topic, a brief — into a faceless explainer video: there is no site or footage to capture, so the visuals are invented
-  `skills/edenfunf__reelmimic/files/.claude/skills/faceless-explainer`
-- **general-video** (skill, MIT): Author or edit a custom HyperFrames composition when no specialized workflow fits, or when BRIEF.md sets flow: companion. Use for longer or multi-scene pieces, 
-  `skills/edenfunf__reelmimic/files/.claude/skills/general-video`
-- **hyperframes** (skill, MIT): Mandatory entry point: read this first for any request to make, create, edit, animate, or render a video, animation, or motion graphic, including a promo, expla
-  `skills/edenfunf__reelmimic/files/.claude/skills/hyperframes`
-- **hyperframes-animation** (skill, MIT): All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene transitions, broader motion-design techniques, AND the seven 
-  `skills/edenfunf__reelmimic/files/.claude/skills/hyperframes-animation`
-- **hyperframes-audio** (skill, MIT): Use when audio already placed in a HyperFrames composition needs to be mixed: fade-in/fade-out, crossfade, track gain or volume, volume automation, ducking, a m
-  `skills/edenfunf__reelmimic/files/.claude/skills/hyperframes-audio`
-- **hyperframes-cli** (skill, MIT): Use the HyperFrames CLI development loop: init, add, catalog, capture, lint, check, snapshot, compare, grade-compare, preview, play, present, beats, keyframes, 
-  `skills/edenfunf__reelmimic/files/.claude/skills/hyperframes-cli`
-- **hyperframes-creative** (skill, MIT): Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md) handling, palettes, typography, narration, beat planning, au
-  `skills/edenfunf__reelmimic/files/.claude/skills/hyperframes-creative`
-- **hyperframes-registry** (skill, MIT): Search, install, and wire registry blocks and components into HyperFrames compositions. Use BEFORE hand-building any named visual — whenever a brief, a user, or
-  `skills/edenfunf__reelmimic/files/.claude/skills/hyperframes-registry`
-- **hyperframes-studio** (skill, MIT): Use when building or editing a HyperFrames project that people open in Studio: how the timeline should be laid out so it reads well (one caption track, one elem
-  `skills/edenfunf__reelmimic/files/.claude/skills/hyperframes-studio`
-- **media-use** (skill, MIT): Agent Media OS, the single skill for every media need in a HyperFrames project. Resolve BGM, SFX, image, icon, brand logo, voice, color grade, or LUT into a fro
-  `skills/edenfunf__reelmimic/files/.claude/skills/media-use`
-- **motion-graphics** (skill, MIT): A short, design-led motion graphic where motion is the message — kinetic typography, stat count-up, chart/data-viz hit, logo sting / brand lockup, lower-third /
-  `skills/edenfunf__reelmimic/files/.claude/skills/motion-graphics`
-- **music-to-video** (skill, MIT): Turn a music track (an audio file, a video to pull audio from, or a track generated from a mood brief) into a beat-synced video — lyric video, slideshow, or kin
-  `skills/edenfunf__reelmimic/files/.claude/skills/music-to-video`
-- **pr-to-video** (skill, MIT): Turn a GitHub pull request (a PR URL, owner/repo#N, or 'this PR' in a checked-out repo) into a code-change explainer video — changelog, feature reveal, fix, or 
-  `skills/edenfunf__reelmimic/files/.claude/skills/pr-to-video`
-- **product-launch-video** (skill, MIT): Turn a product or marketing URL, pasted script, or brief into a product launch / promo video — SaaS promos, feature reveals, product demos, app and company laun
-  `skills/edenfunf__reelmimic/files/.claude/skills/product-launch-video`
-- **slideshow** (skill, MIT): Author a HyperFrames slideshow — a presentation, pitch deck, or interactive deck with discrete slides, fragment reveals, branching, hotspot navigation, and buil
-  `skills/edenfunf__reelmimic/files/.claude/skills/slideshow`
-- **capsule-cinema** (skill, Apache-2.0): Plan, generate, revise, assemble, and quality-check local AI short videos with reusable Capsule Cinema recipes. Use when the user asks to make a video, design a
-  `skills/JuneYaooo__cheap-claude-video/files/skills/capsule-cinema`
-- **animate** (skill, MIT): Make a short procedural animation in any style — an explainer, a history, a little story — as a single-file canvas video with a synthesized score, rendered to M
-  `skills/Hype-yolo__claude-motion-skill/files/skills/claude-motion/assets/cases/animate/plugins/animate/skills/animate`
-- **ghost-editor** (skill, MIT): AI video editor for talking-head reels. Turns a raw phone recording of someone talking to camera (retakes, pauses, false starts) into a finished vertical 1080x1
-  `skills/kurbaitaev__ghost-editor/files`
-- **voice-over** (skill, MIT): 给视频配音：把旁白和角色台词合成成音频文件，标好时长，交给做视频的流程对齐字幕。做视频（make-video）、改视频（revise-video）时调用，也可以单独用来试音色。配了通义（阿里云百炼）的 key 就用通义，没配就用 macOS 自带的中文语音，都不需要工作台配置。
-  `skills/ymybxx__SoloMCN/files/defaults/skills/voice-over`
-- **extreme-motion-design** (skill, MIT): Cria vídeos de motion design de nível de estúdio por código (Remotion/React), com trilha licenciada, SFX sincronizados, voz opcional (ElevenLabs ou modelo TTS l
-  `skills/dev-isaacmello__extreme-motion-design/files/skills/extreme-motion-design`
-- **take-one** (skill, MIT): Turn a short request into a finished short film rendered from code, working like a studio team of twelve jobs (strategist, creative director, writer, voice dire
-  `skills/talsiach__take-one/files`
-- **30x-web-to-video** (skill, MIT): Use when a user gives a brand URL and wants a premium launch, demo, or marketing video. Zero-manual workflow — Claude runs the V2 orchestrator itself (scrapes b
-  `skills/norahe0304-art__30x-video/files/cli/skill`
-- **remotion-best-practices** (skill, MIT): Best practices for Remotion - Video creation in React
-  `skills/norahe0304-art__30x-video/files/cli/skill/remotion-best-practices`
-- **remotion-ads** (skill, MIT): Professional video ad creation with Remotion — Instagram Reels (9:16), website explainers (16:9), and carousels (4:5). Use when creating video ads, animated soc
-  `skills/Maartenlouis__remotion-ads/files`
-- **saas-product-demo-video** (skill, MIT): Produce a 20-45s SaaS product demo video in Remotion. Use whenever the user wants to make a product film, marketing reel, explainer, launch video, or LinkedIn/I
-  `skills/noamdorr__saas-product-demo-video/files/saas-product-demo-video`
-- **make-blender-education-video** (skill, MIT): Create high-detail, fact-checked English cinematic educational animations in Blender for science, engineering, architecture, construction, manufacturing, machin
-  `skills/sunxiayi__make-blender-education-video-skill/files/skills/make-blender-education-video`
-- **gbro-collage-info** (skill, MIT): 半调纸拼贴风信息动画（HyperFrames）。给一份口播逐字稿，从中挑出适合做成信息动画的段落（数字冲击、流程结构、清单收敛、对比翻转、结果高光），经用户确认后出静态样帧，再确认后产出 1080×1920 竖屏带拟音的 mp4 动画。用户说「拼贴信息动画」「collage info」「gbro-collage-inf
-  `skills/pyang5166__gbro-collage-info/files`
-- **showreel** (skill, MIT): 한국어 모션그래픽 영상(이력서용 쇼릴·홍보 영상·프로필 영상·티저·브랜드 필름·행사 홍보·제품 소개·교육 영상·메이킹 필름)을 콘셉트부터 납품까지 만드는 스킬. 정해 둔 무드나 템플릿을 고르지 않는다. 요청마다 콘셉트 후보를 여러 개 세워 가장 강한 것을 고르고, 구간마다 아트 디렉션을
-  `skills/revfactory__showreel/files`
-- **explainer-video** (skill, MIT): This skill should be used when the user asks to "make an explainer video", "turn this into a short explainer", "write a script and storyboard for a product vide
-  `skills/iart-ai__explainer-video-skills/files/skills/explainer-video`
-- **whiteboard-animation** (skill, MIT): This skill should be used when the user asks to "make a whiteboard animation", "draw-on explainer", "VideoScribe style", "hand-drawn explainer video", "animate 
-  `skills/iart-ai__explainer-video-skills/files/skills/whiteboard-animation`
-- **video-clipforge** (guide, Apache-2.0): AI 驱动的短视频制作系统。给它一个想法，它帮你写稿、配音、做画面、出成片。9 阶段 DAG 管线 + 自进化评分，支持每日自动执行。基于 Claude Code + HyperFrames。
-  `skills/Johnson-Jia__video-clipforge/files`
-- **create** (skill, MIT): Design and build a finished motion piece (default vertical 1080×1920; landscape/square also supported) from a brief through the 甲乙环 (critic-loop) pipeline — a u
-  `skills/Zane-0x5a__remotion-director/files/claude-plugin/skills/create`
-- **remotion-director** (skill, MIT): Design and build a finished motion piece (default vertical 1080×1920; landscape/square also supported) from a brief through the 甲乙环 (critic-loop) pipeline — a u
-  `skills/Zane-0x5a__remotion-director/files/codex-plugin/skills/remotion-director`
-- **product-motion-ads** (skill, Apache-2.0): Style for edit-video: a vertical motion-graphics ad built in code from the product itself (its app, site, screenshots, product photos, packaging or renders), wi
-  `skills/alisadiq-ai__favstash-ai-video-editing-skills/files/skills/3-editing-styles/product-motion-ads`
-- **manim** (skill, MIT): Use when the user wants to create mathematical animations, research paper explainer videos, equation derivations, 3D visualizations, or any programmatic animati
-  `skills/AmitSubhash__3brown1blue/files/src/three_b1b/skill`
-- **remotion-code-motion-explainer** (skill, MIT): Create polished, code-driven Remotion motion explainers from scripts, narration, subtitles, product specifications, reference videos, UI recordings, diagrams, o
-  `skills/vibe-motion__remotion-code-motion-explainer/files`
-- **product-demo-director** (skill, MIT): Turn product evidence, narration, and footage into a single-focus announcement, dramatic Save-the-Cat, causal investor, sales, or short-form demo with narration
-  `skills/crimeacs__product-demo-director/files`
-- **creator-style-kit** (skill, MIT): Pick and apply one of 18 premium visual styles (fonts, palette, motion grammar, SFX kit) for the user's 9:16 HyperFrames videos — AI model evaluation (评测), tuto
-  `skills/threeaus__creator-style-kit/files`
-- **ultrademo** (skill, Apache-2.0): Create a narrated demo video of a web app. Use when the user asks for a demo video, product walkthrough video, launch video, or to re-run/update an existing one
-  `skills/new-xp__ultrademo/files/.claude/skills/ultrademo`
-- **ultrademo-rerun** (skill, Apache-2.0): Refresh an existing Ultrademo demo video after the app changed. Use when the user wants to re-run, update, refresh, or regenerate a demo video that already has 
-  `skills/new-xp__ultrademo/files/.claude/skills/ultrademo-rerun`
-- **motion-from-reference** (skill, MIT): Build a new motion-graphics video in Remotion in the style of a reference video. Use when the user names a style from the styles/ library (e.g. "plotter", "dood
-  `skills/motalim-ai__motion-starter-kit/files/.agents/skills/motion-from-reference`
-- **bgmusic** (skill, Apache-2.0): Use when a video needs background music beyond the synthesized ambient bed that ships with openvidstudio, or the user says "find music", "background music", "mu
-  `skills/AnayDhawan__openvidstudio/files/.agents/skills/bgmusic`
-- **openvidstudio** (skill, Apache-2.0): Use when the user wants a demo video, launch video, screencast or product walkthrough for a software project, or says "make a demo video", "record a demo", "vid
-  `skills/AnayDhawan__openvidstudio/files/.agents/skills/openvidstudio`
-- **openvidstudio-director** (skill, Apache-2.0): Use when making a peak or mid creative-level launch video, promo, trailer or "make it look great" demo with openvidstudio, where the video should be directed (a
-  `skills/AnayDhawan__openvidstudio/files/.agents/skills/openvidstudio-director`
-- **remotion-markup** (skill, Apache-2.0): Content, animation and effects best practices
-  `skills/AnayDhawan__openvidstudio/files/.agents/skills/remotion-markup`
-- **supernova** (skill, Apache-2.0): Use when making a short animated STEM lesson video (a maths, physics or computer science concept explained in up to two minutes, vertical, narrated) with openvi
-  `skills/AnayDhawan__openvidstudio/files/.agents/skills/supernova`
-- **create-onboarding-video** (skill, MIT): Produce short, punchy web app onboarding videos in Remotion that showcase a feature in action by animating isolated pieces of the UI (cropped components, not fu
-  `skills/gorkem-bwl__onboarding-video-generator/files`
-- **video-illustrator** (skill, MIT): Turn the user's own voice and real assets (book or course covers, screenshots, logos) plus a chosen visual style into a 20–60 second cinematic promo or concept 
-  `skills/axtonliu__video-illustrator/files`
-- **opus-js-animations** (skill, MIT): Direct and render films made entirely in JavaScript, from an idea to a frame-exact MP4, working like a film director. Take the brief, then ask where the sound c
-  `skills/klsoen__opus-js-animations/files/skills/opus-js-animations`
-- **nd-video** (skill, MIT): Explainer videos with HyperFrames (HTML → MP4) plus narrator, music and mixing on NeuralDeep infrastructure. Triggers: "make a video", "explainer", "explain vis
-  `skills/vakovalskii__nd-video-studio/files/skills/nd-video`
-- **ndt-content** (skill, MIT): Content made entirely on NeuralDeep models (api.neuraldeep.ru), no external APIs: research, script, voice, images, speech verification, word-level subtitles, fr
-  `skills/vakovalskii__nd-video-studio/files/skills/ndt-content`
-- **xingchen-vox-collage** (skill, MIT): Create or revise Xingchen scenes in an original Vox-inspired editorial paper-collage language with separate image assets, code-owned typography and evidence gra
-  `skills/Phantomlau3674__voxstylehub-steven/files/xingchen-vox-collage`
-- **ai-product-video** (skill, Apache-2.0): Create cinematic product videos from shot recipe cards, a validated template, and code/audio assets (Remotion + real page screenshots + 2.5D camera moves + beat
-  `skills/dlazy-ai__ai-product-video/files`
-- **gemini-tts** (skill, MIT): Generate speech from text using Google Gemini TTS. Use when creating voiceovers, narration, podcasts, or any text-to-speech task. Supports 70+ languages, style/
-  `skills/memex-lab__product-launch-video-skill/files/skills/gemini-tts`
-- **product-launch-video** (skill, MIT): Design and build spectacular, high-impact product launch videos using Remotion (React). Use this skill whenever the user wants to create a product launch video,
-  `skills/memex-lab__product-launch-video-skill/files/skills/product-launch-video`
-- **explainer-video** (skill, MIT): Generate an animated narrated explainer video (MP4). Claude writes a custom HTML animation page tailored to the topic, then the skill handles voiceover (free Ed
-  `skills/Mng-dev-ai__explainer-video/files`
-- **demo-video-creation-skill** (skill, MIT): Creates high-quality SaaS and product demo videos from a company website, screenshots, app flow, or launch brief. Use whenever the user asks for product demo vi
-  `skills/derrickgong87__demo-video-creation-skill/files/demo-video-creation-skill`
-- **paper-cut** (skill, MIT): Create, resume, revise, and render editable image-led paper-cut collage explainer videos with approved AI-generated hero-frame stills, original-frame layer extr
-  `skills/aijiduonadegou__Paper-Cut/files`
-- **open-video-harness** (skill, MIT): Make videos with code (video-as-code / code2video) through the OpenVideoHarness workbench. Covers 3Blue1Brown-style math and science explainers, knowledge short
-  `skills/ZLHad__OpenVideoHarness/files/skills/open-video-harness`
-- **xigua-msvideo-skill** (skill, MIT): 统筹 YouTube 知识视频的六步制作：选题、文案、配音、带时间戳的画面脚本、独立画面、音画合成。复用文案与 MS Paint 生图技能，支持从已有稿件、配音或图片续作。适用于制作整期视频、串联制作环节或继续未完成生产的请求。
-  `skills/124zhe__xigua-msvideo-skill/files/skills/xigua-msvideo-skill`
-- **youtube-curiosity-stories** (skill, MIT): 为英文 YouTube 创作陌生却容易引起好奇的原创知识故事。用于有趣事情分享、选题、参考视频文字稿分析、完整口播稿、中文审稿及中英文同步修改；重点是兑现标题、持续提供新发现和自然叙述。
-  `skills/124zhe__xigua-msvideo-skill/files/skills/youtube-curiosity-stories`
-- **youtube-ms-paint-images** (skill, MIT): 把已确认的 YouTube 口播制作成时间戳分镜与故意粗糙、鲜艳平涂的 MS Paint 粗绘图片。用于参考画面分析、约两秒一次明显变化的分镜设计、样图、批量生图、按编号和开始时间戳命名及中断续接；不负责重写口播、配音或剪辑。
-  `skills/124zhe__xigua-msvideo-skill/files/skills/youtube-ms-paint-images`
-- **motioncraft** (skill, MIT): Make clean, high-taste motion graphics videos (explainers, product promos, tutorials, social reels) with Remotion. Use when the user asks for a motion graphics 
-  `skills/ahmdd4vd__MotionCraft/files/skills/motioncraft`
-- **demo-video-creator** (skill, MIT): Make a landscape 16:9 (1920×1080) ~60s product demo / launch film for a web app, AI tool or SaaS with the user's approved motion feel ("감도") — real product UI c
-  `skills/chacha95__demo-video-creator/files/skills/demo-video-creator`
-- **video-production** (skill, MIT): End-to-end narrated video production with research, source extraction, storyboard/script, Manim/ffmpeg visuals, TTS voiceover, QC, archival backups, and optiona
-  `skills/Aaryan-Kapoor__video-production-skill/files/skills/video-production`
-- **html2video** (skill, MIT): Turn a web article URL into a polished 1920x1080 edited video (MP4) — code-driven editing with Remotion, not AI video generation. Use this whenever the user wan
-  `skills/cclank__lanshu-html2video-skill/files`
-- **cyxj-hyperframes-overlay** (skill, MIT): XCYJ HyperFrames 专属 overlay。用户用 HyperFrames、HF、HTML+GSAP、website-to-video、catalog block、npx hyperframes、XCYJ 教程视频时使用。必须叠加官方 HyperFrames skills，不替代官方 skill。
-  `skills/chenyuxiaojin__cyxj-hyperframes/files/制作规范/skills/cyxj-hyperframes-overlay`
-- **xiaoma-studio** (skill, MIT): 用代码做「Opus 5.5 爆款级」动效视频、HTML 幻灯片和有动效的官网 / 落地页 / 展厅大屏页：知识科普、品牌/产品发布片、motion reel、歌词 MV、数据叙事、纪录片风短片、可演讲也可导出视频/PDF 的 HTML slides、带交互演示的产品官网。视频规则来自抖音/X/YouTube 30 条高
-  `skills/crawfordxx__xiaoma-studio/files`
-- **su-card-to-video** (skill, MIT): Create a minimal AI card video from HTML/CSS cards and a prepared audio file. Use when the user wants a simple local workflow for 16:9 card-based videos without
-  `skills/doublesq97-ui__su-card-to-video/files/skill`
-- **hyperdirector** (skill, Apache-2.0): Hermes video director enhancement pack powered by HyperFrames. Turns articles, product pages, PRDs, README files, data charts, and brand materials into editable
-  `skills/gloweaseco-leo__hyperdirector/files/hyperdirector`
-- **book-video-production** (skill, MIT): Research, script, storyboard, illustrate, cover-design, voice, caption, score, build, inspect, and render fact-based Chinese book short videos for Douyin, Xiaoh
-  `skills/yuwenbin121__book-video-production-skill/files`
-- **caption-animation** (skill, MIT): This skill should be used when the user asks to "add animated captions", "make TikTok captions", "karaoke captions", "word-by-word subtitles", "auto subtitles",
-  `skills/iart-ai__tiktok-video-skills/files/skills/caption-animation`
-- **explainer-studio** (skill, MIT): 한 줄 주제를 장면표(storyboard.json)로 바꾸고, 같은 장면표를 화이트보드·설계도·수묵화·스위스 타이포 등 8가지 손그림 스타일 중 하나로 그려 자막과 내레이션이 들어간 설명 영상(MP4)으로 만든다. GPU·영상 생성 모델·유료 API 없이 같은 입력이면 같은 영상이 나온
-  `skills/reedodev__explainer-studio/files/skills/explainer-studio`
-- **hyperframes** (skill, MIT): Entry point for HyperFrames work inside the motion-launch workspace: read this first to make, create, edit, animate, or render a HyperFrames video, animation, o
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes`
-- **hyperframes-animation** (skill, MIT): All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene transitions, broader motion-design techniques, AND the seven 
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-animation`
-- **hyperframes-audio** (skill, MIT): Use when audio already placed in a HyperFrames composition needs to be mixed: fade-in/fade-out, crossfade, track gain or volume, volume automation, ducking, a m
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-audio`
-- **hyperframes-cli** (skill, MIT): Use the HyperFrames CLI development loop: init, add, catalog, capture, lint, check, snapshot, compare, grade-compare, preview, play, present, beats, keyframes, 
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-cli`
-- **hyperframes-creative** (skill, MIT): Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md) handling, palettes, typography, narration, beat planning, au
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-creative`
-- **hyperframes-registry** (skill, MIT): Search, install, and wire registry blocks and components into HyperFrames compositions. Use BEFORE hand-building any named visual — whenever a brief, a user, or
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-registry`
-- **media-use** (skill, MIT): Agent Media OS, the single skill for every media need in a HyperFrames project. Resolve BGM, SFX, image, icon, brand logo, voice, color grade, or LUT into a fro
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/media-use`
-- **motion-design** (skill, MIT): Makes an agency-grade launch motion design film (30 to 60 s, 16:9, voice-over) in this repository with HyperFrames and the pinned HeyGen skills, in 5 steps the 
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/motion-design`
-- **product-launch-video** (skill, MIT): Turn a product or marketing URL, pasted script, or brief into a product launch / promo video — SaaS promos, feature reveals, product demos, app and company laun
-  `skills/cblain100-prog__motion-design-claude-code/files/.claude/skills/product-launch-video`
-- **narrated-video** (skill, MIT): Make a narrated product video (a launch video, product demo, or tutorial) from real screenshots of the product and the person's own webcam narration. Captures t
-  `skills/every-app__video-skills/files/skills/narrated-video`
-- **teaser-video** (skill, MIT): Make a short product teaser with no narration (a feature announcement, a social clip, a hype video, about 10-30 s) from real screenshots of the product, as a Hy
-  `skills/every-app__video-skills/files/skills/teaser-video`
-- **video-script-builder** (skill, MIT): Convert a Chinese video voiceover script (逐字稿、口播稿) into a precise, renderer-bound storyboard specification for HyperFrames or Remotion, or revise an existing vi
-  `skills/erduo1998-cell__video-script-builder/files`
-- **presentation-video** (skill, MIT): This skill should be used when the user asks to "make an animated presentation", "turn a pitch deck into a video", "convert slides/a deck to video", "make a pre
-  `skills/iart-ai__data-animation-skills/files/skills/presentation-video`
-- **recursive-maths-animator** (skill, MIT): Recursive maths animator — Manim-based technical and physics animations with optional voiceover, pinned requirements, responsive layout rules, frame verificatio
-  `skills/Science-Prof-Robot__recursive-math-animator/files/recursive-maths-animator`
-- **recursive-maths-animator-physics** (skill, MIT): Create verified Manim physics animations using manim-physics for rigid mechanics, pendulums, electromagnetism, optics, waves, and custom deterministic physics m
-  `skills/Science-Prof-Robot__recursive-math-animator/files/recursive-maths-animator-physics`
-- **setup** (skill, MIT): Первичная настройка проекта под нового пользователя — проверка окружения и подробное интервью (кто ты; ~10 рилсов-референсов и разбор вкуса; расшифровка; подклю
-  `skills/skailabinfo__claude-video-harness/files/.claude/skills/setup`
-- **launch-story** (skill, MIT): Tool manual under launch-film (the brief, the story spine, the script, the beat sheet and reference studies). Turn a launch brief into a launch film's story in 
-  `skills/timscheuerai__launch-video-kit/files/skills/launch-story`
-- **launch-voice** (skill, MIT): Tool manual under launch-film (voice casting, one take per line, fitting lines, stitching, forced alignment, the vintage chain, the local clone and the free scr
-  `skills/timscheuerai__launch-video-kit/files/skills/launch-voice`
-- **spotlight** (skill, MIT): Turn a website, a code project, footage or photos, and a description into a short video that brags (a launch), promotes a point (a promo), or explains a topic (
-  `skills/AmirSbss__spotlight/files/skills/spotlight`
-- **magic-hour-explainer-video** (skill, MIT): Turn a source document or brief into a finished narrated explainer using Magic Hour images, speech and video, with a coherent visual style and complete sentence
-  `skills/magichourhq__skills/files/skills/magic-hour-explainer-video`
-- **magic-hour-music-video** (skill, MIT): Turn a supplied song or instrumental into a Magic Hour visualizer, music video or performance clip. Use for release teasers, lyric-inspired scenes and artist vi
-  `skills/magichourhq__skills/files/skills/magic-hour-music-video`
-- **magic-hour-talking-video** (skill, MIT): Make a still portrait speak from supplied audio with Magic Hour Talking Photo, or lip-sync existing video to replacement audio. Use when Magic Hour is requested
-  `skills/magichourhq__skills/files/skills/magic-hour-talking-video`
-- **whiteboard-video** (skill, MIT): Make hand-drawn whiteboard explainer videos (animated marker drawings, voice-over, burned-in captions, MP4) on any topic. Use this whenever the user wants an ex
-  `skills/Matteoikarieth96__whiteboard-video-skill/files`
-- **demoday** (skill, MIT): Make a finished demo video of a piece of software: drive the app on screen (web, macOS desktop or terminal) while narrating what it does, generate an AI voiceov
-  `skills/mrieck__demoday-claude-plugin/files`
-- **demo-assembly** (skill, MIT): Assembling and rendering a demo video with Remotion and ffmpeg — the timeline, transitions, captions, zoom-to-click, audio ducking, and diagnosing a render that
-  `skills/mrieck__demoday-claude-plugin/files/skills/demo-assembly`
-- **demo-capture** (skill, MIT): Craft and mechanics of capturing software on screen for a demo video — rehearsing a flow, staging a window, the action-script format, pacing to narration, and m
-  `skills/mrieck__demoday-claude-plugin/files/skills/demo-capture`
-- **demo-script** (skill, MIT): Writing the script and shot list for a demo video, and the demo.json manifest schema. Use when planning what a product video should say and show, writing voiceo
-  `skills/mrieck__demoday-claude-plugin/files/skills/demo-script`
-- **demo-shorts** (skill, MIT): Cut a vertical 9:16 Short (YouTube Shorts, Instagram Reels, TikTok) from a demo video project in one of four named styles — listicle (rapid numbered beats), coh
-  `skills/mrieck__demoday-claude-plugin/files/skills/demo-shorts`
-- **demo-video** (skill, MIT): Make a demo video of a piece of software: drive the app on screen while narrating what it does, generate an AI voiceover and optional on-camera presenter, and a
-  `skills/mrieck__demoday-claude-plugin/files/skills/demo-video`
-- **marka-kimligi** (skill, MIT): Sets up or changes the channel's own editing identity in this workspace — interviews the user, studies their reference stills, then writes marka/MARKA.md, src/t
-  `skills/onuryildriim__claude-kurgu-atolyesi/files/.claude/skills/marka-kimligi`
-- **video-kurgula** (skill, MIT): End-to-end edit of a talking-head YouTube video in this workspace, in the channel's OWN brand (marka/MARKA.md + src/theme/theme.ts) — stage layouts that reframe
-  `skills/onuryildriim__claude-kurgu-atolyesi/files/.claude/skills/video-kurgula`
-- **video-editing** (skill, MIT): Turn an approved script, provided talking-head/voiceover media, and gathered assets into a polished, creator-grade vertical (9:16) short rendered with HyperFram
-  `skills/adriiita__vertical-video-editing-skill/files/skills/video-editing`
-- **explainer-assets** (skill, MIT): Generate crafted SVG/CSS components, props, characters, and environments for animated explainer videos — the build order, light rules, factory patterns, and eng
-  `skills/BusyBee3333__animated-explainer-skills/files/skills/explainer-assets`
-- **explainer-studio** (skill, MIT): The guided end-to-end path for building an animated explainer video from zero — walks you phase by phase (script → assets → choreography → retention → gates → v
-  `skills/BusyBee3333__animated-explainer-skills/files/skills/explainer-studio`
-- **gsap-explainer** (skill, MIT): Build a Kurzgesagt-quality GSAP-powered animated explainer video — a self-contained HTML file that plays like a produced YouTube video: layered worlds, characte
-  `skills/BusyBee3333__animated-explainer-skills/files/skills/gsap-explainer`
-- **retention-pass** (skill, MIT): Run a 3-round YouTube-retention optimization pass on an animated explainer video (GSAP or CSS-only harness) — audit the hook/peak loop, kill dead zones, align s
-  `skills/BusyBee3333__animated-explainer-skills/files/skills/retention-pass`
-- **remotion-markup** (skill, MIT): Content, animation and effects best practices
-  `skills/diko0071__remotion-video-skills/files/.claude/skills/remotion-markup`
-- **hyperframes-vibe-169** (skill, Apache-2.0): 使用 HyperFrames 框架制作 16:9 横版「Vibe 视频大赏」科普短视频。当用户要求生成知识科普、观点讲解、金句科普类短视频，或要求生成/修改 HyperFrames 视频工程（HTML+GSAP 时间线）、读写项目 index.html、执行 npx hyperframes lint / preview
-  `skills/dy-hashiqi__VibeDS-skill/files`
-- **infofilm** (skill, MIT): Make a narrated infographic explainer film (typically 5–15 minutes) about a real subject — how a system works, what happened, what happens next — as a 1950s ins
-  `skills/fltman__infofilm/files/skills/infofilm`
-- **brand-kit** (skill, MIT): Set a channel's identity (name, handle, colours, fonts, wordmark, monogram, avatar, banner, voice) from the user's own brand files, their website, or (default) 
-  `skills/generalizingai__shadowcast/files/skills/brand-kit`
-- **demo** (skill, MIT): Quick Shadowcast trial. Give it a YouTube channel link and it produces ONE 1-minute demo video in that channel's format, plus 1 Short and 1 thumbnail. Nothing i
-  `skills/generalizingai__shadowcast/files/skills/demo`
-- **episode** (skill, MIT): Produce one complete episode for a shadowcast channel. Covers research, fact sheet, script, approval gate, voice-over, photos, word-synced motion graphics, layo
-  `skills/generalizingai__shadowcast/files/skills/episode`
-- **setup** (skill, MIT): One-time shadowcast setup check. Verifies tools, API keys, the YouTube OAuth client and disk space, and fixes what it can. Use when someone installs shadowcast 
-  `skills/generalizingai__shadowcast/files/skills/setup`
-- **remotion-resemble-ai** (skill, MIT): Create professional AI-narrated videos with Remotion and Resemble.ai - from educational tutorials to product launches
-  `skills/resemble-ai__remotion-resemble-skill/files/remotion-resemble-ai`
-- **gen** (skill, Apache-2.0): Generate a narrated, animated explainer video from a research paper (PDF) or a codebase/repo. Usage: /ppv:gen <pdf path, arxiv-style request, OR a codebase path
-  `skills/ssrajadh__paperview/files/adapters/claude-code/skills/gen`
-- **setup** (skill, Apache-2.0): One-time toolchain bootstrap for PaperView (Python venv, Remotion deps, local models). Run once before /ppv:gen.
-  `skills/ssrajadh__paperview/files/adapters/claude-code/skills/setup`
-- **sop-video** (skill, MIT): Produce narrated, step-by-step SOP videos from verified software workflows, with real screenshots, targeted button zooms, a side checklist, subtitles, and chapt
-  `skills/gquthier__autonomous-sop-video/files`
-- **motion-reel** (skill, MIT): Создаёт анимационный Reels/Shorts без камеры из темы, сценария или готовой озвучки в AutoMontage-Agent: script, выбор аудио, таймкоды, motion brief, настоящий p
-  `skills/mcdenil-skills__AutoMontage-Agent/files/.agents/skills/motion-reel`
-- **reel-turnkey** (skill, MIT): Собирает ролик под ключ в AutoMontage-Agent: проверяет исходник, транскрибирует речь, показывает автору черновую нарезку своей съёмки без графики, готовит один 
-  `skills/mcdenil-skills__AutoMontage-Agent/files/skills/reel-turnkey`
-- **riffkit** (skill, MIT): "Riff winning short videos — give one source (a TikTok link, an uploaded video, or an analyzed template) and the backend riffs its emotion formula into your own
-  `skills/riffkit__skill/files/plugins/riffkit/skills/riffkit`
-- **notes-to-video** (skill, MIT): Turn notes (LaTeX, PDF, or plain text) into 3Blue1Brown-style animated videos using Manim + TTS + ffmpeg. Use when the user wants to create an explainer video.
-  `skills/cymcymcymcym__notes-to-video/files/skills/notes-to-video`
-- **slopcamera** (skill, MIT): Create, inspect, edit and render visual media with the SlopCamera CLI and SDK. Use for diagrams, raster-to-SVG conversion, existing screen or camera recordings,
-  `skills/hraness__slopcamera/files/skills/slopcamera`
-- **story-new** (skill, MIT): Create a new story video from a context. Writes story.json, gets the script approved, then generates the Sarvam voiceover and FLUX 2 artwork and renders the mp4
-  `skills/marketcalls__story-telling/files/.claude/skills/story-new`
-- **story-render** (skill, MIT): Regenerate and render an existing story. Use to change a line of narration, swap a voice, redo one image, switch orientation, or re-render to mp4.
-  `skills/marketcalls__story-telling/files/.claude/skills/story-render`
-- **story-setup** (skill, MIT): Set up the story-telling environment. Checks Node, installs dependencies, creates .env from the template, verifies the Sarvam, fal and OpenAI keys, and confirms
-  `skills/marketcalls__story-telling/files/.claude/skills/story-setup`
-- **story-telling** (skill, MIT): Story video expert. Use when the user asks to make an explainer video, a story video, a reel or a short, a narrated video from an article, a cartoon explainer, 
-  `skills/marketcalls__story-telling/files/.claude/skills/story-telling`
-- **script-to-video** (skill, MIT): Full pipeline — topic/script/text file → OmiVoice TTS (Prince's voice) → Whisper word-level timestamps → HyperFrames synced video composition. Use when asked to
-  `skills/pjecuacion__script-to-video-skill/files`
-- **codex-video-pipeline** (skill, MIT): Orchestrate a complete AI-assisted self-media video workflow from topic and evidence through script, motion direction, assets, narration, captions, HyperFrames 
-  `skills/zoglmk__codex-video-pipeline/files`
-- **diagram-tour** (skill, MIT): Generate a narrated architecture-tour video from a codebase. End-to-end: codebase analysis → Graphviz .dot → narration script → narrated MP4. Three confirmation
-  `skills/centraltowerlabs__diagram-tour/files`
-- **demo-video** (skill, MIT): Turn an app or a public website into a finished, designed demo or guide video — product demos, feature walkthroughs, how-to guides, onboarding clips, site tours
-  `skills/hub-ki__video-generation/files/skills/demo-video`
-- **video-plan** (skill, MIT): Write the concept for a demo, guide, walkthrough or site-tour video of an app or any public website — the two documents that get approved BEFORE anything is rec
-  `skills/hub-ki__video-generation/files/skills/video-plan`
-- **scenewright** (guide, MIT): Claude Code-native pipeline: a source text → narrated, Remotion-rendered YouTube explainer video. Any topic, ~$0/video, local Korean TTS (Supertonic), JSON-as-c
-  `skills/jinjin1__scenewright/files`
-- **editing-videos** (skill, MIT): Gives an editor's judgment, with sourced numbers, for cutting and pacing, J and L cuts, jump cuts, b-roll, hooks and retention, captions, on-screen text and gra
-  `skills/kmilo93sd__agent-video-editor/files/skills/editing-videos`
-- **chaojifeng-video-design** (skill, MIT): 为产品演示、知识讲解、资讯呈现、给定图片成片、故事视频、功能动效、品牌形象短片和音乐／视觉表演设计并制作视频。用户要求做宣传片（含产品发布片、产品音乐叙事、多功能章节串联）、解释动画（含把抽象概念、协议、机制或资讯形象化并逐层讲清）、科技感视频、MV、视觉表演、套用或扩展视频风格、组合动效、只改某个镜头、强化界面重点与
-  `skills/mileson__chaojifeng-video-design/files`
-- **youtube-shorts-factory** (skill, MIT): 유튜브 레퍼런스 영상 분석 → 벤치마킹 → 30%+ 각색 → 스토리보드 기획 → rfn-video-pipeline용 JSON 생성 → 이미지 생성 → HTML 시각화 → AI 영상 제작까지의 전체 쇼츠 제작 워크플로우. 유튜브 쇼츠 분석, 벤치마킹, 각색, 스토리보드, 레퍼런스 영상, 
-  `skills/ninestonelee__youtube-shorts-factory/files`
-- **audio-theater** (skill, MIT): Turn a dialogue, a story with dialogue, or a one-line idea into multi-character audio using Gemini TTS, with word-level timecoded transcription (WhisperX or loc
-  `skills/puntorigen__avatar-skills/files/audio-theater`
-- **avatar-ambient-sfx** (skill, MIT): Add a spatial ambient SFX layer to a finished avatar reel and deliver it as final-espacial.mp4, without overwriting final.mp4. Generates positioned ambient/fole
-  `skills/puntorigen__avatar-skills/files/avatar-ambient-sfx`
-- **avatar-invent** (skill, MIT): Invent a brand-new FICTIONAL avatar from a text description — no real person, photo or recording needed. Generates a front-facing, well-lit, seated half-body pr
-  `skills/puntorigen__avatar-skills/files/avatar-invent`
-- **avatar-reel-composer** (skill, MIT): Turn a script + an existing avatar into a finished reel — 9:16 vertical (TikTok/Reels) or 16:9 landscape (YouTube), set via the storyboard `format`. Narrates th
-  `skills/puntorigen__avatar-skills/files/avatar-reel-composer`
-- **avatar-talking-video** (skill, MIT): Generate a talking-head avatar video from a line of text. Stage 1 synthesizes the text in the avatar's cloned voice via the voice-clone skill (reusing the avata
-  `skills/puntorigen__avatar-skills/files/avatar-talking-video`
-- **bg-music** (skill, MIT): Generate background music tracks for social media posts, presentations, reels, and app content using ElevenLabs Music on Replicate. Supports emotional mood pres
-  `skills/puntorigen__avatar-skills/files/bg-music`
-- **bg-music-hq** (skill, MIT): Generate high-quality background music and jingles using MiniMax Music 2.5 on Replicate. Supports structure tags, lyrics, 27 mood presets including pet-content 
-  `skills/puntorigen__avatar-skills/files/bg-music-hq`
-- **broll-actor-copy** (skill, MIT): Generate a B-roll clip where OUR avatar COPIES the motion of a driving video — same movement, gestures, expressions and lip movements — via ByteDance DreamActor
-  `skills/puntorigen__avatar-skills/files/broll-actor-copy`
-- **broll-avatar-camera** (skill, MIT): Generate a short B-roll clip of OUR OWN avatar DOING something on camera — an ACTION shot that COMPLEMENTS the narration (movement matters more than words), not
-  `skills/puntorigen__avatar-skills/files/broll-avatar-camera`
-- **broll-browser-recorder** (skill, MIT): Record a real browser product demo as smooth continuous video (Playwright HTTP server, adaptive agent-driven interaction), post-process it for a reel in 9:16 ve
-  `skills/puntorigen__avatar-skills/files/broll-browser-recorder`
-- **broll-core** (skill, MIT): Internal shared library for the broll-* B-roll skills (broll-web-capture, broll-browser-recorder, broll-terminal, broll-demo-avatar). Provides the canonical ree
-  `skills/puntorigen__avatar-skills/files/broll-core`
-- **broll-cursor** (skill, MIT): Turn a declarative session JSON into a short, realistic animated IDE agent-chat B-roll clip (a Cursor-style "Agent" panel) for technical reels — a user prompt t
-  `skills/puntorigen__avatar-skills/files/broll-cursor`
-- **broll-finder** (skill, MIT): Find real public YouTube footage about a topic or person (e.g. Anthony Bourdain) and turn the relevant moments into clean 9:16, silent B-roll clips for an avata
-  `skills/puntorigen__avatar-skills/files/broll-finder`
-- **broll-generator** (skill, MIT): Generate hyper-realistic complementary B-roll video clips (3-6s) from a scene description using Pruna p-video on Replicate, with NO main character — only people
-  `skills/puntorigen__avatar-skills/files/broll-generator`
-- **broll-story** (skill, MIT): Generate a SILENT B-roll clip of an existing avatar (and optional invented side-characters) DOING a demonstrative activity — not a talking head, no lip-sync — f
-  `skills/puntorigen__avatar-skills/files/broll-story`
-- **broll-terminal** (skill, MIT): Turn a declarative session JSON into a short, realistic animated-terminal B-roll clip for technical reels — commands typed with human jitter (variable per-key d
-  `skills/puntorigen__avatar-skills/files/broll-terminal`
-- **broll-web-capture** (skill, MIT): Turn a website or a GitHub repo into a short, polished B-roll clip for technical reels — a high-DPI Playwright capture animated with Ken Burns zoom/pan, a verti
-  `skills/puntorigen__avatar-skills/files/broll-web-capture`
-- **caption-word-reveal** (skill, MIT): Word-by-word ("karaoke") burned-in captions for avatar reels: each word appears at the instant it's spoken, building up the SAME phrase unit in place (frozen la
-  `skills/puntorigen__avatar-skills/files/caption-word-reveal`
-- **cuento-reel** (skill, MIT): Produce a "cuento" (story) reel where each avatar is a CHARACTER in a narrated tale (Narnia-style), not a single presenter talking to camera. An unseen storytel
-  `skills/puntorigen__avatar-skills/files/cuento-reel`
-- **onboarding-script** (skill, MIT): Generate an ordered SERIES of onboarding video scripts (a curriculum) to introduce a new team member to a company — who we are, the tools/accounts we use, our e
-  `skills/puntorigen__avatar-skills/files/onboarding-script`
-- **reel-restyle** (skill, MIT): Analyze ONE avatar's reels and re-apply their style to a DIFFERENT avatar. Distills a script-agnostic reel TEMPLATE from a reference avatar's existing video-sce
-  `skills/puntorigen__avatar-skills/files/reel-restyle`
-- **rule-of-six-edit** (skill, MIT): Evaluate and plan the CUTS / editing of a short-form video / reel using Walter Murch's "Rule of Six" — the priority hierarchy that defines an ideal cut: Emotion
-  `skills/puntorigen__avatar-skills/files/rule-of-six-edit`
-- **seedance-2** (skill, MIT): Generate video with ByteDance Seedance 2.0 via the Higgsfield MCP (generate_video, model seedance_2_0). A unified multimodal model that turns a text prompt plus
-  `skills/puntorigen__avatar-skills/files/seedance-2`
-- **sound-effects** (skill, MIT): Generate consistent sound effects and short audio assets for mobile/web apps using Stable Audio 2.5 on Replicate. Supports UI sounds, notifications, game SFX, a
-  `skills/puntorigen__avatar-skills/files/sound-effects`
-- **video-compose** (skill, MIT): Compose a polished video reel from a folder of source clips and images using a Python+FFmpeg pipeline with Remotion title overlays. The skill drafts an interact
-  `skills/puntorigen__avatar-skills/files/video-compose`
-- **video-remix** (skill, MIT): Analyze the visual + narrative + audio MOLD of one or more reference videos (reels/shorts/talking-head clips) — format/ratio, per-scene layout, character positi
-  `skills/puntorigen__avatar-skills/files/video-remix`
-- **viral-video-script** (skill, MIT): Write short-form video scripts / dialogue that follow Tuan Le's "3 billion views" viral formula — the six psychological principles (familiarity / format-steal, 
-  `skills/puntorigen__avatar-skills/files/viral-video-script`
-- **voice-clone** (skill, MIT): Clone a narrator's voice from a clean voice audio file using MiniMax voice-cloning on Replicate, then generate new speech (TTS) in that cloned voice with MiniMa
-  `skills/puntorigen__avatar-skills/files/voice-clone`
-- **voice-isolate** (skill, MIT): Extracts clean voice samples from a video. Separates the vocal stem with Demucs, gets speech timecodes with faster-whisper, detects the recurring percussive "ta
-  `skills/puntorigen__avatar-skills/files/voice-isolate`
-- **talking-avatar-video** (skill, MIT-0): Create a talking avatar from one portrait and a short script or speech track. This AI presenter and digital human video workflow can prepare narration with a se
-  `skills/beatra-ai__talking-avatar-video-skill/files/skills/talking-avatar-video`
-- **viral-video-teardown-remake** (skill, MIT-0): Turn a short video that already worked into your own version. Paste the link and this viral video teardown and short-video remake workflow reads the reference i
-  `skills/beatra-ai__viral-video-remake-skill/files/skills/viral-video-teardown-remake`
-- **code-animations** (skill, MIT): Make "code-rendered" animated videos where a program draws every frame (Canvas 2D + procedural Web Audio), rendered headless to MP4 in 16:9 / 9:16 / 4:5 from on
-  `skills/beriki770-ship-it__code-animations/files`
-- **logo-intro** (skill, MIT): Build an animated WebGL logo intro from a brand's SVG logo. The mark arrives from a lens-warped, colour-fringed close-up, the wordmark pulls out of it, a gradie
-  `skills/CJ10110425__logo-intro/files`
-- **docvideoer** (skill, MIT): 文档转视频技能。用于把文档 URL、网页文章、Markdown 或粘贴文本转换成带中文旁白的 Remotion 讲解视频，包含正文提取、分镜生成、免费 TTS、视频项目搭建和 MP4 渲染。
-  `skills/coding-ax__docvideoer/files`
-- **paper-cut-video** (skill, MIT): Create or edit vertical Chinese paper-cut and paper-collage explainer videos with script-driven, content-matched paper characters; separate background, rear, he
-  `skills/crawfordxx__paper-cut-video-skill/files/paper-cut-video`
-- **audiogram** (skill, MIT): This skill should be used when the user asks to "make an audiogram", "turn a podcast into a video", "create a waveform video", "make a podcast clip video", "con
-  `skills/iart-ai__youtube-video-skills/files/skills/audiogram`
-- **paper2video** (skill, MIT): Turn a research paper or project (just an arXiv link or a paper title is enough; or a repo, PDF, project page, or working directory) into a polished, 3Blue1Brow
-  `skills/Lunamos__paper2video/files/skills/paper2video`
-- **flow-video-recorder** (skill, MIT): Use when the user wants to record a screen-capture video of a flow through an app: a walkthrough, product demo, feature tour, or reproduction, driven either in 
-  `skills/muayadjamal__flow-video-recorder/files`
-- **talk-workbench** (skill, MIT): 把确认好的讲解配音做成竖屏视频，使用概念场景、示意工作台、真实截图和按需角色动画。适用于 AI 工具介绍、工作流讲解、操作步骤和 Skill 合集；默认采用“场景＋工作台”的方案 D。配音驱动画面，本仓库不内置 TTS 或视频生成接口，也不负责真人原片的语义删词。
-  `skills/Nealsun1993__talk-workbench/files`
-- **codebase-video** (skill, MIT): Make a narrated video about a codebase - one that teaches how it works (or one flow in it), or a progress video that shows what changed since a past commit, tag
-  `skills/OnurGumus__codebase-video/files/skills/codebase-video`
-- **remotion-marketing-video** (skill, MIT): Build marketing and launch videos as Remotion compositions. Use when creating or editing any video in this repo - scene structure, timing math, kinetic captions
-  `skills/sub-level__marketing-videos/files/.claude/skills/remotion-marketing-video`
-- **remotion-marketing-video** (skill, MIT): Create premium marketing videos using Remotion and React, including product demos, SaaS promos, UI walkthroughs, and social ads.
-  `skills/xsourabhsharma__remotion-marketing-video-skill/files`
-- **ffmpeg-skill** (skill, MIT): Edit video and audio with local FFmpeg from natural-language requests: cut, trim, join, resize/reframe (9:16, 1:1), speed change, captions and subtitles (SRT/AS
-  `skills/itsharex__ffmpeg-skill/files`
+## In this repo (344)
+
+Folders are under `skills/`.
+
+- **moneyprinterturbo-video**: Use this skill whenever the user wants to create a finished video from a topic, title, idea, prompt, `harry0703__MoneyPrinterTurbo/files/docs/skill`
+- **acestep**: AI music generation with ACE-Step 1.5 — background music, vocal tracks, covers, stem extraction for  `calesthio__OpenMontage/files/.agents/skills/acestep`
+- **agents**: Build voice AI agents with ElevenLabs. Use when creating voice assistants, customer service bots, in `calesthio__OpenMontage/files/.agents/skills/agents`
+- **azure-speech-to-text**: Transcribe audio to text using Azure AI Speech (Fast Transcription REST API). Use when converting au `calesthio__OpenMontage/files/.agents/skills/azure-speech-to-text`
+- **azure-text-to-speech**: Generate neural narration audio using Azure AI Speech (REST text-to-speech). Use when synthesizing v `calesthio__OpenMontage/files/.agents/skills/azure-text-to-speech`
+- **create-video**: Create videos from a text prompt using HeyGen's Video Agent. Use when: (1) Creating a video from a d `calesthio__OpenMontage/files/.agents/skills/create-video`
+- **dashscope**: DashScope (Alibaba Cloud Bailian / 阿里云百炼) integration — image generation (qwen-image-2.0-pro), text- `calesthio__OpenMontage/files/.agents/skills/dashscope`
+- **doubao-tts**: Generate Mandarin and multilingual narration with Volcengine Doubao Speech 2.0. Use when creating Ch `calesthio__OpenMontage/files/.agents/skills/doubao-tts`
+- **elevenlabs**: Generate AI voiceovers, sound effects, and music using ElevenLabs APIs. Use when creating audio cont `calesthio__OpenMontage/files/.agents/skills/elevenlabs`
+- **ffmpeg**: Video and audio processing with FFmpeg. Use for format conversion, resizing, compression, audio extr `calesthio__OpenMontage/files/.agents/skills/ffmpeg`
+- **fish-audio-tts**: Generate expressive, multilingual narration with fish.audio (S1 / S2-generation models) and reuse cl `calesthio__OpenMontage/files/.agents/skills/fish-audio-tts`
+- **gemini-omni**: Generate and conversationally edit short videos with Google Gemini Omni Flash (`gemini-omni-flash-pr `calesthio__OpenMontage/files/.agents/skills/gemini-omni`
+- **hyperframes**: READ THIS FIRST for any request to make, create, edit, animate, or render a video, animation, or mot `calesthio__OpenMontage/files/.agents/skills/hyperframes`
+- **hyperframes-animation**: All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene t `calesthio__OpenMontage/files/.agents/skills/hyperframes-animation`
+- **hyperframes-cli**: HyperFrames CLI dev loop. Use when running npx hyperframes init, add, catalog, capture, lint, valida `calesthio__OpenMontage/files/.agents/skills/hyperframes-cli`
+- **hyperframes-core**: The HyperFrames composition contract — build one renderable project. Use for composition structure,  `calesthio__OpenMontage/files/.agents/skills/hyperframes-core`
+- **hyperframes-creative**: Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md)  `calesthio__OpenMontage/files/.agents/skills/hyperframes-creative`
+- **hyperframes-media**: Audio and media assets for HyperFrames compositions, produced by one shared audio engine (`scripts/a `calesthio__OpenMontage/files/.agents/skills/hyperframes-media`
+- **kling-official**: Official Kling direct API guidance for OpenMontage providers. Use before calling `kling_official_vid `calesthio__OpenMontage/files/.agents/skills/kling-official`
+- **ltx2**: AI video generation with LTX-2.3 22B — text-to-video, image-to-video clips for video production. Use `calesthio__OpenMontage/files/.agents/skills/ltx2`
+- **manim-composer**: Trigger when: (1) User wants to create an educational/explainer video, (2) User has a vague concept  `calesthio__OpenMontage/files/.agents/skills/manim-composer`
+- **motion-graphics**: Use when the user wants a short, design-led motion graphic where motion is the message: kinetic typo `calesthio__OpenMontage/files/.agents/skills/motion-graphics`
+- **music**: Generate music using ElevenLabs Music API. Use when creating instrumental tracks, songs with lyrics, `calesthio__OpenMontage/files/.agents/skills/music`
+- **music-to-video**: Use when the user has a music track (an audio file, or a video to pull audio from) and wants a beat- `calesthio__OpenMontage/files/.agents/skills/music-to-video`
+- **provider-model-refresh**: Use the September 2026 image, video, speech and Avatar V adapters with explicit model/host contracts `calesthio__OpenMontage/files/.agents/skills/provider-model-refresh`
+- **remotion**: Toolkit-specific Remotion patterns — custom transitions, shared components, and project conventions. `calesthio__OpenMontage/files/.agents/skills/remotion`
+- **remotion-best-practices**: Best practices for Remotion - Video creation in React `calesthio__OpenMontage/files/.agents/skills/remotion-best-practices`
+- **seedance-2-0**: Generate cinematic clips with ByteDance Seedance 2.0 — the preferred premium video model in OpenMont `calesthio__OpenMontage/files/.agents/skills/seedance-2-0`
+- **setup-api-key**: Guides users through setting up an ElevenLabs API key for ElevenLabs MCP tools. Use when the user ne `calesthio__OpenMontage/files/.agents/skills/setup-api-key`
+- **sound-effects**: Generate sound effects from text descriptions using ElevenLabs. Use when creating sound effects, gen `calesthio__OpenMontage/files/.agents/skills/sound-effects`
+- **speech-to-text**: Transcribe audio to text using ElevenLabs Scribe v2. Use when converting audio/video to text, genera `calesthio__OpenMontage/files/.agents/skills/speech-to-text`
+- **synthetic-screen-recording**: Synthetic terminal-style screen recording guidance for Remotion `TerminalScene`. `calesthio__OpenMontage/files/.agents/skills/synthetic-screen-recording`
+- **text-to-speech**: Generate speech audio from text using HeyGen's Starfish TTS model. Use when: (1) Generating standalo `calesthio__OpenMontage/files/.agents/skills/text-to-speech`
+- **video-toolkit**: Create professional videos autonomously using claude-code-video-toolkit — AI voiceovers, image gener `calesthio__OpenMontage/files/.agents/skills/video-toolkit`
+- **website-to-video**: Capture a general website/URL and turn it into a HyperFrames video (site tour, showcase, or social c `calesthio__OpenMontage/files/.agents/skills/website-to-video`
+- **elevenlabs**: Generate AI voiceovers, sound effects, and music using ElevenLabs APIs. Use when creating audio cont `calesthio__OpenMontage/files/.claude/skills/elevenlabs`
+- **captions-overlay**: Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) and th `heygen-com__hyperframes/files/.agents/skills/captions-overlay`
+- **changelog-video**: Turn a weekly changelog .md into a finished branded changelog video (square 1080, ~45-60s, Annie VO, `heygen-com__hyperframes/files/.agents/skills/changelog-video`
+- **motion-doctrine**: GATEWAY — load FIRST before composing any HyperFrames animation or video. The high-level motion law  `heygen-com__hyperframes/files/.agents/skills/motion-doctrine`
+- **oversized-cursor**: House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a scene in `heygen-com__hyperframes/files/.agents/skills/oversized-cursor`
+- **hyperframes**: Read first to make, edit, animate or render any video with HyperFrames (HTML rendered to video), inc `heygen-com__hyperframes/files/skills/hyperframes`
+- **hyperframes-cli**: The HyperFrames CLI by job - scaffold, check, look at frames, edit the timeline, preview, render loc `heygen-com__hyperframes/files/skills/hyperframes-cli`
+- **media-use**: Get or make any media for a HyperFrames video - music, sound effects, images, icons, logos, voiceove `heygen-com__hyperframes/files/skills/media-use`
+- **video-use**: Edit any video by conversation. Transcribe, cut, color grade, generate overlay animations, burn subt `browser-use__video-use/files`
+- **manim-video**: Production pipeline for mathematical and technical animations using Manim Community Edition. Creates `browser-use__video-use/files/skills/manim-video`
+- **lemo-opuscar**: Direct and produce a short film made entirely in code, in one of the styles of the Lemo-Opuscar libr `lemomo-ai__lemo-opuscar/files/tools/directory`
+- **openstoryline-install**: Install, configure, and start FireRed-OpenStoryline from source on a local machine. Use when a user  `FireRedTeam__FireRed-OpenStoryline/files/.claude/skills/openstoryline-install`
+- **openstoryline-use**: Use this skill when OpenStoryline is already installed and the user wants to start the local MCP/Web `FireRedTeam__FireRed-OpenStoryline/files/.claude/skills/openstoryline-use`
+- **speech_rough_cut_skill**: 【WORKFLOW SKILL】根据输入视频的音频信息进行口播粗剪。Rough cut based on audio information from the input video for narr `FireRedTeam__FireRed-OpenStoryline/files/.storyline/skills/speech_rough_cut_skill`
+- **narrator-ai-cli**: AI 电影/短剧解说视频自动生成（AI 解说大师 CLI Skill）。当用户需要创建电影解说视频、短剧解说、影视二创、AI 配音旁白视频、film commentary、video narratio `NarratorAI-Studio__narrator-ai-cli-skill/files`
+- **lanshu-create-ai-presenter-video**: Turn a topic or finished script into a complete, publish-ready explainer video — led by an AI presen `cclank__lanshu-create-ai-presenter-video/files`
+- **explainer-video**: Create finished explainer videos from a topic, script, outline, voiceover, product logic, data, tech `0xsline__OpenChatCut/files/src/agent/skills/explainer-video`
+- **music**: Music generation via Mureka, MiniMax, Atlas Cloud, and Sonilo. Use for instrumentals, songs, soundtr `0xsline__OpenChatCut/files/src/agent/skills/music`
+- **news-rough-cut**: 新闻素材智能粗剪——把新闻素材粗剪为一条内容完整、逻辑清晰、节奏紧凑的新闻短视频。Use when the user asks to 粗剪新闻、新闻剪辑、把新闻素材剪成短视频、智能粗剪、news ro `0xsline__OpenChatCut/files/src/agent/skills/news-rough-cut`
+- **openchatcut-plugin-basics**: Use for video editing or video creation work that should be editable in OpenChatCut, even when the u `0xsline__OpenChatCut/files/src/agent/skills/openchatcut-plugin-basics`
+- **product-ad-video-script**: Turn a product into ad angles, hooks, scenes, and CTA. `0xsline__OpenChatCut/files/src/agent/skills/product-ad-video-script`
+- **voice**: Text-to-Speech (TTS), voiceover, narration placement/sync, and custom sound effects (SFX) generator. `0xsline__OpenChatCut/files/src/agent/skills/voice`
+- **widget-forms**: Use when the agent should ask the user for structured input with an in-chat form, including single-s `0xsline__OpenChatCut/files/src/agent/skills/widget-forms`
+- **vox-director**: Turn ONE topic into a finished Vox-style paper-collage explainer / ad video, end to end on the Atlas `Alisa0808__vox-director/files`
+- **capcut-director**: Expert skill for programmatically creating, editing, styling, and rendering cinematic video projects `sun-guannan__VectCutAPI/files/.agents/skills/capcut-director`
+- **vectcut-api**: VectCutAPI is a powerful cloud-based video editing API tool that provides programmatic control over  `sun-guannan__VectCutAPI/files/vectcut-skill/skill`
+- **acestep**: AI music generation with ACE-Step 1.5 — background music, vocal tracks, covers, stem extraction, aud `digitalsamba__claude-code-video-toolkit/files/.claude/skills/acestep`
+- **elevenlabs**: Generate AI voiceovers, sound effects, and music using ElevenLabs APIs. Use when creating audio cont `digitalsamba__claude-code-video-toolkit/files/.claude/skills/elevenlabs`
+- **ltx2**: AI video generation with LTX-2.3 22B — text-to-video, image-to-video clips for video production. Use `digitalsamba__claude-code-video-toolkit/files/.claude/skills/ltx2`
+- **remotion**: Toolkit-specific Remotion patterns — custom transitions, shared components, and project conventions. `digitalsamba__claude-code-video-toolkit/files/.claude/skills/remotion`
+- **runpod**: Cloud GPU processing via RunPod serverless. Use when setting up RunPod endpoints, deploying Docker i `digitalsamba__claude-code-video-toolkit/files/.claude/skills/runpod`
+- **synthetic-ui-demo**: Product demo and release-notes videos with no screen recording. Rebuild the app's screens as static  `digitalsamba__claude-code-video-toolkit/files/.claude/skills/synthetic-ui-demo`
+- **video_toolkit**: Create professional videos autonomously using claude-code-video-toolkit — AI voiceovers, image gener `digitalsamba__claude-code-video-toolkit/files/skills/openclaw-video-toolkit`
+- **story-to-handdrawn-video**: Convert Chinese stories or ordered local images into silent hand-drawn Remotion videos, with generat `gnipbao__story-to-handdrawn-video/files/skill-package/story-to-handdrawn-video`
+- **audio-and-music**: Craft rules for sound in Pireel Studio: music beds and sound effects as typed audio clips (register_ `pireel__pireel/files/packages/studio-engine/src/scenario-skills/content/audio-and-music`
+- **montage-edit**: Discover the governing emotion and visual motifs in a body of footage, then compose a montage whose  `pireel__pireel/files/packages/studio-engine/src/scenario-skills/content/montage-edit`
+- **talking-head-edit**: Edit interviews, lessons, commentary, podcasts, and direct-to-camera recordings built around speech. `pireel__pireel/files/packages/studio-engine/src/scenario-skills/content/talking-head-edit`
+- **motionmaxxing**: Direct and build professional motion-graphics films (launch videos, product promos, feature reveals, `Tejashmakwana__motionmaxxing/files`
+- **motion-design**: The craft of a motion design video, from the look to the final: style frames, layout, type, colour,  `GTKottman__mortiflix-oss/files/pipelines/_shared/skills/motion-design`
+- **music**: The music engine, for a song or a video's score. Strudel writes the notes, every part on its own MID `GTKottman__mortiflix-oss/files/pipelines/_shared/skills/music`
+- **remotion-motion**: Build, preview and render the video in Remotion (React): project setup from the template, stills for `GTKottman__mortiflix-oss/files/pipelines/_shared/skills/remotion-motion`
+- **transition-board**: Designing every cut of a video before the animatic - for each change from one style frame to the nex `GTKottman__mortiflix-oss/files/pipelines/_shared/skills/transition-board`
+- **voiceover**: Narration, sound effects and music beds in the voice the studio set up (ElevenLabs, Qwen3-TTS on thi `GTKottman__mortiflix-oss/files/pipelines/_shared/skills/voiceover`
+- **mortiflix**: Walk the owner through Mortiflix, the motion design studio on their own machine, from inside Claude  `GTKottman__mortiflix-oss/files/plugin/skills/mortiflix`
+- **video-assemble**: 合成视频解说最终成片：把旁白音频铺到源视频上，按旁白窗口压低原声，生成 SRT / ASS 字幕并可烧录， 最后做响度标准化。作为最终合成阶段使用。输入源视频、tts_meta.json 与旁白位置； `zenstory-ai__video-recap-skills/files/skills/video-assemble`
+- **video-cut**: 把长视频按 Agent 选择的原片区间剪成短片。作为两阶段创作流程中的剪辑环节，读取 clip_plan.json 与源视频， 输出 edited_source.mp4；随后 Agent 按输出时间线 `zenstory-ai__video-recap-skills/files/skills/video-cut`
+- **video-recap**: 从输入视频生成中文解说成片或原声剧情短片。用户提供 .mp4 / .mov / .mkv / .webm，并要求剪辑、添加旁白、 配音、总结、短剧/电视剧/电影/纪录片/科普解说时使用。负责编排 vi `zenstory-ai__video-recap-skills/files/skills/video-recap`
+- **video-reference**: 按需把一部成片拆成可复用的制作参考：测镜头节奏与响度，标注段落与音轨分工，把原片事实与可迁移方法分开， 导出不含原片人名台词的 production_reference.json 供下次制作参考。不在 `zenstory-ai__video-recap-skills/files/skills/video-reference`
+- **video-script**: 对已完成分析的视频进行导演与剪辑策划，再写带时间戳的中文解说并校验；也处理已有短片的 宣发标题、花字修订和外部文案回填。普通策划输入 work_dir 的 agent_narration_brief. `zenstory-ai__video-recap-skills/files/skills/video-script`
+- **video-understanding**: 把视频分析为结构化理解索引：场景检测、ASR 转写、逐场景 VLM 观察、静音窗口、融合时间线和写作 brief。 用于理解、索引或总结视频，也作为后续创作前的分析阶段。输入视频文件；输出 scene `zenstory-ai__video-recap-skills/files/skills/video-understanding`
+- **video-voiceover**: 把带时间戳的 narration.json 合成为中文解说音频。使用 MiMo TTS（mimo-v2.5-tts）或 Fish Audio（s2.1-pro-free）或显式配置的通用 IndexT `zenstory-ai__video-recap-skills/files/skills/video-voiceover`
+- **heygen-avatar**: Create a persistent HeyGen avatar — a reusable face + voice identity for the agent, the user, or any `heygen-com__skills/files/heygen-avatar`
+- **heygen-translate**: Translate and dub a video into another language with voice cloning and lip-sync, powered by HeyGen V `heygen-com__skills/files/heygen-translate`
+- **heygen-video**: Generate HeyGen presenter videos via the v3 Video Agent pipeline — handles Frame Check (aspect ratio `heygen-com__skills/files/heygen-video`
+- **heygen**:  `heygen-com__skills/files/platforms/nanoclaw/heygen`
+- **hand-drawn-explainer-video-nikola**: 制作、修改和验收中文手绘知识讲解视频，交付配音、字幕、时间轴、可编辑工程和真实 MP4。支持两条不可混淆的制作路线：同一画布持续落墨的逐笔故事动画，以及用 SVG/HTML/GSAP 编排流程卡片、关 `hi-nikola__hand-drawn-explainer-video-nikola/files`
+- **motion-effects**: Build any of 16 premium motion effects from scratch in your own brand, as one 8-second looping HTML  `charlie947__motion-graphics-skills/files/skills/motion-effects`
+- **vox-explainer**: Make a short Vox-style documentary explainer (30-60 seconds) entirely in code with Claude Code. Torn `charlie947__motion-graphics-skills/files/skills/vox-explainer`
+- **image-story-video-wizard**: Use when a user wants step-by-step help making an audio-first image-story, AI narration, slideshow,  `aaronyi97__image-story-video-wizard/files`
+- **brand-setup**: Makes this repo's videos look like YOUR channel instead of the house default — interviews you for pa `hassancs91__claude-youtube-editor/files/.claude/skills/brand-setup`
+- **clean-audio**: Voice/audio cleanup step of the AI Video Editor pipeline — diagnose a video's background noise, pick `hassancs91__claude-youtube-editor/files/.claude/skills/clean-audio`
+- **clean-cut**: Step 1 of the AI Video Editor pipeline — turn raw talking-head footage into a clean master cut. Use  `hassancs91__claude-youtube-editor/files/.claude/skills/clean-cut`
+- **fake-screencast**: Turn static SCREENSHOTS into a simulated screen recording (TSX) — a fake screencast with an animated `hassancs91__claude-youtube-editor/files/.claude/skills/fake-screencast`
+- **make-tsx**: Step 2 of the AI Video Editor pipeline — build the visual beats (Remotion TSX shots) over a project' `hassancs91__claude-youtube-editor/files/.claude/skills/make-tsx`
+- **suggest-sfx**: Step 4 of the AI Video Editor pipeline — the SFX pass. Analyze a video's beats + narration and propo `hassancs91__claude-youtube-editor/files/.claude/skills/suggest-sfx`
+- **product-launch-motion-v1**: Legacy v1 (voiceover-led, GSAP + HyperFrames). Use when making, directing or rescuing a product laun `AbubakrChan__product-launch-motion/files/legacy`
+- **composition-design-review**: Design review layer for OrkasVideoStudio COMPOSE previews and drafts. Review the complete snapshot i `Orkas-AI__Orkas-VideoStudio/files/packages/skills/composition-design-review`
+- **design-system-importer**: Reference-media and design-system input layer for OrkasVideoStudio. Treat reference images, videos,  `Orkas-AI__Orkas-VideoStudio/files/packages/skills/design-system-importer`
+- **gate-control**: Canonical VideoStudio review authorization and state-transition policy. Use after any Gate B/C/Previ `Orkas-AI__Orkas-VideoStudio/files/packages/skills/gate-control`
+- **orchestration**: The master program for producing or editing a video end to end — read this at the START of any video `Orkas-AI__Orkas-VideoStudio/files/packages/skills/orchestration`
+- **stage-assemble**: Deterministically assemble an approved cross-modal EDL (plan.json) into a finished video — produce e `Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-assemble`
+- **stage-compose**: Authoring knowledge for Orkas/OVS HTML video compositions -- write an index.html, drive animation fr `Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-compose`
+- **stage-edit**: Intelligent editing of real user-supplied footage—understand it with transcript/inspected-frame/scen `Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-edit`
+- **stage-generate**: AI-generated footage plus execution of bounded semantic video-edit segments already approved by EDIT `Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-generate`
+- **stage-plan**: The "ingest + plan" half of end-to-end video orchestration — ingest the user's material from evidenc `Orkas-AI__Orkas-VideoStudio/files/packages/skills/stage-plan`
+- **video-craft**: The craft standard that makes a video GOOD, not just rendered — hooks, story pacing, visual hierarch `Orkas-AI__Orkas-VideoStudio/files/packages/skills/video-craft`
+- **video-router**: Read this FIRST on any video-production request to pick and lock the line — generate (AI footage), c `Orkas-AI__Orkas-VideoStudio/files/packages/skills/video-router`
+- **manim-voiceover**: Manim plugin for all things voiceover `ManimCommunity__manim-voiceover/files`
+- **make-ai-short**: Build a GENERATIVE-pixels vertical short (1080×1920, ~35-40s) end-to-end — a recurring locked charac `hassancs91__claude-faceless-shorts-creator/files/.claude/skills/make-ai-short`
+- **make-short**: Build a fully-synthetic vertical short (1080×1920, ~40s) end-to-end from a topic — script + beats.js `hassancs91__claude-faceless-shorts-creator/files/.claude/skills/make-short`
+- **make-vox**: Build a Vox-style LAYERED-COLLAGE vertical short end-to-end — script + scene dissection into image l `hassancs91__claude-faceless-shorts-creator/files/.claude/skills/make-vox`
+- **suggest-sfx**: The SFX pass. Analyze a short's beats + narration and propose tasteful sound effects synced to them, `hassancs91__claude-faceless-shorts-creator/files/.claude/skills/suggest-sfx`
+- **showtime**: Use when the user wants a video made, edited or finished: a launch or promo, product demo, explainer `FavioVazquez__showtime/files/skills/showtime`
+- **seedance-motion-studio**: Use when planning, prompting, producing, reviewing, or improving professional Seedance 2.0 videos, e `kangarooking__director-skills/files/seedance-motion-studio`
+- **videowright**: Author HTML/CSS/JS animated explainer videos using Videowright. Trigger on requests to create a vide `scosman__videowright/files/packages/lib/skill`
+- **components**:  `scosman__videowright/files/specs/projects/vibe_forge_v1/components`
+- **manim-skill**: Create mathematical animations with Manim Community Edition(manimce), with optional TTS voiceover an `Yusuke710__manim-skill/files/skills/manim-skill`
+- **brewreel**: 精酿 · BrewReel：四种玩法。宣传片：做竖版产品宣传短片（1080x1920，15–45 秒，抖音/视频号/小红书）。用户要做产品宣传片、推广短视频、App 介绍视频、功能演示视频、上新短片、 `Finderchangchang__brewreel/files`
+- **hbg-life-simulation**: Create Chinese HBG “模拟人生 / 人生副本” narrative videos with a consistent comic IP, a rapid multi-life ope `Mr-funny__hbg-life-simulation/files`
+- **videodb**: See, Understand, Act on video and audio. See- ingest from local files, URLs, RTSP/live feeds, or liv `video-db__skills/files/python`
+- **avatar-mix**: Crea un video 16:9 con tu avatar HeyGen (tu cara + tu voz) presentando contenido, con montaje dinami `Upload-Post__avatar-mix/files/.claude/skills/avatar-mix`
+- **khan-explainer**: Use when the user wants a Khan Academy style explainer video, a blackboard or whiteboard lesson, a h `haiderfarooq3__khan-explainer/files`
+- **khan-explainer**: Use when the user wants a Khan Academy style explainer video, a blackboard or whiteboard lesson, a h `haiderfarooq3__khan-explainer/files/skills/khan-explainer`
+- **article-highlights**: Editorial Remotion article inserts with mandatory format/background intake, layered highlights, zero `Liamrjohnston__remotion-motion-graphics-skill/files/skills/article-highlights`
+- **motion-graphics**: Add cached official-asset and product research preflight before reference selection and build author `Liamrjohnston__remotion-motion-graphics-skill/files/skills/motion-graphics`
+- **terminal-inserts**: Authentic, restrained Remotion terminal inserts with mandatory format/background intake and zero neo `Liamrjohnston__remotion-motion-graphics-skill/files/skills/terminal-inserts`
+- **motion-video**: Produce beat-synced 1080p motion-graphic videos in HyperFrames (HTML + GSAP) with an AI voice-over,  `bestagentkits__motion-video-skill/files/skills/motion-video`
+- **example-podcast-visualizer**: Workflow for creating a podcast visualizer with multi-track audio mixing and DOM-based synchronizati `BintzGavin__helios/files/skills/examples/podcast-visualizer`
+- **guided-explainer-video**: End-to-end guided workflow for creating an explainer or walkthrough video. Extracts brand identity f `BintzGavin__helios/files/skills/guided/explainer-video`
+- **guided-launch-announcement**: End-to-end guided workflow for creating a product launch or release announcement video. Extracts bra `BintzGavin__helios/files/skills/guided/launch-announcement`
+- **guided-product-demo**: End-to-end guided workflow for creating a product demo or showcase video. Extracts brand identity fr `BintzGavin__helios/files/skills/guided/product-demo`
+- **guided-promo-video**: End-to-end guided workflow for creating a promotional hype video. Extracts brand identity from the r `BintzGavin__helios/files/skills/guided/promo-video`
+- **guided-social-clip**: End-to-end guided workflow for creating a short-form social media clip (Reels, TikTok, Shorts). Extr `BintzGavin__helios/files/skills/guided/social-clip`
+- **guided-testimonial-video**: End-to-end guided workflow for creating a social proof or testimonial video. Extracts brand identity `BintzGavin__helios/files/skills/guided/testimonial-video`
+- **helios-renderer**: Renderer API for generating video/image output from Helios compositions. Use when you need to progra `BintzGavin__helios/files/skills/renderer`
+- **render-video**: Workflow for rendering a Helios composition to a video file. Use when you need to automate video pro `BintzGavin__helios/files/skills/workflows/render-video`
+- **claude-remotion-kickstart**: Create videos programmatically with Claude Code and Remotion `jhartquist__claude-remotion-kickstart/files`
+- **video-explainer**: Turn a research brief, finished script, or generated MP4 into a reviewed and verified vertical expla `runesleo__claude-video-kit/files/skills/video-explainer`
+- **remotion-best-practices**: Best practices for Remotion - Video creation in React `Monet-AI-Editor__Monet/files/resources/remotion-skill`
+- **remotion-ad-video**: Use when turning product links, app store listings, landing pages, or product briefs into advertisin `leosssvip-dot__remotion-ad-video-skill/files/skills/remotion-ad-video`
+- **book-video-factory**: Create or operate a portable, auditable Chinese book-review short-video workflow from a clean local  `jaxxchen003__book-video-factory/files/skills/book-video-factory`
+- **captions-overlay**: Overlay doctrine for the embedded-captions workflow — the caption MODEL (drop / rail / embed) and th `edenfunf__reelmimic/files/.claude/skills/captions-overlay`
+- **embedded-captions**: Add captions or subtitles to an existing single-subject talking-head video without editing the foota `edenfunf__reelmimic/files/.claude/skills/embedded-captions`
+- **faceless-explainer**: Turn arbitrary text — an article, notes, a topic, a brief — into a faceless explainer video: there i `edenfunf__reelmimic/files/.claude/skills/faceless-explainer`
+- **general-video**: Author or edit a custom HyperFrames composition when no specialized workflow fits, or when BRIEF.md  `edenfunf__reelmimic/files/.claude/skills/general-video`
+- **hyperframes**: Mandatory entry point: read this first for any request to make, create, edit, animate, or render a v `edenfunf__reelmimic/files/.claude/skills/hyperframes`
+- **hyperframes-animation**: All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene t `edenfunf__reelmimic/files/.claude/skills/hyperframes-animation`
+- **hyperframes-audio**: Use when audio already placed in a HyperFrames composition needs to be mixed: fade-in/fade-out, cros `edenfunf__reelmimic/files/.claude/skills/hyperframes-audio`
+- **hyperframes-cli**: Use the HyperFrames CLI development loop: init, add, catalog, capture, lint, check, snapshot, compar `edenfunf__reelmimic/files/.claude/skills/hyperframes-cli`
+- **hyperframes-creative**: Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md)  `edenfunf__reelmimic/files/.claude/skills/hyperframes-creative`
+- **hyperframes-registry**: Search, install, and wire registry blocks and components into HyperFrames compositions. Use BEFORE h `edenfunf__reelmimic/files/.claude/skills/hyperframes-registry`
+- **hyperframes-studio**: Use when building or editing a HyperFrames project that people open in Studio: how the timeline shou `edenfunf__reelmimic/files/.claude/skills/hyperframes-studio`
+- **media-use**: Agent Media OS, the single skill for every media need in a HyperFrames project. Resolve BGM, SFX, im `edenfunf__reelmimic/files/.claude/skills/media-use`
+- **motion-graphics**: A short, design-led motion graphic where motion is the message — kinetic typography, stat count-up,  `edenfunf__reelmimic/files/.claude/skills/motion-graphics`
+- **music-to-video**: Turn a music track (an audio file, a video to pull audio from, or a track generated from a mood brie `edenfunf__reelmimic/files/.claude/skills/music-to-video`
+- **pr-to-video**: Turn a GitHub pull request (a PR URL, owner/repo#N, or 'this PR' in a checked-out repo) into a code- `edenfunf__reelmimic/files/.claude/skills/pr-to-video`
+- **product-launch-video**: Turn a product or marketing URL, pasted script, or brief into a product launch / promo video — SaaS  `edenfunf__reelmimic/files/.claude/skills/product-launch-video`
+- **slideshow**: Author a HyperFrames slideshow — a presentation, pitch deck, or interactive deck with discrete slide `edenfunf__reelmimic/files/.claude/skills/slideshow`
+- **papercut-build**: Build and render a papercut episode from a storyboard with the library. Scaffolds the project, build `0xS4N4TG__papercut-explainer/files/skills/papercut-build`
+- **papercut-explainer**: Make a papercut reel, video or explainer end to end. Short vertical (9:16) cut-paper explainers from `0xS4N4TG__papercut-explainer/files/skills/papercut-explainer`
+- **papercut-hook**: Write or fix the hook of a papercut reel. Produces the SAY / WRITE / SHOW / ALIGN block, five varian `0xS4N4TG__papercut-explainer/files/skills/papercut-hook`
+- **papercut-qa**: Check a papercut reel's stills against the style DNA and the storyboard. Renders contact sheets at a `0xS4N4TG__papercut-explainer/files/skills/papercut-qa`
+- **papercut-script**: Turn a link into a papercut reel script. Researches a sourced facts list, writes the 75-95 word scri `0xS4N4TG__papercut-explainer/files/skills/papercut-script`
+- **papercut-setup**: Install, check or upgrade the papercut toolchain. Runs the doctor, asks how much to set up (Minimal, `0xS4N4TG__papercut-explainer/files/skills/papercut-setup`
+- **papercut-storyboard**: Storyboard a papercut script before any code. Writes the Camera / Cut table, one block per scene wit `0xS4N4TG__papercut-explainer/files/skills/papercut-storyboard`
+- **papercut-voice**: Voice a papercut reel and time it to the picture. Three paths, local Qwen3-TTS, your own recording o `0xS4N4TG__papercut-explainer/files/skills/papercut-voice`
+- **capsule-cinema**: Plan, generate, revise, assemble, and quality-check local AI short videos with reusable Capsule Cine `JuneYaooo__cheap-claude-video/files/skills/capsule-cinema`
+- **animate**: Make a short procedural animation in any style — an explainer, a history, a little story — as a sing `Hype-yolo__claude-motion-skill/files/skills/claude-motion/assets/cases/animate/plugins/animate/skills/animate`
+- **ghost-editor**: AI video editor for talking-head reels. Turns a raw phone recording of someone talking to camera (re `kurbaitaev__ghost-editor/files`
+- **vox-animated-ad-mcp**: v1.5 of the Vox-style animated ad skill on the MaxFusion AI MCP: after prompt approval, Claude gener `holy-templar__vox-animated-ad-mcp/files`
+- **voice-over**: 给视频配音：把旁白和角色台词合成成音频文件，标好时长，交给做视频的流程对齐字幕。做视频（make-video）、改视频（revise-video）时调用，也可以单独用来试音色。配了通义（阿里云百炼）的 `ymybxx__SoloMCN/files/defaults/skills/voice-over`
+- **extreme-motion-design**: Cria vídeos de motion design de nível de estúdio por código (Remotion/React), com trilha licenciada, `dev-isaacmello__extreme-motion-design/files/skills/extreme-motion-design`
+- **take-one**: Turn a short request into a finished short film rendered from code, working like a studio team of tw `talsiach__take-one/files`
+- **30x-web-to-video**: Use when a user gives a brand URL and wants a premium launch, demo, or marketing video. Zero-manual  `norahe0304-art__30x-video/files/cli/skill`
+- **remotion-ads**: Professional video ad creation with Remotion — Instagram Reels (9:16), website explainers (16:9), an `Maartenlouis__remotion-ads/files`
+- **saas-product-demo-video**: Produce a 20-45s SaaS product demo video in Remotion. Use whenever the user wants to make a product  `noamdorr__saas-product-demo-video/files/saas-product-demo-video`
+- **make-blender-education-video**: Create high-detail, fact-checked English cinematic educational animations in Blender for science, en `sunxiayi__make-blender-education-video-skill/files/skills/make-blender-education-video`
+- **showreel**: 한국어 모션그래픽 영상(이력서용 쇼릴·홍보 영상·프로필 영상·티저·브랜드 필름·행사 홍보·제품 소개·교육 영상·메이킹 필름)을 콘셉트부터 납품까지 만드는 스킬. 정해 둔 무드나 템 `revfactory__showreel/files`
+- **gbro-collage-info**: 半调纸拼贴风信息动画（HyperFrames）。给一份口播逐字稿，从中挑出适合做成信息动画的段落（数字冲击、流程结构、清单收敛、对比翻转、结果高光），经用户确认后出静态样帧，再确认后产出 1080×1 `pyang5166__gbro-collage-info/files`
+- **explainer-video**: This skill should be used when the user asks to "make an explainer video", "turn this into a short e `iart-ai__explainer-video-skills/files/skills/explainer-video`
+- **whiteboard-animation**: This skill should be used when the user asks to "make a whiteboard animation", "draw-on explainer",  `iart-ai__explainer-video-skills/files/skills/whiteboard-animation`
+- **video-clipforge**: AI 驱动的短视频制作系统。给它一个想法，它帮你写稿、配音、做画面、出成片。9 阶段 DAG 管线 + 自进化评分，支持每日自动执行。基于 Claude Code + HyperFrames。 `Johnson-Jia__video-clipforge/files`
+- **create**: Design and build a finished motion piece (default vertical 1080×1920; landscape/square also supporte `Zane-0x5a__remotion-director/files/claude-plugin/skills/create`
+- **remotion-director**: Design and build a finished motion piece (default vertical 1080×1920; landscape/square also supporte `Zane-0x5a__remotion-director/files/codex-plugin/skills/remotion-director`
+- **product-motion-ads**: Style for edit-video: a vertical motion-graphics ad built in code from the product itself (its app,  `alisadiq-ai__favstash-ai-video-editing-skills/files/skills/3-editing-styles/product-motion-ads`
+- **manim**: Use when the user wants to create mathematical animations, research paper explainer videos, equation `AmitSubhash__3brown1blue/files/src/three_b1b/skill`
+- **remotion-code-motion-explainer**: Create polished, code-driven Remotion motion explainers from scripts, narration, subtitles, product  `vibe-motion__remotion-code-motion-explainer/files`
+- **product-demo-director**: Turn product evidence, narration, and footage into a single-focus announcement, dramatic Save-the-Ca `crimeacs__product-demo-director/files`
+- **creator-style-kit**: Pick and apply one of 18 premium visual styles (fonts, palette, motion grammar, SFX kit) for the use `threeaus__creator-style-kit/files`
+- **ultrademo**: Create a narrated demo video of a web app. Use when the user asks for a demo video, product walkthro `new-xp__ultrademo/files/.claude/skills/ultrademo`
+- **ultrademo-rerun**: Refresh an existing Ultrademo demo video after the app changed. Use when the user wants to re-run, u `new-xp__ultrademo/files/.claude/skills/ultrademo-rerun`
+- **tryworld-koubo**: 试界TryWorld AI 口播视频的统一定位入口，覆盖口播全流程（选题/写稿/优化/出片）。涉及口播的请求都应触发：做口播/口播视频/口播稿/写口播稿/帮我选题/口播选题/这周做什么口播/AI 资讯 `TryWorld2026__paper-algorithm/files/skills/tryworld-koubo`
+- **tryworld-paper**: Create branded 试界TryWorld AI-knowledge videos in the fixed "Paper Algorithm" (纸上算法) style with Hyper `TryWorld2026__paper-algorithm/files/skills/tryworld-paper`
+- **tryworld-topics**: 基于 aihot.virxact.com 最新 AI 资讯，为 AI 口播频道（试界TryWorld · 纸上算法风格）产出选题清单。由 $tryworld-koubo 在模式 B 下路由调用；被显式 `TryWorld2026__paper-algorithm/files/skills/tryworld-topics`
+- **motion-from-reference**: Build a new motion-graphics video in Remotion in the style of a reference video. Use when the user n `motalim-ai__motion-starter-kit/files/.agents/skills/motion-from-reference`
+- **bgmusic**: Use when a video needs background music beyond the synthesized ambient bed that ships with openvidst `AnayDhawan__openvidstudio/files/.agents/skills/bgmusic`
+- **openvidstudio**: Use when the user wants a demo video, launch video, screencast or product walkthrough for a software `AnayDhawan__openvidstudio/files/.agents/skills/openvidstudio`
+- **openvidstudio-director**: Use when making a peak or mid creative-level launch video, promo, trailer or "make it look great" de `AnayDhawan__openvidstudio/files/.agents/skills/openvidstudio-director`
+- **remotion-markup**: Content, animation and effects best practices `AnayDhawan__openvidstudio/files/.agents/skills/remotion-markup`
+- **supernova**: Use when making a short animated STEM lesson video (a maths, physics or computer science concept exp `AnayDhawan__openvidstudio/files/.agents/skills/supernova`
+- **video-illustrator**: Turn the user's own voice and real assets (book or course covers, screenshots, logos) plus a chosen  `axtonliu__video-illustrator/files`
+- **create-onboarding-video**: Produce short, punchy web app onboarding videos in Remotion that showcase a feature in action by ani `gorkem-bwl__onboarding-video-generator/files`
+- **opus-js-animations**: Direct and render films made entirely in JavaScript, from an idea to a frame-exact MP4, working like `klsoen__opus-js-animations/files/skills/opus-js-animations`
+- **nd-video**: Explainer videos with HyperFrames (HTML → MP4) plus narrator, music and mixing on NeuralDeep infrast `vakovalskii__nd-video-studio/files/skills/nd-video`
+- **ndt-content**: Content made entirely on NeuralDeep models (api.neuraldeep.ru), no external APIs: research, script,  `vakovalskii__nd-video-studio/files/skills/ndt-content`
+- **xingchen-vox-collage**: Create or revise Xingchen scenes in an original Vox-inspired editorial paper-collage language with s `Phantomlau3674__voxstylehub-steven/files/xingchen-vox-collage`
+- **hyperframes**: Create video compositions, animations, title cards, overlays, captions, voiceovers, audio-reactive v `abhinavshrivastava950__Montara/files/.agents/skills/hyperframes`
+- **hyperframes-cli**: HyperFrames CLI tool — hyperframes init, lint, validate, preview, render, transcribe, tts, doctor, b `abhinavshrivastava950__Montara/files/.agents/skills/hyperframes-cli`
+- **text-to-speech**: Generate speech audio from text using HeyGen's Starfish TTS model. Use when: (1) Generating standalo `abhinavshrivastava950__Montara/files/.agents/skills/text-to-speech`
+- **website-to-hyperframes**: Capture a website and create a HyperFrames video from it. Use when: (1) a user provides a URL and wa `abhinavshrivastava950__Montara/files/.agents/skills/website-to-hyperframes`
+- **ai-product-video**: Create cinematic product videos from shot recipe cards, a validated template, and code/audio assets  `dlazy-ai__ai-product-video/files`
+- **gemini-tts**: Generate speech from text using Google Gemini TTS. Use when creating voiceovers, narration, podcasts `memex-lab__product-launch-video-skill/files/skills/gemini-tts`
+- **product-launch-video**: Design and build spectacular, high-impact product launch videos using Remotion (React). Use this ski `memex-lab__product-launch-video-skill/files/skills/product-launch-video`
+- **explainer-video**: Generate an animated narrated explainer video (MP4). Claude writes a custom HTML animation page tail `Mng-dev-ai__explainer-video/files`
+- **paper-cut**: Create, resume, revise, and render editable image-led paper-cut collage explainer videos with approv `aijiduonadegou__Paper-Cut/files`
+- **demo-video-creation-skill**: Creates high-quality SaaS and product demo videos from a company website, screenshots, app flow, or  `derrickgong87__demo-video-creation-skill/files/demo-video-creation-skill`
+- **open-video-harness**: Make videos with code (video-as-code / code2video) through the OpenVideoHarness workbench. Covers 3B `ZLHad__OpenVideoHarness/files/skills/open-video-harness`
+- **xigua-msvideo-skill**: 统筹 YouTube 知识视频的六步制作：选题、文案、配音、带时间戳的画面脚本、独立画面、音画合成。复用文案与 MS Paint 生图技能，支持从已有稿件、配音或图片续作。适用于制作整期视频、串联制作 `124zhe__xigua-msvideo-skill/files/skills/xigua-msvideo-skill`
+- **youtube-curiosity-stories**: 为英文 YouTube 创作陌生却容易引起好奇的原创知识故事。用于有趣事情分享、选题、参考视频文字稿分析、完整口播稿、中文审稿及中英文同步修改；重点是兑现标题、持续提供新发现和自然叙述。 `124zhe__xigua-msvideo-skill/files/skills/youtube-curiosity-stories`
+- **youtube-ms-paint-images**: 把已确认的 YouTube 口播制作成时间戳分镜与故意粗糙、鲜艳平涂的 MS Paint 粗绘图片。用于参考画面分析、约两秒一次明显变化的分镜设计、样图、批量生图、按编号和开始时间戳命名及中断续接；不 `124zhe__xigua-msvideo-skill/files/skills/youtube-ms-paint-images`
+- **motioncraft**: Make clean, high-taste motion graphics videos (explainers, product promos, tutorials, social reels)  `ahmdd4vd__MotionCraft/files/skills/motioncraft`
+- **demo-video-creator**: Make a landscape 16:9 (1920×1080) ~60s product demo / launch film for a web app, AI tool or SaaS wit `chacha95__demo-video-creator/files/skills/demo-video-creator`
+- **video-production**: End-to-end narrated video production with research, source extraction, storyboard/script, Manim/ffmp `Aaryan-Kapoor__video-production-skill/files/skills/video-production`
+- **html2video**: Turn a web article URL into a polished 1920x1080 edited video (MP4) — code-driven editing with Remot `cclank__lanshu-html2video-skill/files`
+- **cyxj-hyperframes-overlay**: XCYJ HyperFrames 专属 overlay。用户用 HyperFrames、HF、HTML+GSAP、website-to-video、catalog block、npx hyperfra `chenyuxiaojin__cyxj-hyperframes/files/制作规范/skills/cyxj-hyperframes-overlay`
+- **xiaoma-studio**: 用代码做「Opus 5.5 爆款级」动效视频、HTML 幻灯片和有动效的官网 / 落地页 / 展厅大屏页：知识科普、品牌/产品发布片、motion reel、歌词 MV、数据叙事、纪录片风短片、可演讲 `crawfordxx__xiaoma-studio/files`
+- **su-card-to-video**: Create a minimal AI card video from HTML/CSS cards and a prepared audio file. Use when the user want `doublesq97-ui__su-card-to-video/files/skill`
+- **hyperdirector**: Hermes video director enhancement pack powered by HyperFrames. Turns articles, product pages, PRDs,  `gloweaseco-leo__hyperdirector/files/hyperdirector`
+- **explainer-studio**: 한 줄 주제를 장면표(storyboard.json)로 바꾸고, 같은 장면표를 화이트보드·설계도·수묵화·스위스 타이포 등 8가지 손그림 스타일 중 하나로 그려 자막과 내레이션이 들어 `reedodev__explainer-studio/files/skills/explainer-studio`
+- **book-video-production**: Research, script, storyboard, illustrate, cover-design, voice, caption, score, build, inspect, and r `yuwenbin121__book-video-production-skill/files`
+- **caption-animation**: This skill should be used when the user asks to "add animated captions", "make TikTok captions", "ka `iart-ai__tiktok-video-skills/files/skills/caption-animation`
+- **hyperframes**: Entry point for HyperFrames work inside the motion-launch workspace: read this first to make, create `cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes`
+- **hyperframes-animation**: All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene t `cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-animation`
+- **hyperframes-audio**: Use when audio already placed in a HyperFrames composition needs to be mixed: fade-in/fade-out, cros `cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-audio`
+- **hyperframes-cli**: Use the HyperFrames CLI development loop: init, add, catalog, capture, lint, check, snapshot, compar `cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-cli`
+- **hyperframes-creative**: Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md)  `cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-creative`
+- **hyperframes-registry**: Search, install, and wire registry blocks and components into HyperFrames compositions. Use BEFORE h `cblain100-prog__motion-design-claude-code/files/.claude/skills/hyperframes-registry`
+- **motion-design**: Makes an agency-grade launch motion design film (30 to 60 s, 16:9, voice-over) in this repository wi `cblain100-prog__motion-design-claude-code/files/.claude/skills/motion-design`
+- **product-launch-video**: Turn a product or marketing URL, pasted script, or brief into a product launch / promo video — SaaS  `cblain100-prog__motion-design-claude-code/files/.claude/skills/product-launch-video`
+- **narrated-video**: Make a narrated product video (a launch video, product demo, or tutorial) from real screenshots of t `every-app__video-skills/files/skills/narrated-video`
+- **teaser-video**: Make a short product teaser with no narration (a feature announcement, a social clip, a hype video,  `every-app__video-skills/files/skills/teaser-video`
+- **video-script-builder**: Convert a Chinese video voiceover script (逐字稿、口播稿) into a precise, renderer-bound storyboard specifi `erduo1998-cell__video-script-builder/files`
+- **presentation-video**: This skill should be used when the user asks to "make an animated presentation", "turn a pitch deck  `iart-ai__data-animation-skills/files/skills/presentation-video`
+- **recursive-maths-animator**: Recursive maths animator — Manim-based technical and physics animations with optional voiceover, pin `Science-Prof-Robot__recursive-math-animator/files/recursive-maths-animator`
+- **recursive-maths-animator-physics**: Create verified Manim physics animations using manim-physics for rigid mechanics, pendulums, electro `Science-Prof-Robot__recursive-math-animator/files/recursive-maths-animator-physics`
+- **setup**: Первичная настройка проекта под нового пользователя — проверка окружения и подробное интервью (кто т `skailabinfo__claude-video-harness/files/.claude/skills/setup`
+- **launch-story**: Tool manual under launch-film (the brief, the story spine, the script, the beat sheet and reference  `timscheuerai__launch-video-kit/files/skills/launch-story`
+- **launch-voice**: Tool manual under launch-film (voice casting, one take per line, fitting lines, stitching, forced al `timscheuerai__launch-video-kit/files/skills/launch-voice`
+- **spotlight**: Turn a website, a code project, footage or photos, and a description into a short video that brags ( `AmirSbss__spotlight/files/skills/spotlight`
+- **magic-hour-explainer-video**: Turn a source document or brief into a finished narrated explainer using Magic Hour images, speech a `magichourhq__skills/files/skills/magic-hour-explainer-video`
+- **magic-hour-music-video**: Turn a supplied song or instrumental into a Magic Hour visualizer, music video or performance clip.  `magichourhq__skills/files/skills/magic-hour-music-video`
+- **magic-hour-talking-video**: Make a still portrait speak from supplied audio with Magic Hour Talking Photo, or lip-sync existing  `magichourhq__skills/files/skills/magic-hour-talking-video`
+- **whiteboard-video**: Make hand-drawn whiteboard explainer videos (animated marker drawings, voice-over, burned-in caption `Matteoikarieth96__whiteboard-video-skill/files`
+- **demoday**: Make a finished demo video of a piece of software: drive the app on screen (web, macOS desktop or te `mrieck__demoday-claude-plugin/files`
+- **demo-assembly**: Assembling and rendering a demo video with Remotion and ffmpeg — the timeline, transitions, captions `mrieck__demoday-claude-plugin/files/skills/demo-assembly`
+- **demo-capture**: Craft and mechanics of capturing software on screen for a demo video — rehearsing a flow, staging a  `mrieck__demoday-claude-plugin/files/skills/demo-capture`
+- **demo-script**: Writing the script and shot list for a demo video, and the demo.json manifest schema. Use when plann `mrieck__demoday-claude-plugin/files/skills/demo-script`
+- **demo-shorts**: Cut a vertical 9:16 Short (YouTube Shorts, Instagram Reels, TikTok) from a demo video project in one `mrieck__demoday-claude-plugin/files/skills/demo-shorts`
+- **demo-video**: Make a demo video of a piece of software: drive the app on screen while narrating what it does, gene `mrieck__demoday-claude-plugin/files/skills/demo-video`
+- **marka-kimligi**: Sets up or changes the channel's own editing identity in this workspace — interviews the user, studi `onuryildriim__claude-kurgu-atolyesi/files/.claude/skills/marka-kimligi`
+- **video-kurgula**: End-to-end edit of a talking-head YouTube video in this workspace, in the channel's OWN brand (marka `onuryildriim__claude-kurgu-atolyesi/files/.claude/skills/video-kurgula`
+- **video-editing**: Turn an approved script, provided talking-head/voiceover media, and gathered assets into a polished, `adriiita__vertical-video-editing-skill/files/skills/video-editing`
+- **explainer-assets**: Generate crafted SVG/CSS components, props, characters, and environments for animated explainer vide `BusyBee3333__animated-explainer-skills/files/skills/explainer-assets`
+- **explainer-studio**: The guided end-to-end path for building an animated explainer video from zero — walks you phase by p `BusyBee3333__animated-explainer-skills/files/skills/explainer-studio`
+- **gsap-explainer**: Build a Kurzgesagt-quality GSAP-powered animated explainer video — a self-contained HTML file that p `BusyBee3333__animated-explainer-skills/files/skills/gsap-explainer`
+- **retention-pass**: Run a 3-round YouTube-retention optimization pass on an animated explainer video (GSAP or CSS-only h `BusyBee3333__animated-explainer-skills/files/skills/retention-pass`
+- **remotion-markup**: Content, animation and effects best practices `diko0071__remotion-video-skills/files/.claude/skills/remotion-markup`
+- **hyperframes-vibe-169**: 使用 HyperFrames 框架制作 16:9 横版「Vibe 视频大赏」科普短视频。当用户要求生成知识科普、观点讲解、金句科普类短视频，或要求生成/修改 HyperFrames 视频工程（HTML `dy-hashiqi__VibeDS-skill/files`
+- **infofilm**: Make a narrated infographic explainer film (typically 5–15 minutes) about a real subject — how a sys `fltman__infofilm/files/skills/infofilm`
+- **brand-kit**: Set a channel's identity (name, handle, colours, fonts, wordmark, monogram, avatar, banner, voice) f `generalizingai__shadowcast/files/skills/brand-kit`
+- **demo**: Quick Shadowcast trial. Give it a YouTube channel link and it produces ONE 1-minute demo video in th `generalizingai__shadowcast/files/skills/demo`
+- **episode**: Produce one complete episode for a shadowcast channel. Covers research, fact sheet, script, approval `generalizingai__shadowcast/files/skills/episode`
+- **setup**: One-time shadowcast setup check. Verifies tools, API keys, the YouTube OAuth client and disk space,  `generalizingai__shadowcast/files/skills/setup`
+- **remotion-resemble-ai**: Create professional AI-narrated videos with Remotion and Resemble.ai - from educational tutorials to `resemble-ai__remotion-resemble-skill/files/remotion-resemble-ai`
+- **gen**: Generate a narrated, animated explainer video from a research paper (PDF) or a codebase/repo. Usage: `ssrajadh__paperview/files/adapters/claude-code/skills/gen`
+- **setup**: One-time toolchain bootstrap for PaperView (Python venv, Remotion deps, local models). Run once befo `ssrajadh__paperview/files/adapters/claude-code/skills/setup`
+- **sop-video**: Produce narrated, step-by-step SOP videos from verified software workflows, with real screenshots, t `gquthier__autonomous-sop-video/files`
+- **motion-reel**: Создаёт анимационный Reels/Shorts без камеры из темы, сценария или готовой озвучки в AutoMontage-Age `mcdenil-skills__AutoMontage-Agent/files/.agents/skills/motion-reel`
+- **reel-turnkey**: Собирает ролик под ключ в AutoMontage-Agent: проверяет исходник, транскрибирует речь, показывает авт `mcdenil-skills__AutoMontage-Agent/files/skills/reel-turnkey`
+- **riffkit**: "Riff winning short videos — give one source (a TikTok link, an uploaded video, or an analyzed templ `riffkit__skill/files/plugins/riffkit/skills/riffkit`
+- **notes-to-video**: Turn notes (LaTeX, PDF, or plain text) into 3Blue1Brown-style animated videos using Manim + TTS + ff `cymcymcymcym__notes-to-video/files/skills/notes-to-video`
+- **static-to-video-ad-complete**: v1.0 — Unified two-path skill that turns ANY static ad into video on the MaxFusion AI MCP, opening w `holy-templar__static-to-video-ad/files`
+- **slopcamera**: Create, inspect, edit and render visual media with the SlopCamera CLI and SDK. Use for diagrams, ras `hraness__slopcamera/files/skills/slopcamera`
+- **story-new**: Create a new story video from a context. Writes story.json, gets the script approved, then generates `marketcalls__story-telling/files/.claude/skills/story-new`
+- **story-render**: Regenerate and render an existing story. Use to change a line of narration, swap a voice, redo one i `marketcalls__story-telling/files/.claude/skills/story-render`
+- **story-setup**: Set up the story-telling environment. Checks Node, installs dependencies, creates .env from the temp `marketcalls__story-telling/files/.claude/skills/story-setup`
+- **story-telling**: Story video expert. Use when the user asks to make an explainer video, a story video, a reel or a sh `marketcalls__story-telling/files/.claude/skills/story-telling`
+- **script-to-video**: Full pipeline — topic/script/text file → OmiVoice TTS (Prince's voice) → Whisper word-level timestam `pjecuacion__script-to-video-skill/files`
+- **codex-video-pipeline**: Orchestrate a complete AI-assisted self-media video workflow from topic and evidence through script, `zoglmk__codex-video-pipeline/files`
+- **diagram-tour**: Generate a narrated architecture-tour video from a codebase. End-to-end: codebase analysis → Graphvi `centraltowerlabs__diagram-tour/files`
+- **demo-video**: Turn an app or a public website into a finished, designed demo or guide video — product demos, featu `hub-ki__video-generation/files/skills/demo-video`
+- **video-plan**: Write the concept for a demo, guide, walkthrough or site-tour video of an app or any public website  `hub-ki__video-generation/files/skills/video-plan`
+- **scenewright**: Claude Code-native pipeline: a source text → narrated, Remotion-rendered YouTube explainer video. An `jinjin1__scenewright/files`
+- **editing-videos**: Gives an editor's judgment, with sourced numbers, for cutting and pacing, J and L cuts, jump cuts, b `kmilo93sd__agent-video-editor/files/skills/editing-videos`
+- **chaojifeng-video-design**: 为产品演示、知识讲解、资讯呈现、给定图片成片、故事视频、功能动效、品牌形象短片和音乐／视觉表演设计并制作视频。用户要求做宣传片（含产品发布片、产品音乐叙事、多功能章节串联）、解释动画（含把抽象概念、协 `mileson__chaojifeng-video-design/files`
+- **youtube-shorts-factory**: 유튜브 레퍼런스 영상 분석 → 벤치마킹 → 30%+ 각색 → 스토리보드 기획 → rfn-video-pipeline용 JSON 생성 → 이미지 생성 → HTML 시각화 → AI 영상 `ninestonelee__youtube-shorts-factory/files`
+- **audio-theater**: Turn a dialogue, a story with dialogue, or a one-line idea into multi-character audio using Gemini T `puntorigen__avatar-skills/files/audio-theater`
+- **avatar-ambient-sfx**: Add a spatial ambient SFX layer to a finished avatar reel and deliver it as final-espacial.mp4, with `puntorigen__avatar-skills/files/avatar-ambient-sfx`
+- **avatar-invent**: Invent a brand-new FICTIONAL avatar from a text description — no real person, photo or recording nee `puntorigen__avatar-skills/files/avatar-invent`
+- **avatar-reel-composer**: Turn a script + an existing avatar into a finished reel — 9:16 vertical (TikTok/Reels) or 16:9 lands `puntorigen__avatar-skills/files/avatar-reel-composer`
+- **avatar-talking-video**: Generate a talking-head avatar video from a line of text. Stage 1 synthesizes the text in the avatar `puntorigen__avatar-skills/files/avatar-talking-video`
+- **bg-music**: Generate background music tracks for social media posts, presentations, reels, and app content using `puntorigen__avatar-skills/files/bg-music`
+- **bg-music-hq**: Generate high-quality background music and jingles using MiniMax Music 2.5 on Replicate. Supports st `puntorigen__avatar-skills/files/bg-music-hq`
+- **broll-actor-copy**: Generate a B-roll clip where OUR avatar COPIES the motion of a driving video — same movement, gestur `puntorigen__avatar-skills/files/broll-actor-copy`
+- **broll-avatar-camera**: Generate a short B-roll clip of OUR OWN avatar DOING something on camera — an ACTION shot that COMPL `puntorigen__avatar-skills/files/broll-avatar-camera`
+- **broll-browser-recorder**: Record a real browser product demo as smooth continuous video (Playwright HTTP server, adaptive agen `puntorigen__avatar-skills/files/broll-browser-recorder`
+- **broll-core**: Internal shared library for the broll-* B-roll skills (broll-web-capture, broll-browser-recorder, br `puntorigen__avatar-skills/files/broll-core`
+- **broll-cursor**: Turn a declarative session JSON into a short, realistic animated IDE agent-chat B-roll clip (a Curso `puntorigen__avatar-skills/files/broll-cursor`
+- **broll-finder**: Find real public YouTube footage about a topic or person (e.g. Anthony Bourdain) and turn the releva `puntorigen__avatar-skills/files/broll-finder`
+- **broll-generator**: Generate hyper-realistic complementary B-roll video clips (3-6s) from a scene description using Prun `puntorigen__avatar-skills/files/broll-generator`
+- **broll-story**: Generate a SILENT B-roll clip of an existing avatar (and optional invented side-characters) DOING a  `puntorigen__avatar-skills/files/broll-story`
+- **broll-terminal**: Turn a declarative session JSON into a short, realistic animated-terminal B-roll clip for technical  `puntorigen__avatar-skills/files/broll-terminal`
+- **broll-web-capture**: Turn a website or a GitHub repo into a short, polished B-roll clip for technical reels — a high-DPI  `puntorigen__avatar-skills/files/broll-web-capture`
+- **caption-word-reveal**: Word-by-word ("karaoke") burned-in captions for avatar reels: each word appears at the instant it's  `puntorigen__avatar-skills/files/caption-word-reveal`
+- **cuento-reel**: Produce a "cuento" (story) reel where each avatar is a CHARACTER in a narrated tale (Narnia-style),  `puntorigen__avatar-skills/files/cuento-reel`
+- **onboarding-script**: Generate an ordered SERIES of onboarding video scripts (a curriculum) to introduce a new team member `puntorigen__avatar-skills/files/onboarding-script`
+- **reel-restyle**: Analyze ONE avatar's reels and re-apply their style to a DIFFERENT avatar. Distills a script-agnosti `puntorigen__avatar-skills/files/reel-restyle`
+- **rule-of-six-edit**: Evaluate and plan the CUTS / editing of a short-form video / reel using Walter Murch's "Rule of Six" `puntorigen__avatar-skills/files/rule-of-six-edit`
+- **seedance-2**: Generate video with ByteDance Seedance 2.0 via the Higgsfield MCP (generate_video, model seedance_2_ `puntorigen__avatar-skills/files/seedance-2`
+- **sound-effects**: Generate consistent sound effects and short audio assets for mobile/web apps using Stable Audio 2.5  `puntorigen__avatar-skills/files/sound-effects`
+- **video-compose**: Compose a polished video reel from a folder of source clips and images using a Python+FFmpeg pipelin `puntorigen__avatar-skills/files/video-compose`
+- **video-remix**: Analyze the visual + narrative + audio MOLD of one or more reference videos (reels/shorts/talking-he `puntorigen__avatar-skills/files/video-remix`
+- **viral-video-script**: Write short-form video scripts / dialogue that follow Tuan Le's "3 billion views" viral formula — th `puntorigen__avatar-skills/files/viral-video-script`
+- **voice-clone**: Clone a narrator's voice from a clean voice audio file using MiniMax voice-cloning on Replicate, the `puntorigen__avatar-skills/files/voice-clone`
+- **voice-isolate**: Extracts clean voice samples from a video. Separates the vocal stem with Demucs, gets speech timecod `puntorigen__avatar-skills/files/voice-isolate`
+- **talking-avatar-video**: Create a talking avatar from one portrait and a short script or speech track. This AI presenter and  `beatra-ai__talking-avatar-video-skill/files/skills/talking-avatar-video`
+- **viral-video-teardown-remake**: Turn a short video that already worked into your own version. Paste the link and this viral video te `beatra-ai__viral-video-remake-skill/files/skills/viral-video-teardown-remake`
+- **code-animations**: Make "code-rendered" animated videos where a program draws every frame (Canvas 2D + procedural Web A `beriki770-ship-it__code-animations/files`
+- **logo-intro**: Build an animated WebGL logo intro from a brand's SVG logo. The mark arrives from a lens-warped, col `CJ10110425__logo-intro/files`
+- **docvideoer**: 文档转视频技能。用于把文档 URL、网页文章、Markdown 或粘贴文本转换成带中文旁白的 Remotion 讲解视频，包含正文提取、分镜生成、免费 TTS、视频项目搭建和 MP4 渲染。 `coding-ax__docvideoer/files`
+- **paper-cut-video**: Create or edit vertical Chinese paper-cut and paper-collage explainer videos with script-driven, con `crawfordxx__paper-cut-video-skill/files/paper-cut-video`
+- **audiogram**: This skill should be used when the user asks to "make an audiogram", "turn a podcast into a video",  `iart-ai__youtube-video-skills/files/skills/audiogram`
+- **paper2video**: Turn a research paper or project (just an arXiv link or a paper title is enough; or a repo, PDF, pro `Lunamos__paper2video/files/skills/paper2video`
+- **flow-video-recorder**: Use when the user wants to record a screen-capture video of a flow through an app: a walkthrough, pr `muayadjamal__flow-video-recorder/files`
+- **talk-workbench**: 把确认好的讲解配音做成竖屏视频，使用概念场景、示意工作台、真实截图和按需角色动画。适用于 AI 工具介绍、工作流讲解、操作步骤和 Skill 合集；默认采用“场景＋工作台”的方案 D。配音驱动画面，本 `Nealsun1993__talk-workbench/files`
+- **codebase-video**: Make a narrated video about a codebase - one that teaches how it works (or one flow in it), or a pro `OnurGumus__codebase-video/files/skills/codebase-video`
+- **remotion-marketing-video**: Build marketing and launch videos as Remotion compositions. Use when creating or editing any video i `sub-level__marketing-videos/files/.claude/skills/remotion-marketing-video`
+- **remotion-marketing-video**: Create premium marketing videos using Remotion and React, including product demos, SaaS promos, UI w `xsourabhsharma__remotion-marketing-video-skill/files`
+- **ffmpeg-skill**: Edit video and audio with local FFmpeg from natural-language requests: cut, trim, join, resize/refra `itsharex__ffmpeg-skill/files`
+
+## Clone first (123)
+
+Not stored here because of their license. For `owner/repo:dir`, run
+`git clone -q --depth 1 https://github.com/owner/repo.git /home/user/ext/owner__repo` and read `/home/user/ext/owner__repo/dir/SKILL.md`.
+
+- **remotion-markup**: Content, animation and effects best practices `remotion-dev/remotion:packages/codex-plugin/skills/remotion-markup`
+- **remotion-markup**: Content, animation and effects best practices `remotion-dev/remotion:packages/skills/skills/remotion-markup`
+- **remotion-markup**: Content, animation and effects best practices `remotion-dev/skills:skills/remotion-markup`
+- **onetake**: Make short product / skill motion videos (10–30 s, narrated feature demos up to ~60 s) the way high- `feitangyuan/onetake:.`
+- **baocut**: 用 BaoCut 处理视频与音频：转录、字幕、翻译、配音、剪口播、切短视频、分章、总结写稿、从链接下载、压缩转码、导出成片，或从零做一条成片。有媒体文件、视频链接、字幕文件或 BaoCut 视频时用； `JimLiu/baocut:skills/baocut`
+- **clip-montage**: 旁白、视频切片与文字动画混搭的成片：拿一条新闻、一件事、一段八卦、一个产品或人物的故事，从网上与用户的视频库里搜素材、切当事人的原声，配旁白剪成一条画面一直在动的片子，推文、引语、日期、数字做成压在画 `JimLiu/baocut:skills/baocut/built-in-skills/clip-montage`
+- **explainer-video**: 做知识讲解、科普、教学类视频时读的手艺页：把一个概念、一条新闻、一篇论文或一份资料，讲成没有背景的人也看得懂、愿意看完、看完能复述。给的是判断与手法，不是模板与流程：从观众的疑问找讲法，给这期找一个贯 `JimLiu/baocut:skills/baocut/built-in-skills/explainer-video`
+- **narration**: 做一条由旁白带着走的成片（资讯快评、知识讲解、产品介绍、步骤教程），或给已有画面配一段多句的旁白时用：先按实测语速算出稿子该有多少字、按句分行写稿，再选一个全片不变的音色、用同一套语气说明一次合成，量 `JimLiu/baocut:skills/baocut/built-in-skills/narration`
+- **video-production**: 从零做一条完整成片时用：推广短片、知识讲解、故事短片、发布片、资讯快评、数据故事、排版动效、歌曲 MV 与歌词视频，或用户选了场景模板、作品示例说「做一条视频」。简报定下后，先写风格与角色设定、分镜与 `JimLiu/baocut:skills/baocut/built-in-skills/video-production`
+- **sound-effects**: Add a measured sound pass to a motion-graphics video made with Claude Code (HyperFrames, Remotion, G `Barty-Bart/motion-graphics:skills/sound-effects`
+- **MathLens**: 专业的数学老师辅导技能，用于深入浅出的解答数学题，生成HTML讲解文档和带配音的Manim动画视频， 解答细致，深入浅出，浅显易懂，比较适合一般学情的学生。 核心工作流：数学分析 → HTML可视化  `shuyicc/MathLens:.`
+- **muapi-director**: Turn ONE topic, talking-head video, or photo into a finished Vox-style paper-collage explainer / ad  `Anil-matcha/vox-ai-motion-graphics-generator:.`
+- **collage-broll-explainers**: Turn a ~5-second voiceover line, opinion sentence, or abstract concept into a premium editorial half `MegaTroll222/VOX-COLLAGE-BROLL:.`
+- **story-handdrawn-video**: 用 Agnes Video V2.0 纯文生视频 + Remotion 制作 9:16 竖屏短视频。两种风格：`crayon`（Q 版手绘蜡笔风童话/生活，MaShanZheng 毛笔中文字幕）和 ` `liangdabiao/story-handdrawn-video:.`
+- **align-narration**: Use when the user has their OWN narration audio (m4a/mp3/wav) and needs the same timing.json + narra `hahadu4520/vlog-cut:skills/align_narration`
+- **burn-subtitles-cn**: Use when the user wants Chinese subtitles burned into a finished rough cut. Three CLIs — split (timi `hahadu4520/vlog-cut:skills/burn_subtitles_cn`
+- **narration-cut**: Use when narration audio (timing.json + narration.wav) and an indexed asset pool (assets_index.json) `hahadu4520/vlog-cut:skills/narration_cut`
+- **tts-from-script**: Use when the user has a narration script (script.json) and needs voiceover audio plus per-line timin `hahadu4520/vlog-cut:skills/tts_from_script`
+- **video-asset-index**: Use when the user has a folder of raw video clips and needs them indexed for narration-driven cuttin `hahadu4520/vlog-cut:skills/video_asset_index`
+- **vlog-cut-pipeline**: Use when the user wants to take a script + a folder of raw clips all the way to a finished rough cut `hahadu4520/vlog-cut:skills/vlog_cut_pipeline`
+- **remotion-video-director**: Interactive guide for creating Remotion videos - from strategic concept to rendered MP4. Use when th `BayramAnnakov/remotion-video-director:.`
+- **typewriter-video**: Create VS Code-style typewriter animation videos with mechanical keyboard sounds. Supports 4 typing  `yammaku/typewriter-video:.`
+- **ai-audio-sound-design**: Rebuild the audio of an AI-generated video (Arcads / AI actors / UGC-gen / any clip whose voices sou `krusemediallc/video-editor-agent:.claude/skills/ai-audio-sound-design`
+- **arcads-broll**: GENERATE B-roll and motion-graphic elements for an edit with AI video/image models via the Arcads ex `krusemediallc/video-editor-agent:.claude/skills/arcads-broll`
+- **arcads-video-edit**: Turn a creator's multi-take product-demo recordings (each take = screen recording + camera video + m `krusemediallc/video-editor-agent:.claude/skills/arcads-video-edit`
+- **branded-ad-edit**: Turn a RAW talking-head video into a FINISHED, branded, motion-graphics ad for any brand or industry `krusemediallc/video-editor-agent:.claude/skills/branded-ad-edit`
+- **broll-capture**: Capture website B-roll and screenshots for a video edit: full-page screenshots of real pages (for sh `krusemediallc/video-editor-agent:.claude/skills/broll-capture`
+- **capcut-export**: Export a finished layered edit (footage + graphic cards + alpha fx overlay + captions + SFX/music/VO `krusemediallc/video-editor-agent:.claude/skills/capcut-export`
+- **edl-tighten**: Surgically remove awkward pauses, dead air, and long silences from a FINISHED voiceover-driven cut w `krusemediallc/video-editor-agent:.claude/skills/edl-tighten`
+- **hook-splitter**: Split ONE long recording that contains many separate hooks/takes into a set of standalone videos — o `krusemediallc/video-editor-agent:.claude/skills/hook-splitter`
+- **hook-variations**: Combine ONE finished body cut with MANY hook clips to produce one standalone video per hook — the ho `krusemediallc/video-editor-agent:.claude/skills/hook-variations`
+- **naming-convention**: Name a batch of video deliverables so each filename says what the file actually is — subject, varian `krusemediallc/video-editor-agent:.claude/skills/naming-convention`
+- **openart-broll**: GENERATE B-roll, talking-head clips, and screen-blend motion-graphic overlays for an edit through th `krusemediallc/video-editor-agent:.claude/skills/openart-broll`
+- **recap-video**: Edit an event, conference, summit, trip, or behind-the-scenes recap from spoken takes and supplied B `krusemediallc/video-editor-agent:.claude/skills/recap-video`
+- **reel-recut**: Recut a raw vertical talking-head reel into a finished short-form edit: a persistent title banner, w `krusemediallc/video-editor-agent:.claude/skills/reel-recut`
+- **reel-style-clone**: Reverse-engineer a reference reel's editing style frame-by-frame into a replicable STYLE GUIDE plus  `krusemediallc/video-editor-agent:.claude/skills/reel-style-clone`
+- **sound-design**: Generate and mix the full audio pass for a video edit with ElevenLabs — an SFX kit (whooshes, pops,  `krusemediallc/video-editor-agent:.claude/skills/sound-design`
+- **talking-head-image-overlays**: Edit a talking-head video in the "uncut take + stacked image overlays" style: ONE continuous take th `krusemediallc/video-editor-agent:.claude/skills/talking-head-image-overlays`
+- **video-edit-pipeline**: MASTER orchestration skill for producing a finished short-form video from raw talking-head footage.  `krusemediallc/video-editor-agent:.claude/skills/video-edit-pipeline`
+- **video-qa**: Four-layer QA for a rendered video edit — run it on any .mp4/.mov you or a pipeline just produced. U `krusemediallc/video-editor-agent:.claude/skills/video-qa`
+- **video-review-canvas**: Publish a finished (or draft) video cut to a frame.io-style review canvas on here.now — a player wit `krusemediallc/video-editor-agent:.claude/skills/video-review-canvas`
+- **story-handdrawn-remotion**: 用 Remotion 制作「手绘日记漫画风」故事视频：白底 + 黑色记号笔轮廓 + 蜡笔色，每句故事被画三次（文字→黑白画稿→彩色插画）横向擦除揭示，可选右下角卷页翻书转场，默认 MiniMax 旁白 `liangdabiao/story-handdrawn-remotion:.`
+- **media-use**: Agent Media OS, the single skill for every media need in a HyperFrames project. Resolve BGM, SFX, im `imMamdouhaboammar/motion-graphics-skills:.agents/skills/media-use`
+- **speech-to-text**: Directs the agent to use faster-whisper as the high-accuracy speech-to-text / Voice-over transcripti `imMamdouhaboammar/motion-graphics-skills:.agents/skills/speech-to-text`
+- **media-use**: Agent Media OS, the single skill for every media need in a HyperFrames project. Resolve BGM, SFX, im `imMamdouhaboammar/motion-graphics-skills:skills/media-use`
+- **motion-director**: Master motion-graphics director for concept, art direction, timing, production, review, and renderin `imMamdouhaboammar/motion-graphics-skills:skills/motion-director`
+- **motion-effects**: Create or adapt any of 16 focused motion effects in the user's brand, reusing the current project or `imMamdouhaboammar/motion-graphics-skills:skills/motion-effects`
+- **motion-studio**: Use when starting a motion graphics project in ChatGPT or Codex, choosing a specialist from this pac `imMamdouhaboammar/motion-graphics-skills:skills/motion-studio`
+- **speech-to-text**: Directs the agent to use faster-whisper as the high-accuracy speech-to-text / Voice-over transcripti `imMamdouhaboammar/motion-graphics-skills:skills/speech-to-text`
+- **hbg-douyin-code-explainer-video**: Create and quality-gate Chinese 9:16 Douyin explainer videos using deterministic HTML/CSS/SVG/GSAP i `Mr-funny/hbg-douyin-code-explainer-video:.`
+- **video-vox**: Crea un SHORT vertical (9:16) animado estilo Vox/documental educativo sobre CUALQUIER tema, de punta `santmun/video-vox:.`
+- **lipnardo**: Generate AI avatar talking-head videos using HeyGen API. Single videos, multi-scene studio compositi `AgriciDaniel/lipnardo:skills/lipnardo`
+- **zackd-director**: Turn ONE curiosity-driven topic or question into a finished Zack D Films-style 3D animated short vid `Anil-matcha/zack-d-films-ai-video-generator:.`
+- **super-video-agent**: Make a narrated video drawn in code from any source. Use for any video, short, reel, promo or explai `ww-w-ai/super-video-agent:skills/super-video-agent`
+- **kinetic-editorial-reel**: Make a vertical (9:16) "kinetic editorial" reel from a topic, script or voiceover — faceless, word-b `ouerf-man/kinetic-editorial-skill:.`
+- **draftcut**: Turn natural speech into a refined original-voice narration and a polished video. Review the full sp `PoetCoderJun/DraftCut:.`
+- **social-talking-head-video**: Package existing talking-head, interview, tutorial, or founder footage into a polished short-form so `misbahsy/tiktok-ig-shorts:skills/social-talking-head-video`
+- **vox-editorial**: Build vertical editorial explainer films in a paper-collage style - a researched script, narration,  `jaredcassoutt/vox-editorial:skills/vox-editorial`
+- **vox-skill**: Use when building a narrated, voiceover-synced motion-graphics explainer or B-roll film in Remotion  `jaredcassoutt/vox-editorial:skills/vox-skill`
+- **make**: Internal motionable pipeline (plan mode, approval, scenes, music, critique, render). Start with /mot `suntay44/motionable:skills/make`
+- **project**: Make a hype/launch/promo video from a folder on this Mac (a repo or screenshots and notes), read-onl `suntay44/motionable:skills/project`
+- **scratch**: Make a hype/launch/promo video from scratch: interviews the user and takes a logo and screenshots, t `suntay44/motionable:skills/scratch`
+- **website**: Make a hype/launch/promo video from a website URL: reads the site (pitch, features, colours, logo, s `suntay44/motionable:skills/website`
+- **video-gen**: AI视频剪辑工具。分析素材、生成创意、设计分镜、执行剪辑。支持Vidu/Kling/Kling Omni视频生成、Suno音乐生成、TTS配音、FFmpeg剪辑。当用户要求制作视频、剪辑视频、生成视频 `taylorzhou16/video-gen:.`
+- **football-prediction-avatar-video**: Turn a user's football match prediction or viewpoint into a verified Chinese vertical talking-head v `zlong6943-commits/football-prediction-avatar-video:.`
+- **auto-pop-sci**: Generate math/science popularization videos with Manim animations and AI narration. Use when the use `0x68616F4C/auto-popsci:.`
+- **making-explainer-videos**: Use when asked to make an animated or narrated explainer video, animation, or visual walkthrough of  `neelnanda-io/dont-go-quiet-on-me:skills/making-explainer-videos`
+- **making-research-music-videos**: Use when asked to make a song, pop song, ballad, music video, lyric video or animated video about a  `neelnanda-io/dont-go-quiet-on-me:skills/making-research-music-videos`
+- **reel-script**: Write a locked short-form reel script, from hook to post copy. Use when the user says write a script `RahmanBuildsAI/ravyn-reel-kit:.claude/skills/reel-script`
+- **lightx2v**: LightX2V cloud API for images (t2i, i2i), video (t2v, i2v, s2v, flf2v, animate), TTS, and voice clon `xinyiqin/X2V-AI-Images-Videos-skill:.`
+- **product-demo**: Make a YC-grade product demo video (45-60s) from the real app code in a repo, script, animated compo `Anshgrover23/product-demo-playbook:skills/product-demo`
+- **make-film**: End-to-end workflow for making a new film in this repo: song or narration, cue sheet, storyboard, lo `bishpls/animation-pipeline:.claude/skills/make-film`
+- **comparison-posts**: Write a comparison or alternatives post for the GenMotion blog: "X alternatives", "best tools for ma `haxzie/genmotion:.claude/skills/comparison-posts`
+- **site-copy**: Write or edit the words on the GenMotion marketing site (apps/web) — a homepage headline or lede, a  `haxzie/genmotion:.claude/skills/site-copy`
+- **genmotion**: Make or edit a video with GenMotion — launch videos, feature announcements, explainers, logo stings, `haxzie/genmotion:examples/three-starter/.agents/skills/genmotion`
+- **embedded-captions**: Add captions or subtitles to an existing single-subject talking-head video without editing the foota `haxzie/genmotion:packages/hyperframes/plugin/skills/embedded-captions`
+- **faceless-explainer**: Turn arbitrary text — an article, notes, a topic, a brief — into a faceless explainer video: there i `haxzie/genmotion:packages/hyperframes/plugin/skills/faceless-explainer`
+- **general-video**: Author or edit a custom HyperFrames composition when no specialized workflow fits, or when BRIEF.md  `haxzie/genmotion:packages/hyperframes/plugin/skills/general-video`
+- **hyperframes**: Mandatory entry point: read this first for any request to make, create, edit, animate, or render a v `haxzie/genmotion:packages/hyperframes/plugin/skills/hyperframes`
+- **hyperframes-animation**: All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene t `haxzie/genmotion:packages/hyperframes/plugin/skills/hyperframes-animation`
+- **hyperframes-audio**: Use when audio already placed in a HyperFrames composition needs to be mixed: fade-in/fade-out, cros `haxzie/genmotion:packages/hyperframes/plugin/skills/hyperframes-audio`
+- **hyperframes-core**: The HyperFrames composition contract — build one renderable project. Use for composition structure,  `haxzie/genmotion:packages/hyperframes/plugin/skills/hyperframes-core`
+- **media-use**: Agent Media OS, the single skill for every media need in a HyperFrames project. Resolve BGM, SFX, im `haxzie/genmotion:packages/hyperframes/plugin/skills/media-use`
+- **motion-graphics**: A short, design-led motion graphic where motion is the message — kinetic typography, stat count-up,  `haxzie/genmotion:packages/hyperframes/plugin/skills/motion-graphics`
+- **music-to-video**: Turn a music track (an audio file, a video to pull audio from, or a track generated from a mood brie `haxzie/genmotion:packages/hyperframes/plugin/skills/music-to-video`
+- **pr-to-video**: Turn a GitHub pull request (a PR URL, owner/repo#N, or 'this PR' in a checked-out repo) into a code- `haxzie/genmotion:packages/hyperframes/plugin/skills/pr-to-video`
+- **product-launch-video**: Turn a product or marketing URL, pasted script, or brief into a product launch / promo video — SaaS  `haxzie/genmotion:packages/hyperframes/plugin/skills/product-launch-video`
+- **slideshow**: Author a HyperFrames slideshow — a presentation, pitch deck, or interactive deck with discrete slide `haxzie/genmotion:packages/hyperframes/plugin/skills/slideshow`
+- **ai-presenter**: Putting a person on screen in an ad when there is no footage: the user's own clip first, or a genera `haxzie/genmotion:packages/skills/plugin/skills/ai-presenter`
+- **announce-feature**: The 15 to 45 second feature announcement or changelog video, in the manner of Linear, Notion and Sla `haxzie/genmotion:packages/skills/plugin/skills/announce-feature`
+- **announce-milestone**: Funding rounds, ARR, GitHub stars, user and download counts, acquisitions: one number made to land.  `haxzie/genmotion:packages/skills/plugin/skills/announce-milestone`
+- **brand-sting**: The logo sting, bumper, ident or brand reveal: 2 to 8 seconds, no narration, one mark arriving. Cove `haxzie/genmotion:packages/skills/plugin/skills/brand-sting`
+- **demo-walkthrough**: The longer product tour, 60 to 180 seconds, for a viewer who chose to watch: one real workflow done  `haxzie/genmotion:packages/skills/plugin/skills/demo-walkthrough`
+- **direction**: Creative direction for any new video, read before choosing or building: turns a request into one pro `haxzie/genmotion:packages/skills/plugin/skills/direction`
+- **explainer**: The explainer video: a concept, a process, a comparison or a piece of data made visual in 30 seconds `haxzie/genmotion:packages/skills/plugin/skills/explainer`
+- **genmotion-skills**: The router for GenMotion's creative pack: start here for any new video request. It sends you through `haxzie/genmotion:packages/skills/plugin/skills/genmotion-skills`
+- **launch-playbook**: The product launch film, 15 to 90 seconds: five story shapes (problem-first, demo-first, manifesto,  `haxzie/genmotion:packages/skills/plugin/skills/launch-playbook`
+- **launch-taste**: Taste for motion-design launch, feature and brand films: how to choose the concept device and the st `haxzie/genmotion:packages/skills/plugin/skills/launch-taste`
+- **sound-design**: Music, sound effects and the voiceover mix for every kind of video in the pack: the four-decision so `haxzie/genmotion:packages/skills/plugin/skills/sound-design`
+- **stock-and-broll**: Sourcing cut-aways, product shots and staged stills that read as real rather than stock: the sourcin `haxzie/genmotion:packages/skills/plugin/skills/stock-and-broll`
+- **three-assets**: Bringing real material into Three.js scenes so no frame is blank: asset imports and their type decla `haxzie/genmotion:packages/skills/plugin/skills/three-assets`
+- **ugc-ad-foundations**: The shared ground under every UGC-style social ad: the codes that read as an ad versus a person, hoo `haxzie/genmotion:packages/skills/plugin/skills/ugc-ad-foundations`
+- **ugc-craft**: The edit language of a short-form UGC ad, with one number for each move: the cadence table and the t `haxzie/genmotion:packages/skills/plugin/skills/ugc-craft`
+- **ugc-green-screen**: The commentary ad: a presenter cut out over a full-bleed source (a competitor's pricing page, a revi `haxzie/genmotion:packages/skills/plugin/skills/ugc-green-screen`
+- **ugc-hooks**: The first 1.5 to 3 seconds of a UGC or social ad: the visual plus verbal plus rhythm triple, frame-z `haxzie/genmotion:packages/skills/plugin/skills/ugc-hooks`
+- **ugc-problem-solution**: The PAS ad and the default when a brief names a pain but no format: open on the failure state with t `haxzie/genmotion:packages/skills/plugin/skills/ugc-problem-solution`
+- **ugc-screen-demo**: The faceless screen-recording ad for software: an app or website doing one satisfying thing, result  `haxzie/genmotion:packages/skills/plugin/skills/ugc-screen-demo`
+- **ugc-scripting**: Writing the body and CTA of a short-form ad: the word budget per runtime and per section, six framew `haxzie/genmotion:packages/skills/plugin/skills/ugc-scripting`
+- **ugc-unboxing**: The first-impression ad: a box, hands in frame, the product revealed one layer per beat, with foley  `haxzie/genmotion:packages/skills/plugin/skills/ugc-unboxing`
+- **video-editing**: Editing footage the user supplies into a finished video: a podcast episode or clips from it, a talki `haxzie/genmotion:packages/skills/plugin/skills/video-editing`
+- **make-video**: Make or edit a video with GenMotion — launch videos, feature announcements, explainers, logo stings, `haxzie/genmotion:plugins/genmotion/skills/make-video`
+- **explainer-video-guide**: Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script formula `wendymardigian-prog/Editor-IA-Pro:.agents/skills/explainer-video-guide`
+- **motion-designer**: Advanced motion designer with decades of After Effects and motion graphics experience, specialized i `wendymardigian-prog/Editor-IA-Pro:.agents/skills/motion-designer`
+- **video-pipeline-workflow**: MoneyPrinterPlus 完整工作流 — 交互式配置 + 5 节点视频合成流水线。先展示配置、询问修改，再按 contentNode → ttsNode → materialNode → bg `Chr1s-T/MoneyPrinterPlus:.`
+- **animation-studio**: This skill should be used when the user asks to "make an animated video about X with music", "make a `i-afaqrashid/claude-animation-studio:skills/animation-studio`
+- **video-plan-editor**: Cria um plano profissional de vídeo de ALTA PERFORMANCE a partir de um assunto ou link, usando uma b `inematds/skill-video-plan-editor:.`
+- **wechat-article-remotion**: 用 Remotion 把任意一篇微信公众号文章（mp.weixin.qq.com）转成 Studio 风格的视频：暖白画布 + 上下镜像透视格子 + 顶部章节进度 + 底部无底色黑字字幕 + 公众号原 `liangdabiao/wechat-article-remotion:.`
+- **video-explainer**: Code-animated explainer shorts (the kp series) with no AI footage - Claude writes an HTML canvas ani `xdis/opus-video-studio:.claude/skills/video-explainer`
+- **video-floorplan**: Floor-plan animation (Three.js code-driven 3D, vertical 1080×1920 at 60 fps) - a floor-plan image or `xdis/opus-video-studio:.claude/skills/video-floorplan`
+- **video-idea**: The front door for Douyin / Xiaohongshu videos. Use this first whenever the user describes any video `xdis/opus-video-studio:.claude/skills/video-idea`
+- **video-lineart**: Blender line-art animation (white lines on black, minimal 3D sets, slow camera moves, small white su `xdis/opus-video-studio:.claude/skills/video-lineart`
+- **video-quote**: The user sends a screenshot of a reference short video, or a one-line idea / theme / quote, and this `xdis/opus-video-studio:.claude/skills/video-quote`
+- **video-skit**: Original AI comedy skits with a twist ending (10–15 s, recurring characters such as "Aju", the orang `xdis/opus-video-studio:.claude/skills/video-skit`

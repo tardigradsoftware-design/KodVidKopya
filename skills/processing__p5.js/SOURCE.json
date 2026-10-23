@@ -1,0 +1,14 @@
+{
+  "repo": "processing/p5.js",
+  "url": "https://github.com/processing/p5.js",
+  "sha": "656b415a17e8c72c347ed48111c37719f2963498",
+  "license": "LGPL-2.1",
+  "fetchedAt": "2026-10-23T04:07:42.493Z",
+  "kind": "guide",
+  "exclude": "",
+  "skillRoots": [
+    ""
+  ],
+  "files": 10,
+  "droppedByBudget": 0
+}

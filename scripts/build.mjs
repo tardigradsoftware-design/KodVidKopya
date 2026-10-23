@@ -19,6 +19,9 @@ const SKILLS = path.join(ROOT, 'skills');
 const CATALOG = path.join(ROOT, 'catalog');
 const LIST_REPO = 'zhuyansen/awesome-claude-video-skills';
 const PERMISSIVE = ['MIT', 'MIT-0', 'Apache-2.0', 'BSD-2-Clause', 'BSD-3-Clause', 'ISC', '0BSD', 'Unlicense', 'CC0-1.0'];
+// Copyleft lisanslar da lisans metniyle birlikte yeniden dagitima izin verir; bu klasorler kendi lisanslarini korur
+const COPYLEFT = ['AGPL-3.0', 'GPL-3.0', 'GPL-2.0', 'LGPL-3.0', 'LGPL-2.1', 'MPL-2.0', 'CC-BY-4.0', 'CC-BY-SA-4.0'];
+const REDISTRIBUTABLE = [...PERMISSIVE, ...COPYLEFT];
 const CATEGORY_TR = {
   engine: 'Motorlar', general: 'Cerceveler ve arac kitleri', promo: 'Tanitim ve demo', explainer: 'Egitici ve anlatim',
   editing: 'Kurgu ve duzenleme', shorts: 'Kisa video ve sosyal medya', avatar: 'Avatar ve dudak senkronu',
@@ -74,10 +77,10 @@ function decide(r) {
   if (r.securityGrade === 'CAUTION') return ['catalog-only', 'Guvenlik notu CAUTION, icerik alinmadi'];
   if (extras.exclude?.[r.repo]?.includes('*')) return ['catalog-only', 'Elle haric tutuldu: video disi genel amacli skill seti'];
   // Izinli lisansta tum agac taranir; SKILL.md bulunmazsa sonradan catalog-only olur
-  if (PERMISSIVE.includes(r.license)) return ['vendored', null];
+  if (REDISTRIBUTABLE.includes(r.license)) return ['vendored', null];
   if (!r.hasSkillFiles) return ['catalog-only', 'Bilinen konumda SKILL.md yok (motor veya arac reposu)'];
-  if (!r.license) return ['local-sync', 'Lisans yok: yeniden dagitilamaz, sadece yerel indirme'];
-  return ['local-sync', `${r.license} lisansi: yeniden dagitim icin uygun degil, sadece yerel indirme`];
+  if (!r.license) return ['local-sync', 'Lisans yok: buraya kopyalanmaz; skill dizinde var, ajan gerektiginde klonlar'];
+  return ['local-sync', `${r.license} lisansi: buraya kopyalanmaz; skill dizinde var, ajan gerektiginde klonlar`];
 }
 
 // 3) Dosyalari indir
@@ -126,8 +129,38 @@ function frontmatter(txt) {
 function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]); }
 function engines(text) { return ENGINES.filter(([, re]) => re.test(text)).map(([n]) => n); }
 
-function buildSkillIndex(repos) {
-  const skills = [];
+// Lisansi kopyalamaya izin vermeyen repolarin skill'lerini sadece dizine ekler (ad, kisa aciklama, yol).
+// Icerik bu repoya kopyalanmaz; ajan gerektiginde repoyu kendi ortamina klonlar.
+async function indexExternal(repos) {
+  const out = [];
+  await pool(repos.filter((r) => r.status === 'local-sync' && r.sha), 6, async (r) => {
+    try {
+      const tree = JSON.parse(await gh(['api', `repos/${r.repo}/git/trees/${r.sha}?recursive=1`])).tree;
+      const { roots, kind } = selectFiles(tree);
+      if (kind !== 'skill') return;
+      const seen = new Set();
+      for (const root of roots.sort((a, b) => /(^|\/)\./.test(a) - /(^|\/)\./.test(b) || a.localeCompare(b))) {
+        const p = tree.find((x) => x.type === 'blob' && x.path.toLowerCase() === (root ? root + '/' : '').toLowerCase() + 'skill.md');
+        if (!p) continue;
+        const buf = await fetchRaw(r.repo, r.sha, p.path); if (!buf) continue;
+        const txt = buf.toString('utf8'); const fm = frontmatter(txt);
+        const h = crypto.createHash('sha1').update(txt.replace(/\r\n/g, '\n').trim()).digest('hex');
+        if (seen.has(h)) continue; seen.add(h);
+        const dir = root || '.';
+        out.push({ id: `ext/${slug(r.repo)}/${dir}`, name: fm.name || path.basename(root || r.repo), description: (fm.description || '').slice(0, 600),
+          path: p.path, dir, repo: r.repo, category: r.category, license: r.license, stars: r.stars, kind: 'skill', external: true,
+          clone: `git clone -q --depth 1 https://github.com/${r.repo}.git /home/user/ext/${slug(r.repo)}`,
+          localDir: `/home/user/ext/${slug(r.repo)}${root ? '/' + root : ''}`,
+          engines: engines(`${fm.description || ''}\n${txt.slice(0, 20000)}\n${r.description || ''}`), sizeKB: Math.round(p.size / 1024), hash: h });
+      }
+    } catch (e) { log(`dis dizin hatasi ${r.repo}: ${String(e.message).slice(0, 100)}`); }
+  });
+  log(`dis skill: ${out.length}`);
+  return out;
+}
+
+function buildSkillIndex(repos, extra = []) {
+  const skills = [...extra];
   for (const r of repos.filter((x) => x.status === 'vendored')) {
     const base = path.join(SKILLS, slug(r.repo), 'files'); if (!fs.existsSync(base)) continue;
     let entries = walk(base).filter((p) => /^skill\.md$/i.test(path.basename(p)));
@@ -162,7 +195,7 @@ function buildSkillIndex(repos) {
 
 const esc = (s) => String(s ?? '').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').slice(0, 140);
 function catalogMd(repos, skills) {
-  const st = { vendored: 'Icerik repoda', 'local-sync': 'Yerel indirme', 'catalog-only': 'Sadece katalog' };
+  const st = { vendored: 'Icerik repoda', 'local-sync': 'Dizinde, ajan klonlar', 'catalog-only': 'Sadece katalog' };
   let md = `# KodVid Katalogu\n\nBu dosya \`node scripts/build.mjs\` ile uretilir, elle duzenlemeyin.\n\n`;
   md += `| Durum | Repo sayisi |\n|---|---:|\n`; for (const k of Object.keys(st)) md += `| ${st[k]} | ${repos.filter((r) => r.status === k).length} |\n`;
   md += `\nToplam skill: **${skills.length}**\n\n`;
@@ -217,7 +250,7 @@ for (const r of repos.filter((x) => x.status === 'vendored' && !(x.vendor?.files
 const keepDirs = new Set(repos.filter((r) => r.status === 'vendored').map((r) => slug(r.repo)));
 if (fs.existsSync(SKILLS)) for (const d of fs.readdirSync(SKILLS)) if (!keepDirs.has(d)) fs.rmSync(path.join(SKILLS, d), { recursive: true, force: true });
 
-const skills = buildSkillIndex(repos);
+const skills = buildSkillIndex(repos, await indexExternal(repos));
 fs.mkdirSync(CATALOG, { recursive: true });
 const repoOut = repos.map(({ vendor: v, ...r }) => ({ ...r, skillCount: skills.filter((s) => s.repo === r.repo).length, vendoredFiles: v?.files ?? 0 }))
   .sort((a, b) => (b.stars || 0) - (a.stars || 0));

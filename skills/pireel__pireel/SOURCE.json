@@ -1,0 +1,16 @@
+{
+  "repo": "pireel/pireel",
+  "url": "https://github.com/pireel/pireel",
+  "sha": "b824ee23ff1667c45232930366cf1ef5c85318c4",
+  "license": "AGPL-3.0",
+  "fetchedAt": "2026-10-23T04:07:43.165Z",
+  "kind": "skill",
+  "exclude": "",
+  "skillRoots": [
+    "packages/studio-engine/src/scenario-skills/content/audio-and-music",
+    "packages/studio-engine/src/scenario-skills/content/montage-edit",
+    "packages/studio-engine/src/scenario-skills/content/talking-head-edit"
+  ],
+  "files": 3,
+  "droppedByBudget": 0
+}

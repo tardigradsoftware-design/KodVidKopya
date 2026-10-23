@@ -40,8 +40,17 @@ let readme = '# Motor Dizini\n\nGoreve uyan motorun dosyasini ac. Her satir: ski
   + 'Ayni skill birden fazla motorda gorunebilir. Satirlar yildiz sayisina gore siralidir.\n\n| Dosya | Skill | Aciklama |\n|---|---:|---|\n';
 for (const [e, desc] of Object.entries(ENGINES)) {
   const list = groups[e]; if (!list?.length) continue;
-  let md = `# ${e}\n\n${desc}\n\nToplam ${list.length} skill. Once SKILL.md dosyasini oku, sonra sadece onun gosterdigi dosyalari.\n\n`;
-  for (const s of list) md += `- **${clean(s.name, 60)}** (${s.kind}, ${s.license}): ${clean(s.description, 160)}\n  \`${s.dir}\`\n`;
+  const local = list.filter((s) => !s.external);
+  const ext = list.filter((s) => s.external);
+  const line = (s, where) => `- **${clean(s.name, 50)}**: ${clean(s.description, 100)} \`${where}\`\n`;
+  let md = `# ${e}\n\n${desc}\n\n${list.length} skills, most starred repos first. Each line: name, description, folder. Read only the SKILL.md you need.\n\n`;
+  md += `## In this repo (${local.length})\n\nFolders are under \`skills/\`.\n\n`;
+  for (const s of local) md += line(s, s.dir.replace(/^skills\//, ''));
+  if (ext.length) {
+    md += `\n## Clone first (${ext.length})\n\nNot stored here because of their license. For \`owner/repo:dir\`, run\n`;
+    md += `\`git clone -q --depth 1 https://github.com/owner/repo.git /home/user/ext/owner__repo\` and read \`/home/user/ext/owner__repo/dir/SKILL.md\`.\n\n`;
+    for (const s of ext) md += line(s, `${s.repo}:${s.dir}`);
+  }
   fs.writeFileSync(path.join(OUT, `${e}.md`), md);
   readme += `| [${e}.md](${e}.md) | ${list.length} | ${desc} |\n`;
 }
