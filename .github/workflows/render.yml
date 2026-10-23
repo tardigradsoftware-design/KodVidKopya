@@ -65,7 +65,8 @@ jobs:
             ~/ffmpeg
             ~/.cache/hyperframes
             ~/.npm/_npx
-          key: kodvid-tools-${{ runner.os }}-v2
+            ~/.npm/_cacache
+          key: kodvid-tools-${{ runner.os }}-v3
 
       - name: Araclar
         if: env.LIST != ''
@@ -85,7 +86,6 @@ jobs:
             APT="-o Acquire::http::Timeout=30 -o Acquire::Retries=2 -o DPkg::Lock::Timeout=60"
             sudo apt-get $APT update -qq && sudo apt-get $APT install -y -qq --no-install-recommends $need
           fi
-          npx -y hyperframes browser ensure
 
       - name: Kontrol ve render
         if: env.LIST != ''
@@ -93,50 +93,89 @@ jobs:
           set +e   # bir projedeki hata digerlerini ve sonuc dosyasini durdurmasin
           export TMPDIR="$RUNNER_TEMP"
           ROOT="$PWD"; OUTS="$RUNNER_TEMP/out"; mkdir -p "$OUTS"
+
+          # Videodan esit aralikli (veya snapshot_at ile verilen) kareleri PNG olarak cikarir
+          snaps_from_video() {
+            local v="$1" d ts i=0
+            d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$v")
+            if [ -n "$at" ]; then ts=$(echo "$at" | tr ',' ' ')
+            else ts=$(awk -v d="$d" -v n="$frames" 'BEGIN{for(i=0;i<n;i++) printf "%.2f ", d*(i+0.5)/n}'); fi
+            for t in $ts; do
+              ffmpeg -v error -y -ss "$t" -i "$v" -frames:v 1 -vf "scale=960:-2" "$O/snapshots/frame-$(printf %02d $i)-at-${t}s.png"
+              i=$((i+1))
+            done
+          }
+
           for P in $LIST; do
             echo "::group::$P"
             O="$OUTS/$P"; mkdir -p "$O/snapshots"; f="$ROOT/projects/$P/render.json"
+            cd "$ROOT/projects/$P"
+            engine=hyperframes
+            if [ -f package.json ] && jq -e '(.dependencies.remotion // .devDependencies.remotion) != null' package.json >/dev/null 2>&1; then engine=remotion; fi
             mode=$(jq -r '.mode // "render"' "$f");  [[ "$mode" =~ ^(render|check)$ ]] || mode=render
             q=$(jq -r '.quality // "delivery"' "$f"); [[ "$q" =~ ^(draft|looks|delivery|standard|high)$ ]] || q=delivery
             fps=$(jq -r '.fps // 30' "$f");          [[ "$fps" =~ ^(24|30|60)$ ]] || fps=30
-            comp=$(jq -r '.composition // "index.html"' "$f"); [[ "$comp" =~ ^[A-Za-z0-9._/-]+$ && "$comp" != *..* ]] || comp=index.html
             at=$(jq -r '.snapshot_at // ""' "$f" | tr -cd '0-9.,')
             frames=$(jq -r '.snapshot_frames // 6' "$f"); [[ "$frames" =~ ^[0-9]{1,2}$ ]] || frames=6
             req=$(jq -r '.request // ""' "$f" | tr -cd 'A-Za-z0-9._:+-' | cut -c1-80)
-            cd "$ROOT/projects/$P"
-            npx -y hyperframes lint > "$O/lint.txt" 2>&1; lint=$?
-            npx -y hyperframes check --json > "$O/check.json" 2> "$O/check.log"
-            if [ -n "$at" ]; then npx -y hyperframes snapshot --at "$at" --output "$O/snapshots" > /dev/null 2>&1
-            else npx -y hyperframes snapshot --frames "$frames" --output "$O/snapshots" > /dev/null 2>&1; fi
-            status=failed; secs=0; dur=null; w=null; h=null; size=0; mp4="$O/$P.mp4"
-            if [ "$mode" = render ]; then
+            status=failed; secs=0; dur=null; w=null; h=null; size=0; mp4="$O/$P.mp4"; rc=1
+
+            if [ "$engine" = remotion ]; then
+              comp=$(jq -r '.composition // "Main"' "$f"); [[ "$comp" =~ ^[A-Za-z0-9_-]+$ ]] || comp=Main
+              if [ -f package-lock.json ]; then npm ci --no-audit --no-fund > "$O/install.log" 2>&1
+              else npm install --no-audit --no-fund > "$O/install.log" 2>&1; fi
+              inst=$?
+              npx tsc > "$O/lint.txt" 2>&1; lint=$?
+              if [ "$inst" != 0 ]; then { echo "npm install basarisiz:"; tail -40 "$O/install.log"; } >> "$O/lint.txt"; lint=1; fi
+              jq -n --argjson ok "$([ "$lint" = 0 ] && echo true || echo false)" '{ok:$ok, engine:"remotion", note:"Remotion icin check = TypeScript tur kontrolu"}' > "$O/check.json"
+              npx remotion browser ensure > /dev/null 2>&1
+              args=(render "$comp" --concurrency="$(nproc)" --log=error)
+              if [ "$mode" = check ]; then out="$O/preview.mp4"; args+=(--scale=0.25 --crf=32)   # hizli dusuk cozunurluklu onizleme
+              else out="$mp4"; [ "$q" = draft ] && args+=(--crf=28); fi
               s=$(date +%s)
-              npx -y hyperframes render --composition "$comp" --quality "$q" --fps "$fps" --workers auto --output "$mp4" > "$O/render.log" 2>&1; rc=$?
-              secs=$(( $(date +%s) - s )); tail -3 "$O/render.log"
-              if [ "$rc" = 0 ] && [ -s "$mp4" ]; then
-                status=ok
-                dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$mp4")
-                w=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$mp4")
-                h=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$mp4")
-                size=$(stat -c %s "$mp4")
-              fi
+              npx remotion "${args[@]}" "$out" > "$O/render.log" 2>&1; rc=$?
+              secs=$(( $(date +%s) - s )); tail -5 "$O/render.log"
+              [ "$rc" = 0 ] && [ -s "$out" ] && snaps_from_video "$out"
+              if [ "$mode" = check ]; then [ "$rc" = 0 ] && [ "$lint" = 0 ] && status=checked
+              elif [ "$rc" = 0 ] && [ -s "$mp4" ]; then status=ok; fi
             else
-              [ "$lint" = 0 ] && status=checked
+              comp=$(jq -r '.composition // "index.html"' "$f"); [[ "$comp" =~ ^[A-Za-z0-9._/-]+$ && "$comp" != *..* ]] || comp=index.html
+              npx -y hyperframes browser ensure > /dev/null 2>&1
+              npx -y hyperframes lint > "$O/lint.txt" 2>&1; lint=$?
+              npx -y hyperframes check --json > "$O/check.json" 2> "$O/check.log"
+              if [ -n "$at" ]; then npx -y hyperframes snapshot --at "$at" --output "$O/snapshots" > /dev/null 2>&1
+              else npx -y hyperframes snapshot --frames "$frames" --output "$O/snapshots" > /dev/null 2>&1; fi
+              if [ "$mode" = render ]; then
+                s=$(date +%s)
+                npx -y hyperframes render --composition "$comp" --quality "$q" --fps "$fps" --workers auto --output "$mp4" > "$O/render.log" 2>&1; rc=$?
+                secs=$(( $(date +%s) - s )); tail -3 "$O/render.log"
+                [ "$rc" = 0 ] && [ -s "$mp4" ] && status=ok
+              else
+                [ "$lint" = 0 ] && status=checked
+              fi
+            fi
+
+            if [ "$status" = ok ]; then
+              dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$mp4")
+              w=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$mp4")
+              h=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$mp4")
+              fps=$(ffprobe -v error -select_streams v:0 -show_entries stream=r_frame_rate -of csv=p=0 "$mp4" | awk -F/ '{ if ($2) printf "%d", $1/$2; else print $1 }')
+              size=$(stat -c %s "$mp4")
             fi
             check_ok=$(jq -r '.ok // false' "$O/check.json" 2>/dev/null || echo false)
-            jq -n --arg project "$P" --arg request "$req" --arg mode "$mode" --arg status "$status" \
+            jq -n --arg project "$P" --arg engine "$engine" --arg request "$req" --arg mode "$mode" --arg status "$status" \
               --arg commit "$GITHUB_SHA" --arg branch "$GITHUB_REF_NAME" \
               --arg run "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
-              --arg finished "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg quality "$q" --argjson fps "$fps" \
+              --arg finished "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg quality "$q" --argjson fps "${fps:-30}" \
               --argjson lint_ok "$([ "$lint" = 0 ] && echo true || echo false)" --argjson check_ok "$check_ok" \
               --argjson seconds "$secs" --argjson duration "${dur:-null}" --argjson width "${w:-null}" \
               --argjson height "${h:-null}" --argjson bytes "$size" \
-              '{project:$project, request:$request, mode:$mode, status:$status, lint_ok:$lint_ok, check_ok:$check_ok,
+              '{project:$project, engine:$engine, request:$request, mode:$mode, status:$status, lint_ok:$lint_ok, check_ok:$check_ok,
                 commit:$commit, branch:$branch, run:$run, finished:$finished, quality:$quality, fps:$fps,
                 render_seconds:$seconds, duration:$duration, width:$width, height:$height, bytes:$bytes}' > "$O/result.json"
             cat "$O/result.json"
-            { echo "### $P: $status"; echo '```json'; cat "$O/result.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
-            # Kullanici icin release (arka planda, renders yazimini bekletmesin)
+            { echo "### $P ($engine): $status"; echo '```json'; cat "$O/result.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+            # Kullanici icin release (arka planda)
             if [ "$mode" = render ]; then
               ( tag="render-$P"
                 gh release view "$tag" >/dev/null 2>&1 || gh release create "$tag" --target "$GITHUB_SHA" --title "Render: $P" --notes "KodVid otomatik render ciktisi." >/dev/null
