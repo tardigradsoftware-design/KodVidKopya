@@ -61,6 +61,7 @@ The loop:
 6. Deliver the MP4 from the results folder. Report its duration, resolution and the release link.
 
 The results folder holds `result.json`, `lint.txt`, `check.json`, `snapshots/`, `review/`, and in render mode `<name>.mp4` and `render.log`.
+Wait for each job's result before pushing the next `render.json` for the same project. A newer push cancels the running job.
 To render several videos at once, push them in one commit. Each project runs on its own machine in parallel.
 The user can watch the video at `https://github.com/tardigradsoftware-design/KodVidKopya/releases/tag/render-<name>`.
 
