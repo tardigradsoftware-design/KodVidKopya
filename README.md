@@ -1,5 +1,7 @@
 # KodVid
 
+> Bu repo, [KodVid](https://github.com/tardigradsoftware-design/KodVid) reposunun ajan testleri için kopyasıdır. Ajan doğrudan bu repoda çalışır. Kurulum ve iş akışı için [AGENT.md](AGENT.md) dosyasına bakın.
+
 Koddan video üretimi için yapay zeka ajanlarına yönelik yetenek (skill) veritabanı.
 
 Açık kaynaktaki koddan video projelerini tek yerde toplar. HyperFrames, Remotion, Manim, GSAP, Lottie ve FFmpeg gibi motorları kapsar. Bir ajan bu repoyu okuyarak hangi motoru seçeceğini, nasıl kod yazacağını ve videoyu nasıl render edeceğini öğrenir.
