@@ -1,1 +1,8 @@
-{ "request": "ilk-video-draft-20261023-0350", "mode": "render", "quality": "draft", "fps": 30, "composition": "index.html", "snapshot_at": "1.2,3.4,5.3,7.4,9.6" }
+{
+ "request": "ilk-video-final-20261023-0400",
+ "mode": "render",
+ "quality": "delivery",
+ "fps": 30,
+ "composition": "index.html",
+ "snapshot_at": "1.2,3.4,5.3,7.4,9.6"
+}
