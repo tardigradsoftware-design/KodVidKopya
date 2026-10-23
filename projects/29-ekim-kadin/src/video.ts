@@ -2,7 +2,6 @@ import type { VideoSpec } from "./kit/Film";
 
 // 29 Ekim 2026: "Cumhuriyet ve kadın: 103 yılda kazanılan haklar"
 // Kitle: 18-55 yaş kadınlar. Duygu: gurur, minnet, coşku.
-// Yıllar (1930, 1934) "fact" yerine "title" sahnesiyle: sayaç tr-TR biçiminde "1.930" gösterirdi.
 export const video: VideoSpec = {
   fps: 30,
   width: 1080,
@@ -29,16 +28,16 @@ export const video: VideoSpec = {
       text: "29 Ekim 1923'te Cumhuriyet ilan edildi",
     },
     {
-      type: "title",
+      type: "fact",
       say: "1930'da kadınlar belediye seçimlerinde seçme ve seçilme hakkı kazandı.",
-      title: "1930",
-      subtitle: "Belediye seçimlerinde seçme ve seçilme hakkı",
+      value: 1930,
+      text: "Kadınlar belediye seçimlerinde seçme ve seçilme hakkı kazandı",
     },
     {
-      type: "title",
+      type: "fact",
       say: "5 Aralık 1934'te milletvekili seçme ve seçilme hakkı geldi.",
-      title: "5 Aralık 1934",
-      subtitle: "Milletvekili seçme ve seçilme hakkı",
+      value: 1934,
+      text: "5 Aralık 1934: milletvekili seçme ve seçilme hakkı",
     },
     {
       type: "fact",

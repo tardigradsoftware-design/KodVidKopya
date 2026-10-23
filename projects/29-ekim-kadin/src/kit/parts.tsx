@@ -212,12 +212,15 @@ export const Icon: React.FC<{ readonly name: string; readonly size?: number; rea
 };
 
 // A number that counts up from 0 to `value` between `from` and `to` frames.
-export const Counter: React.FC<{ readonly value: number; readonly from?: number; readonly to?: number; readonly prefix?: string; readonly suffix?: string; readonly decimals?: number }> = ({
-  value, from = 4, to = 34, prefix = "", suffix = "", decimals = 0,
+// A whole number between 1000 and 2999 is treated as a year: no thousands separator ("1930", not "1.930"),
+// and it rolls up from 50 years earlier instead of from 0.
+export const Counter: React.FC<{ readonly value: number; readonly from?: number; readonly to?: number; readonly prefix?: string; readonly suffix?: string; readonly decimals?: number; readonly grouping?: boolean }> = ({
+  value, from = 4, to = 34, prefix = "", suffix = "", decimals = 0, grouping,
 }) => {
   const frame = useCurrentFrame();
-  const v = interpolate(frame, [from, to], [0, value], { ...clamp, easing: easeIn });
-  return <>{prefix}{v.toLocaleString("tr-TR", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</>;
+  const isYear = decimals === 0 && Number.isInteger(value) && value >= 1000 && value <= 2999;
+  const v = interpolate(frame, [from, to], [isYear ? value - 50 : 0, value], { ...clamp, easing: easeIn });
+  return <>{prefix}{v.toLocaleString("tr-TR", { minimumFractionDigits: decimals, maximumFractionDigits: decimals, useGrouping: grouping ?? !isYear })}{suffix}</>;
 };
 
 // Slow camera push across the scene: the frame is never frozen.
