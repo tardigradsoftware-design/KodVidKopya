@@ -61,7 +61,7 @@
     .s2-num {
       position: absolute;
       left: 1080px;
-      top: 250px;
+      top: 268px;
       transform-origin: left top;
     }
     .s2-ten {
@@ -147,17 +147,17 @@
     <div id="s2-b">
       <div class="s2-end-brand" id="s2-end-brand"><i></i><span>KODVİD</span></div>
       <div class="s2-payoff" id="s2-payoff">
-        <span class="s2-line" id="s2-pay-1">VİDEON</span>
-        <span class="s2-line" id="s2-pay-2">HAZIR<span class="s2-dot" id="s2-dot">.</span></span>
+        <span class="s2-line">VİDEON</span>
+        <span class="s2-line">HAZIR<span class="s2-dot" id="s2-dot">.</span></span>
       </div>
-      <div class="s2-file" id="s2-file">ilk-video.mp4 · 1920×1080 · 30 fps · 10 sn</div>
+      <div class="s2-file" id="s2-file">1920×1080 · 30 fps</div>
     </div>
   </div>
 
   <script>
     const tl = gsap.timeline({ paused: true });
 
-    // A bolumu sagdan girer: kesimdeki sol vektorun devami
+    // A bolumu sagdan girer: kesitteki sol vektorun devami
     tl.fromTo(
       "#s2-a",
       { x: 260, opacity: 0 },
@@ -170,7 +170,7 @@
       "#s2-head",
       { opacity: 0, filter: "blur(8px)" },
       { opacity: 1, filter: "blur(0px)", duration: 0.26, ease: "power2.out" },
-      0.1,
+      0.08,
     );
 
     ["#s2-l1", "#s2-l2", "#s2-l3", "#s2-l4"].forEach((sel, i) => {
@@ -178,47 +178,41 @@
         sel,
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.24, ease: "power2.out" },
-        [0.22, 0.62, 0.95, 1.28][i],
+        [0.18, 0.42, 0.64, 0.82][i],
       );
     });
 
-    tl.fromTo("#s2-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.95, ease: "power2.inOut" }, 1.1);
+    tl.fromTo("#s2-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 0.86);
 
     // "On saniyede": sayi iner
     tl.fromTo(
       "#s2-num",
       { x: 150, opacity: 0, scale: 1.06 },
       { x: 0, opacity: 1, scale: 1, duration: 0.44, ease: "power4.out" },
-      1.95,
+      1.38,
     );
 
-    // "videon hazir": sert gecis, kapanis kartini getirir
-    tl.set("#s2-a", { opacity: 0 }, 2.9);
-    tl.set("#s2-b", { opacity: 1 }, 2.92);
+    // "videon hazir": sert kesme, kapanis kartini getirir
+    tl.set("#s2-a", { opacity: 0 }, 2.58);
+    tl.set("#s2-b", { opacity: 1 }, 2.60);
     tl.fromTo(
       "#s2-end-brand",
       { opacity: 0, filter: "blur(10px)" },
       { opacity: 1, filter: "blur(0px)", duration: 0.26, ease: "power2.out" },
-      2.94,
+      2.60,
     );
     tl.fromTo(
-      "#s2-pay-1",
-      { y: 46, opacity: 0, filter: "blur(14px)" },
-      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.36, ease: "power4.out" },
-      2.98,
+      "#s2-payoff",
+      { y: 52, opacity: 0, filter: "blur(14px)" },
+      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power4.out" },
+      2.64,
     );
-    tl.fromTo(
-      "#s2-pay-2",
-      { y: 46, opacity: 0, filter: "blur(14px)" },
-      { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.36, ease: "power4.out" },
-      3.12,
-    );
-    tl.fromTo("#s2-dot", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 3.42);
+    tl.fromTo("#s2-dot", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 3.02);
     tl.fromTo(
       "#s2-file",
       { opacity: 0, filter: "blur(8px)" },
       { opacity: 1, filter: "blur(0px)", duration: 0.28, ease: "power2.out" },
-      3.34,
+      2.84,
     );
 
     window.__timelines["scene-2"] = tl;
