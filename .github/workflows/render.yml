@@ -33,7 +33,9 @@ jobs:
         with:
           fetch-depth: 0
           filter: blob:none
-          sparse-checkout: projects
+          sparse-checkout: |
+            projects
+            assets
 
       - name: Projeleri bul
         env:
@@ -126,6 +128,8 @@ jobs:
 
             if [ "$engine" = remotion ]; then
               comp=$(jq -r '.composition // "Main"' "$f"); [[ "$comp" =~ ^[A-Za-z0-9_-]+$ ]] || comp=Main
+              # Ortak CC0 ses kutuphanesi: kit bunu public/kodvid-audio altinda bekler
+              mkdir -p public && rm -rf public/kodvid-audio && cp -r "$ROOT/assets/audio" public/kodvid-audio
               if [ -f package-lock.json ]; then npm ci --no-audit --no-fund > "$O/install.log" 2>&1
               else npm install --no-audit --no-fund > "$O/install.log" 2>&1; fi
               inst=$?
