@@ -8,8 +8,8 @@ export const video: VideoSpec = {
   height: 1920,
   style: "bold",
   theme: { ground: "#1a0507", ground2: "#5c0a10", accent: "#e30a17", accent2: "#ffffff" },
-  voice: null, // seslendirme üretilince: "voice.mp3"
-  voiceSeconds: null, // ölçülen süre
+  voice: "voice.mp3",
+  voiceSeconds: 35.45,
   captions: true,
   sfx: true,
   music: null,
